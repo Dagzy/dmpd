@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule} from '@angular/router'
+import { RouterModule, Routes} from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 
-
-
+const appRoutes: Routes = [
+  {
+  	 path: 'home',
+   	 component: LandingComponent
+   }]
 
 @NgModule({
   declarations: [
@@ -15,6 +18,10 @@ import { LandingComponent } from './landing/landing.component';
   ],
   imports: [
     BrowserModule
+    RouterModules.forRoot(
+    	appRoutes,
+    	{enableTracing: true} //debugging
+    	)
   ],
   providers: [LandingComponent],
   bootstrap: [AppComponent]
