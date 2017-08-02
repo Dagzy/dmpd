@@ -3,25 +3,29 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router'
 
 import { AppComponent } from './app.component';
+import { HomepageComponent } from './homepage/homepage.component';
 import { LandingComponent } from './landing/landing.component';
+import { NavComponent } from './nav/nav.component';
 
 const appRoutes: Routes = [
   {
   	 path: 'home',
-   	 component: LandingComponent
+   	 component: HomepageComponent
    }]
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent
+    HomepageComponent,
+    LandingComponent,
+    NavComponent
   ],
   imports: [
-    BrowserModule
-    RouterModules.forRoot(
+    BrowserModule,
+    RouterModule.forRoot(
     	appRoutes,
     	{enableTracing: true} //debugging
-    	)
+    )
   ],
   providers: [LandingComponent],
   bootstrap: [AppComponent]
