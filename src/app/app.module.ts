@@ -5,7 +5,7 @@ import { RouterModule} from '@angular/router'
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LandingComponent } from './landing/landing.component';
-
+import { CreateComponent } from './create/create.component';
 
 
 
@@ -13,7 +13,8 @@ import { LandingComponent } from './landing/landing.component';
   declarations: [
     AppComponent,
     HomepageComponent,
-    LandingComponent
+    LandingComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule
