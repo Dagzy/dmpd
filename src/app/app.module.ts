@@ -50,6 +50,7 @@ const appRoutes: Routes = [
     LandingComponent,
     CreateComponent,
     NavComponent,
+
   ],
   imports: [
      AngularFireModule.initializeApp(config),
