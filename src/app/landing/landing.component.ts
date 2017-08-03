@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
-
-
 export class LandingComponent implements OnInit {
 	signup: boolean
-  constructor() { 
+  constructor(public afAuth: AngularFireAuth) { 
   		this.signup = false;
   }
 
@@ -18,52 +19,23 @@ export class LandingComponent implements OnInit {
 
   swap(){
   	this.signup = !this.signup
-  	console.log("Here")
+
   }
 
-//   $('.form').find('input, textarea').on('keyup blur focus', function (e) {
-  
-//   var $this = $(this),
-//       label = $this.prev('label');
+  login() {
+    console.log("Login")
+      this.afAuth.auth.signInAnonymously();
+      console.log(this.afAuth.authState)
+  }
 
-// 	  if (e.type === 'keyup') {
-// 			if ($this.val() === '') {
-//           label.removeClass('active highlight');
-//         } else {
-//           label.addClass('active highlight');
-//         }
-//     } else if (e.type === 'blur') {
-//     	if( $this.val() === '' ) {
-//     		label.removeClass('active highlight'); 
-// 			} else {
-// 		    label.removeClass('highlight');   
-// 			}   
-//     } else if (e.type === 'focus') {
-      
-//       if( $this.val() === '' ) {
-//     		label.removeClass('highlight'); 
-// 			} 
-//       else if( $this.val() !== '' ) {
-// 		    label.addClass('highlight');
-// 			}
-//     }
+  logout() {
+      this.afAuth.auth.signOut();
+  }
 
-// });
+  signin() {
+    this.afAuth.auth.createUserWithEmailAndPassword("a", "a");
+  }
 
-// $('.tab a').on('click', 
-// (e) {
-  
-//   e.preventDefault();
-  
-//   $(this).parent().addClass('active');
-//   $(this).parent().siblings().removeClass('active');
-  
-//   target = $(this).attr('href');
 
-//   $('.tab-content > div').not(target).hide();
-  
-//   $(target).fadeIn(600);
-  
-// });
 
 }
