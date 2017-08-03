@@ -10,7 +10,7 @@ import { LandingComponent } from './landing/landing.component';
 import { CreateComponent } from './create/create.component';
 
 import { NavComponent } from './nav/nav.component';
-
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 
 // New imports to update based on AngularFire2 version 4
@@ -32,24 +32,29 @@ const appRoutes: Routes = [
   {
   	 path: 'home',
    	 component: HomepageComponent
-   }]
+   },
+   {
+     path: 'landing',
+      component: LandingComponent
+   },
+   {
+     path: 'create',
+     component: CreateComponent
+   }
+   ]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     LandingComponent,
-<<<<<<< HEAD
-    CreateComponent
-
-=======
+    CreateComponent,
     NavComponent,
-   
->>>>>>> dce20676b6c5d65224fca962b385ae9f2d9948d0
   ],
   imports: [
      AngularFireModule.initializeApp(config),
     BrowserModule,
+    FormsModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(
@@ -57,7 +62,7 @@ const appRoutes: Routes = [
     	{enableTracing: true} //debugging
     )
   ],
-  providers: [LandingComponent],
+  providers: [LandingComponent, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

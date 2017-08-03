@@ -6,8 +6,8 @@
 	<div class="form">
 		<div *ngIf="signup;else login">
 			<ul class="tab-group">
-				<li class="tab active"><a href="#signup">Sign Up</a></li>
-				<li class="tab" (click)="swap()"><a href="#login">Log In</a></li>
+				<li class="tab active"><a>Sign Up</a></li>
+				<li class="tab" (click)="swap()"><a>Log In</a></li>
 			</ul>
 			<div id="signup">   
 				<h1>Sign Up</h1>
@@ -30,13 +30,13 @@
 						<label>
 							Email Address<span class="req">*</span>
 						</label>
-						<input type="email"required autocomplete="off"/>
+						<input id="login" type="email"required autocomplete="off"/>
 					</div>
 					<div class="field-wrap">
 						<label>
 							Set A Password<span class="req">*</span>
 						</label>
-						<input type="password"required autocomplete="off"/>
+						<input id="password" type="password"required autocomplete="off"/>
 					</div>
 					<button type="submit" class="button button-block">Get Started</button>
 				</form>
@@ -46,8 +46,8 @@
 
 		<ng-template #login>
 			<ul class="tab-group">
-				<li class="tab" (click)="swap()"><a href="#signup">Sign Up</a></li>
-				<li class="tab active"><a href="#login">Log In</a></li>
+				<li class="tab" (click)="swap()"><a>Sign Up</a></li>
+				<li class="tab active"><a>Log In</a></li>
 			</ul>
 			<div id="login">   
 				<h1>Welcome Back!</h1>
@@ -55,16 +55,16 @@
 						<label>
 							Email Address<span class="req">*</span>
 						</label>
-						<input type="email"required autocomplete="off"/>
+						<input type="email"required autocomplete="off" [(ngModel)]="model.email" />
 					</div>
 					<div class="field-wrap">
 						<label>
 							Password<span class="req">*</span>
 						</label>
-						<input type="password"required autocomplete="off"/>
+						<input type="password"required autocomplete="off" [(ngModel)]="model.pass" />
 					</div>
 					<p class="forgot"><a href="#">Forgot Password?</a></p>
-					<button (click)="login()" class="button button-block">Log In</button>
+					<button class="button button-block" (click)="logIn()">Log In</button>
 			</div>
 		</ng-template>
 	</div> 
