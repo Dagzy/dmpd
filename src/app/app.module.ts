@@ -6,6 +6,9 @@ import { RouterModule, Routes} from '@angular/router'
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LandingComponent } from './landing/landing.component';
+
+import { CreateComponent } from './create/create.component';
+
 import { NavComponent } from './nav/nav.component';
 
 import { AngularFireModule } from 'angularfire2';
@@ -41,8 +44,13 @@ const appRoutes: Routes = [
     AppComponent,
     HomepageComponent,
     LandingComponent,
+<<<<<<< HEAD
+    CreateComponent
+
+=======
     NavComponent,
    
+>>>>>>> dce20676b6c5d65224fca962b385ae9f2d9948d0
   ],
   imports: [
      AngularFireModule.initializeApp(config),
