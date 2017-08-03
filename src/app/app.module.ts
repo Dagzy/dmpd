@@ -29,7 +29,12 @@ const appRoutes: Routes = [
   {
   	 path: 'home',
    	 component: HomepageComponent
-   }]
+   },
+   {
+     path: 'create',
+      component: CreateComponent
+   }
+   ]
 
 @NgModule({
   declarations: [
