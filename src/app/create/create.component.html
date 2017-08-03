@@ -1,29 +1,38 @@
+
 <div class='container'>
     <div class="row"> 
         <!-- rows do same line and coumns do different lines -->
-        <div class="col-md-3" style="background-color: #fff; height: 100%;">
-            <h1 style="color: violet;">Category</h1>
-            <h2>Amicable</h2>
-            <h2>Blunt</h2>
-            <h2>Harsh</h2>
-            <h2>Passive Aggressive</h2>
-            <h2>Poems</h2>
-        </div>
-        <div class="col-md-3" style="background-color: white; height: 100%;">
+        <div class="col-md-6 col-md-offset-3" style="background-color: #fff; height: 100%;">
+            <h1 style="color: violet; text-align: center;">Category</h1>
+            <button class="btn btn-primary" id="amicable" (click)="showHide=true">Amicable</button>
+            <br/>
+            <button class="btn btn-primary" id="blunt" (click)="showHide=true">Blunt</button>
+            <br/>
+            <button class="btn btn-primary" id="harsh" (click)="showHide=true">Harsh</button>
+            <br/>
+            <button class="btn btn-primary" id="pa" (click)="showHide=true">Passive Aggressive</button>
+            <br/>
+            <button class="btn btn-primary" id="poems" (click)="showHide=true">Poems</button>
+        </div> 
+    </div>
+    <br/>
+    <div class="row" *ngIf="showHide"> 
+        <div class="col-md-3 col-md-offset-1" style="background-color: blue; height: 100%;">
             <h1 style="color: violet;">Introduction</h1>
+            <a>{{amicable}}</a>
         </div>
-        <div class="col-md-3" style="background-color: white; height: 100%;">
+        <div class="col-md-3 col-md-offset-1" style="background-color: white; height: 100%;">
             <h1 style="color: violet;">Main Message</h1>
         </div>
-        <div class="col-md-3" style="background-color: white; height: 100%;">
+        <div class="col-md-3 col-md-offset-1" style="background-color: blue; height: 100%;">
             <h1 style="color: violet;">Goodbye</h1>
         </div>
     </div>
     <br/>
     <br/>
-    <div class="row">
-        <div class="col-md-12" style="background-color: #F52887; height: 100px;">
-			<h3 style="color: violet;">Message</h3>
-		</div>
-    </div>
+    <!-- <div class="row">
+        <div class="col-md-12" style="background-color: #F52887; height: 100%;">
+            <h3 style="color: violet;">Message</h3>
+        </div>
+    </div> -->
 </div>

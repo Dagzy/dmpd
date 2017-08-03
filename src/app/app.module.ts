@@ -9,12 +9,14 @@ import { CreateComponent } from './create/create.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     LandingComponent,
     CreateComponent
+
   ],
   imports: [
     BrowserModule
