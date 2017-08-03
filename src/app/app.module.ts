@@ -39,13 +39,9 @@ const appRoutes: Routes = [
     AppComponent,
     HomepageComponent,
     LandingComponent,
-<<<<<<< HEAD
-    CreateComponent
+    CreateComponent,
+    NavComponent
 
-=======
-    NavComponent,
-   
->>>>>>> dce20676b6c5d65224fca962b385ae9f2d9948d0
   ],
   imports: [
      AngularFireModule.initializeApp(config),
