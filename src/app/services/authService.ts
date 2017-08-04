@@ -12,6 +12,7 @@ export class FirebaseService{
 	signup(user: User){
 		this.af.auth.createUserWithEmailAndPassword(user.email,user.password)
 		.then(() => {
+			console.log("Successfully created user")
 			this.router.navigateByUrl('/home');
 		})
 		.catch((e) => {
