@@ -4,35 +4,79 @@
         <!-- rows do same line and coumns do different lines -->
         <div class="col-md-6 col-md-offset-3" style="background-color: #fff; height: 100%;">
             <h1 style="color: violet; text-align: center;">Category</h1>
-            <button class="btn btn-primary" id="amicable" (click)="showHide=true">Amicable</button>
+            <button class="btn btn-primary" id="amicable" (click)="setType(0)" >Amicable</button>
             <br/>
-            <button class="btn btn-primary" id="blunt" (click)="showHide=true">Blunt</button>
+            <button class="btn btn-primary" id="blunt" (click)="showHide1=true" ng-click="show = 1">Blunt</button>
             <br/>
-            <button class="btn btn-primary" id="harsh" (click)="showHide=true">Harsh</button>
+            <button class="btn btn-primary" id="harsh" (click)="showHide2=true">Harsh</button>
             <br/>
-            <button class="btn btn-primary" id="pa" (click)="showHide=true">Passive Aggressive</button>
+            <button class="btn btn-primary" id="pa" (click)="showHide3=true">Passive Aggressive</button>
             <br/>
-            <button class="btn btn-primary" id="poems" (click)="showHide=true">Poems</button>
+            <button class="btn btn-primary" id="poems" (click)="showHide4=true">Poems</button>
         </div> 
     </div>
     <br/>
-    <div class="row" *ngIf="showHide"> 
-        <div class="col-md-3 col-md-offset-1" style="background-color: blue; height: 100%;">
-            <h1 style="color: violet;">Introduction</h1>
-            <a>{{amicable}}</a>
+    <div class="row" >
+        <div class="col-md-3" style="background-color: blue; height: 100%;">
+            <h1 style="color: violet; text-align: center;" class="intro">Introduction</h1>
+            <a></a>
         </div>
-        <div class="col-md-3 col-md-offset-1" style="background-color: white; height: 100%;">
-            <h1 style="color: violet;">Main Message</h1>
+        <div class="col-md-4 col-md-offset-1" style="background-color: white; height: 100%;">
+            <h1 style="color: violet; text-align: center;" class="mid">Main Message</h1>
         </div>
         <div class="col-md-3 col-md-offset-1" style="background-color: blue; height: 100%;">
-            <h1 style="color: violet;">Goodbye</h1>
+            <h1 style="color: violet; text-align: center;" class="end">Goodbye</h1>
         </div>
     </div>
+
+    <!-- amicable -->
+    <div class="row" > 
+        <div class="form-group" *ngIf="showHide0" ng-show="show = 0">
+            <div class="col-md-3 col-md-offset-1" ng-show="showControl" id="intro" style="background-color: blue; height: 100%;">
+                <h1 style="color: violet;">Introduction</h1>
+                <li (click)="changeIntro(1)">{{amicable.intro}}</li>
+            </div>
+            <div class="col-md-3 col-md-offset-1" id="mid" style="background-color: white; height: 100%;">
+                <h1 style="color: violet;">Main Message</h1>
+                <!-- <div class="checkbox"> -->
+                    <!-- <input [(ngModel)]="checkBoxValue" type="checkbox" [checked]/>
+                        <li>hello</li> -->
+                <!-- </div> -->
+            </div>
+            <div class="col-md-3 col-md-offset-1" id="end" style="background-color: blue; height: 100%;">
+                <h1 style="color: violet;">Goodbye</h1>
+            </div>
+        </div>
+    </div>
+    
+    <!-- blunt -->
+   <div class="row" > 
+        <div class="form-group" *ngIf="showHide1" ng-show="show = 1">
+        <div class="col-md-3 col-md-offset-1" id="intro" style="background-color: blue; height: 100%;">
+            <h1 style="color: violet;">Introduction</h1>
+            <ul>
+                <div *ngIf="type==0">
+                    <a>agks</a>
+                </div>
+            </ul>
+        </div>
+        <div class="col-md-3 col-md-offset-1" id="mid" style="background-color: white; height: 100%;">
+            <h1 style="color: violet;">Main Message</h1>
+        </div>
+        <div class="col-md-3 col-md-offset-1" id="end" style="background-color: blue; height: 100%;">
+            <h1 style="color: violet;">Goodbye</h1>
+        </div>
+        </div>
+    </div>
+    
     <br/>
     <br/>
-    <!-- <div class="row">
+     <div class="row">
         <div class="col-md-12" style="background-color: #F52887; height: 100%;">
             <h3 style="color: violet;">Message</h3>
+            <p>{{intro}}</p>
+            <p>{{mid}}</p>
+            <p>{{end}}</p>
         </div>
-    </div> -->
+    </div> 
 </div>
