@@ -14,7 +14,7 @@ import { User } from '../models/user'
 })
 export class LandingComponent implements OnInit {
 	signup: boolean
-  model = {email: "", pass: ""}
+  model = {email: "", pass: "", newPass: "", newEmail: ""}
   constructor(public afAuth: FirebaseService, public router: Router) { 
   		this.signup = false;
   }
@@ -23,21 +23,18 @@ export class LandingComponent implements OnInit {
   }
 
   swap(){
-    console.log("TEHREWEDSFSDIHGWRKSJFDGHSKJFFLdsljkghskuh")
   	this.signup = !this.signup
 
   }
 
   logIn(){
-    console.log("LOGIn ");
         var user = new User(this.model.email, this.model.pass )
         this.afAuth.signin(user)
   }
   create(){
-    $(document).ready(function(){
-        var user = new User(this.model.email, this.model.pass )
+    
+        var user = new User(this.model.newEmail, this.model.newPass )
         this.afAuth.signup(user)
-    })
   }
 
 
