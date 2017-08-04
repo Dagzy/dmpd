@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
-
+    messages= [
+      'Hey, I\'m just writing to let you know that you suck. Goodbye.',
+      'I want you to know that I am leaving forever.',
+      'This is another breakup message!'
+    ];
+  constructor() {
+  }
   ngOnInit() {
   }
 
