@@ -7,14 +7,67 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CreateComponent implements OnInit {
-  create = [
-    { category: 'amicable', intro: '', mid: '', end: ''},
-    { category: 'blunt', intro: '', mid: '', end: ''},
-    { category: 'harsh', intro: '', mid: '', end: ''},
-    { category: 'pa', intro: '', mid: '', end: ''},
-    { category: 'poems', intro: '', mid: '', end: ''}
-  ];
-  
+  setType(typeNumber){
+    this.category = typeNumber
+  }
+
+  category: number;
+  amicable = {
+    intro: [
+      "hey", "yo"
+    ],
+    mid: [
+      "memme", "mememe"
+    ],
+    end: [
+      "sup", "bybebye"
+    ]
+  }
+  blunt = {
+    intro: [
+      "oeoe", "loo"
+    ],
+    mid: [
+      "sfdlj", "sheiof"
+    ],
+    end: [
+      "sdfln", "bybebye"
+    ]
+  }
+  harsh = {
+    intro: [
+      "oj", "op"
+    ],
+    mid: [
+      "memme", "aefpi"
+    ],
+    end: [
+      "sfoj", "bybebye"
+    ]
+  }
+  pa = {
+    intro: [
+      "hehe", "eheh"
+    ],
+    mid: [
+      "memme", "apijdc"
+    ],
+    end: [
+      "sup", "acnd"
+    ]
+  }
+  poems = {
+    intro: [
+      "jsjs", "sjsjs"
+    ],
+    mid: [
+      "aoscuh", "mememe"
+    ],
+    end: [
+      "anpjdv", "bybebye"
+    ]
+  }
+
   //amicable: amicable;
   //setting the datatype
   // titleDisplay: number;
@@ -22,7 +75,7 @@ export class CreateComponent implements OnInit {
 
   // name = 'mid';
   // checkboxValue: boolean = false;
-ngOnInit() { 
+  ngOnInit() { 
     
   }
   constructor() { }
