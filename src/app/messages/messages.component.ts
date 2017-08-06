@@ -62,6 +62,40 @@ export class MessagesComponent implements OnInit {
           }
         ]
       },
+       {
+      title: 'breakupFour',
+      parts: [
+          {
+            begmidend: 'beg',
+            text: 'The time has come '
+          },
+          {
+            begmidend: 'mid',
+            text: 'for us to break it off '
+          },
+          {
+            begmidend: 'end',
+            text: 'so goodbye.'
+          }
+        ]
+      },
+       {
+      title: 'breakupFive',
+      parts: [
+          {
+            begmidend: 'beg',
+            text: 'The time has come '
+          },
+          {
+            begmidend: 'mid',
+            text: 'for us to break it off '
+          },
+          {
+            begmidend: 'end',
+            text: 'so goodbye.'
+          }
+        ]
+      }
     ];
 
     filterMessages(){

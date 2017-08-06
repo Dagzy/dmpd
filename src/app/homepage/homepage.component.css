@@ -1,3 +1,11 @@
 #pushpanel {
   margin-top:  0px;
 }
+#msgtxt {
+  background-color: pink;
+  color: black;
+}
+#msgttl {
+  background-color: purple;
+  color: white;
+}
