@@ -7,14 +7,80 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-    messages= [
-      'Hey, I\'m just writing to let you know that you suck. Goodbye.',
-      'I want you to know that I am leaving forever.',
-      'This is another breakup message!'
+   pieces= [ {
+      title: 'breakupOne',
+      parts: [
+          {
+            begmidend: 'beg',
+            text: 'Hey, I\'ve been thinking '
+          },
+          {
+            begmidend: 'mid',
+            text: 'We should break up '
+          },
+          {
+            begmidend: 'end',
+            text: 'And that\'s all'
+          }
+        ],
+        url: '/create'
+      },
+
+      {
+      title: 'breakupTwo',
+      parts: [
+          {
+            begmidend: 'beg',
+            text: 'The time has come '
+          },
+          {
+            begmidend: 'mid',
+            text: 'for us to break it off '
+          },
+          {
+            begmidend: 'end',
+            text: 'so goodbye.'
+          }
+        ],
+        url: '/create'
+      },
+
+     {
+      title: 'breakupThree',
+      parts: [
+          {
+            begmidend: 'beg',
+            text: 'Hey, I\'ve been thinking'
+          },
+          {
+            begmidend: 'mid',
+            text: ' We should end this'
+          },
+          {
+            begmidend: 'end',
+            text: ' And never speak again'
+          }
+        ],
+        url: '/create'
+      },
+
     ];
   constructor() {
+
   }
   ngOnInit() {
   }
+  filterMessages(){
+        let filteredMessages = []
+        for (let i in this.pieces){
+            filteredMessages.push ({title: this.pieces[i].title, text: ''});
+            for (const x in this.pieces[i].parts){
+                console.log(filteredMessages[i].text);
+                filteredMessages[i].text += (this.pieces[i].parts[x].text);
+            }
+        }
+        return filteredMessages;
+    }
+
 
 }
