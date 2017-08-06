@@ -63,6 +63,42 @@ export class HomepageComponent implements OnInit {
         ],
         url: '/create'
       },
+           {
+      title: 'breakupFour',
+      parts: [
+          {
+            begmidend: 'beg',
+            text: 'Hey, I\'ve been thinking'
+          },
+          {
+            begmidend: 'mid',
+            text: ' We should end this'
+          },
+          {
+            begmidend: 'end',
+            text: ' And never speak again'
+          }
+        ],
+        url: '/create'
+      },
+           {
+      title: 'breakupFive',
+      parts: [
+          {
+            begmidend: 'beg',
+            text: 'Hey, I\'ve been thinking'
+          },
+          {
+            begmidend: 'mid',
+            text: ' We should end this'
+          },
+          {
+            begmidend: 'end',
+            text: ' And never speak again'
+          }
+        ],
+        url: '/create'
+      }
 
     ];
   constructor() {
