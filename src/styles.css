@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
  body{
 	background: url('./assets/vader.jpg') no-repeat center center fixed;
-	background-size: cover;
-} 
+  background-size: cover;
+  font-family: 'Indie Flower', cursive, sans-serif;
+  font-size: 20px;
+}
