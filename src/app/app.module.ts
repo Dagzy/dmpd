@@ -8,7 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LandingComponent } from './landing/landing.component';
 
 import { CreateComponent } from './create/create.component';
-import   MessageService from './services/messageService'
+import   {MessageService} from './services/messageService'
 import {FirebaseService} from './services/authService'
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
