@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/authService';
+import MessageService from '../services/messageService';
+
 
 @Component({
   selector: 'app-homepage',
@@ -117,6 +120,8 @@ export class HomepageComponent implements OnInit {
         }
         return filteredMessages;
     }
+
+
 
 
 }
