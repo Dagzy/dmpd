@@ -4,18 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	user: Observable<firebase.User>;
-
-	constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
-		this.user = this.afAuth.authState;
-
+	user
+	constructor( public db: AngularFireDatabase, public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+		this.user = this.afAuth.auth.currentUser;
+		
 	}
 	navShouldBe(){ //a function that determines whether or not the nav bar should appear. 
 		var state: boolean
@@ -28,7 +26,7 @@ export class AppComponent {
 			}
 		}
 		var urlEnd = url.substring(indexOfSlash, url.length)
-		if(urlEnd === "/#login" || urlEnd === "/#signup"){
+		if(urlEnd === "/#login" || urlEnd === "/#signup" || urlEnd==="/landing"){
 			state = false
 		} else {
 			state = true

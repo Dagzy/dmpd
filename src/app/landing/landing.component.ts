@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-
+import * as jquery from "jquery"
+import { Router} from '@angular/router'
+import { FirebaseService } from '../services/authService'
 import * as firebase from 'firebase/app';
+import { User } from '../models/user'
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  styleUrls: ['./landing.component.css'],
+  providers: [FirebaseService]
 })
 export class LandingComponent implements OnInit {
 	signup: boolean
-  constructor(public afAuth: AngularFireAuth) { 
+  model = {email: "", pass: "", newPass: "", newEmail: ""}
+  constructor(public afAuth: FirebaseService, public router: Router) { 
   		this.signup = false;
   }
 
@@ -22,19 +27,19 @@ export class LandingComponent implements OnInit {
 
   }
 
-  login() {
-    console.log("Login")
-      this.afAuth.auth.signInAnonymously();
-      console.log(this.afAuth.authState)
+  logIn(){
+        var user = new User(this.model.email, this.model.pass )
+        this.afAuth.signin(user)
+  }
+  create(){
+    
+        var user = new User(this.model.newEmail, this.model.newPass )
+        this.afAuth.signup(user)
   }
 
-  logout() {
-      this.afAuth.auth.signOut();
-  }
 
-  signin() {
-    this.afAuth.auth.createUserWithEmailAndPassword("a", "a");
-  }
+
+
 
 
 
