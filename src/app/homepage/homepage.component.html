@@ -1,30 +1,27 @@
-    <div class="col-md-3 col-md-offset-0" style="height: 400px">
+<!-- This is the homepage -->
+    <div class="col-md-3 col-md-offset-0" style="height: 4000px">
       <div class="panel panel-default">
 
         <div class="panel-heading" id="msgtxt">Welcome Back!</div>
         <div class="panel-body" id="msgttl">
-          \user.name\
+          {{message.userId}}
         </div>
       </div>
-      <p><a class="btn btn-primary btn-lg" id="msgttl" href="create" role="button">Write A Message For That Special Someone</a></p>
+      <p><a class="btn btn-primary btn-md" id="msgttl" href="create" role="button">Write A Message For That Special Someone</a></p>
     </div>
-<!-- This is the homepage -->
 <!-- <div class="container">
 <div class="row" width="100px" height="100px" background-color="red" >Text goes here</div>
 <button type="button" class="btn btn-primary">Text in here</button>
-
-
 <p>
   homepage works!
 </p>-->
-
 <div class="container">
 
   <ul>
 
 <!--This creates the containers for the for-loop to populate  -->
         <li *ngFor="let message of filterMessages();let i=index" style="display: inline;">
-      <div class="panel panel-default col-md-4 col-md-offset-1" id="msgtxt">
+          <div class="panel panel-default col-md-4 col-md-offset-1" id="msgtxt">
           <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb"> -->
             <a class="panel-heading" href= {{message.url}} id="msgttl">{{message.title}}</a>
             <form class="panel-body" >{{message.text}}</form>

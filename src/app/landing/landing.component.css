@@ -13,21 +13,21 @@ body {
 
 a {
   text-decoration: none;
-  color: #1ab188;
+  color: pink;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
 a:hover {
-  color: #179b77;
+  color: pink;
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9);
+  background: rgba(19, 35, 47, 0);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
   border-radius: 40px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  box-shadow: 0 4px 10px 4px rgba(255, 255, 255, 1);
 }
 
 .tab-group {
@@ -55,11 +55,11 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: #179b77;
+  background: purple;
   color: #ffffff;
 }
 .tab-group .active a {
-  background: #1ab188;
+  background: pink;
   color: #ffffff;
 }
 
@@ -79,7 +79,7 @@ label {
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
   left: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
   -webkit-backface-visibility: hidden;
@@ -88,7 +88,7 @@ label {
 }
 label .req {
   margin: 2px;
-  color: #1ab188;
+  color: pink;
 }
 
 label.active {
@@ -121,7 +121,7 @@ input, textarea {
 }
 input:focus, textarea:focus {
   outline: 0;
-  border-color: #1ab188;
+  border-color: pink;
 }
 
 textarea {
@@ -157,14 +157,14 @@ textarea {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
-  background: #1ab188;
+  background: purple;
   color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
 .button:hover, .button:focus {
-  background: #179b77;
+  background: purple;
 }
 
 .button-block {
