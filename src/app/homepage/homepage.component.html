@@ -1,10 +1,10 @@
 <!-- This is the homepage -->
-    <div class="col-md-3 col-md-offset-0" style="height: 400px">
+    <div class="col-md-3 col-md-offset-0" style="height: 4000px">
       <div class="panel panel-default">
 
         <div class="panel-heading" id="msgtxt">Welcome Back!</div>
         <div class="panel-body" id="msgttl">
-          \user.name\
+          {{message.userId}}
         </div>
       </div>
       <p><a class="btn btn-primary btn-md" id="msgttl" href="create" role="button">Write A Message For That Special Someone</a></p>
@@ -21,7 +21,7 @@
 
 <!--This creates the containers for the for-loop to populate  -->
         <li *ngFor="let message of filterMessages();let i=index" style="display: inline;">
-      <div class="panel panel-default col-md-4 col-md-offset-1" id="msgtxt">
+          <div class="panel panel-default col-md-4 col-md-offset-1" id="msgtxt">
           <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb"> -->
             <a class="panel-heading" href= {{message.url}} id="msgttl">{{message.title}}</a>
             <form class="panel-body" >{{message.text}}</form>
