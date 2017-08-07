@@ -23,7 +23,6 @@ export class FirebaseService{
 	signin(user: User){
 		this.af.auth.signInWithEmailAndPassword(user.email, user.password)
 		.then(() => {
-			console.log(this.af.auth.currentUser)
 			this.router.navigateByUrl('/home');
 		})
 		.catch((e) => {
