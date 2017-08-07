@@ -8,14 +8,16 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LandingComponent } from './landing/landing.component';
 
 import { CreateComponent } from './create/create.component';
-
+import   {MessageService} from './services/messageService'
+import {FirebaseService} from './services/authService'
 import { NavComponent } from './nav/nav.component';
-
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 
 // New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { MessagesComponent } from './messages/messages.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -34,7 +36,27 @@ const appRoutes: Routes = [
   {
   	 path: 'home',
    	 component: HomepageComponent
-   }]
+   },
+   {
+
+     path: 'landing',
+     component: LandingComponent,
+
+   },
+   {
+     path: 'create',
+     component: CreateComponent
+
+   },
+   {
+     path: 'messages',
+     component: MessagesComponent
+   },
+   {
+     path: '',
+     component: LandingComponent
+   }
+   ]
 
 @NgModule({
   declarations: [
@@ -42,7 +64,8 @@ const appRoutes: Routes = [
     HomepageComponent,
     LandingComponent,
     CreateComponent,
-    NavComponent
+    NavComponent,
+    MessagesComponent
    
   ],
   imports: [
@@ -56,7 +79,7 @@ const appRoutes: Routes = [
     	{enableTracing: true} //debugging
     )
   ],
-  providers: [LandingComponent],
+  providers: [MessageService, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
