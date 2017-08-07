@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import MessageService from '../services/messageService'
+import { FirebaseService }  from '../services/authService';
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private msgs: MessageService, private auth: FirebaseService) { }
 
   ngOnInit() {
   }
@@ -69,11 +70,17 @@ export class MessagesComponent implements OnInit {
     	for(var i in this.messages){
     		filteredMessages.push ({title: this.messages[i].title, text: ""})
     		for(var x in this.messages[i].parts){
-    			console.log(filteredMessages[i].text)
     			filteredMessages[i].text += (this.messages[i].parts[x].text)
     		}
     	}
     	return filteredMessages
     }
 
+    testMessage(){
+    	this.auth.getUser().getIdToken().then(a => {
+    		console.log(a)
+    		this.msgs.makeMessage(this.messages[1], a)
+    	})
+    	
+    }
 }

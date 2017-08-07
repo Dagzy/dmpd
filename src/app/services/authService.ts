@@ -6,9 +6,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
 export class FirebaseService{
-	fbs = this;
 	authState;
-
+	getUser(){
+		return this.af.auth.currentUser
+	}
 	signup(user: User){
 		this.af.auth.createUserWithEmailAndPassword(user.email,user.password)
 		.then(() => {
@@ -22,6 +23,7 @@ export class FirebaseService{
 	signin(user: User){
 		this.af.auth.signInWithEmailAndPassword(user.email, user.password)
 		.then(() => {
+			console.log(this.af.auth.currentUser)
 			this.router.navigateByUrl('/home');
 		})
 		.catch((e) => {
