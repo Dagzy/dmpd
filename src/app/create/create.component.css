@@ -1,0 +1,14 @@
+
+
+button.btn-primary{
+    background-color: blue;
+}
+button.btn-primary:focus{
+    background-color: green !important;
+}
+button.btn:active{
+    background-color: green !important;
+}
+button.btn:target{
+    background-color: green !important;
+}

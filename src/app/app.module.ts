@@ -17,6 +17,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
   var config = {
     apiKey: "AIzaSyBBWJJG70QSKgGlWzz5D3lXgZitVNDp-XQ",
     authDomain: "split-500b7.firebaseapp.com",
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
   imports: [
      AngularFireModule.initializeApp(config),
     BrowserModule,
+    FormsModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(
