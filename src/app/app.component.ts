@@ -11,11 +11,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class AppComponent {
 	user
-
-	constructor(public db: AngularFireDatabase, public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+	constructor( public db: AngularFireDatabase, public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
 		this.user = this.afAuth.auth.currentUser;
-		console.log(this.afAuth.auth.currentUser)
-
+		
 	}
 	navShouldBe(){ //a function that determines whether or not the nav bar should appear. 
 		var state: boolean
