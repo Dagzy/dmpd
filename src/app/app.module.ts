@@ -19,6 +19,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MessagesComponent } from './messages/messages.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
   var config = {
     apiKey: "AIzaSyBBWJJG70QSKgGlWzz5D3lXgZitVNDp-XQ",
     authDomain: "split-500b7.firebaseapp.com",
