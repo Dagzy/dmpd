@@ -15,21 +15,36 @@ export class MessageService{
 	queryByUser(userId, callback){
 		var queryResult = []	
 		var self = this
-		this.db.database.ref('/messages').once("value").then(function(snapshot){
-			queryResult = self.siftForId(snapshot.val(), userId)
-			callback(queryResult)
+		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){
+			console.log(snapshot.val())
+			callback(snapshot.val())
 		})
+		// this.db.database.ref('/messages').once("value").then(function(snapshot){
+		// 	queryResult = self.siftForId(snapshot.val(), userId)
+		// 	callback(queryResult)
+		// })
 	}
 
-	siftForId(data : [Object], id){
-		var arrayToReturn = []
-		console.log(data)
-		Object.keys(data).forEach(function(key){
-			console.log("comparing " + data[key].ownerId + " and \n " + id)
-			if(data[key].ownerId === id){
-				arrayToReturn.push(data[key])
+	delete(messageData){
+		this.db.database.ref('/messages/' + messageData).remove((a: Error)=>{
+			if(a){
+				console.log(a)
 			}
 		})
-		return arrayToReturn
+
 	}
+
+	filterAMessage(messageObject){
+		var filteredMessage = {title: "", text: ""}
+		for(var x in messageObject.parts){
+            filteredMessage.text += (messageObject.parts[x].text)
+        }
+        return filteredMessage
+	}
+
+	sendMessage(){
+
+	}
+
+
 }

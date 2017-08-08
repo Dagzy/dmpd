@@ -1,5 +1,6 @@
+<h1> My Messages </h1>
+
 <div class="card" *ngFor="let message of filterMessages();let i=index">
-	<button (click)="testMessage()">TEST </button>
 	<div class="card-block">
 		<ul>
 			<li>
@@ -9,5 +10,8 @@
 			</li>
 		</ul>
 	</div>
+	<button (click)="goTo(i)"> Go To </button> 
+	<button> Quick Send </button>
+	<button (click)="delete(i)"> Delete </button>
 </div>
 <button (click)="testMessage()">TEST </button>

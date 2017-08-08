@@ -10,11 +10,12 @@ import { FirebaseService }  from '../services/authService';
 export class MessagesComponent implements OnInit {
   //messages 
   constructor( private msgs: MessageService, private auth: FirebaseService){
-
   }
   //messages
-  mgs
+  mgs = [] //The Array for the message objects
   messages
+  idStrings = []
+
   queryMessagesByUser(){
     var theList
     console.log(this.auth.getUser())
@@ -26,34 +27,60 @@ export class MessagesComponent implements OnInit {
 
     }
     ngOnInit() {
-      console.log("On INIT")
-
+        console.clear()
     }
 
     filterMessages(){
-      console.log("Filtering")
-      var filteredMessages = []
-      for(var i in this.messages){
-        filteredMessages.push ({title: this.messages[i].title, text: ""})
-        for(var x in this.messages[i].parts){
-          filteredMessages[i].text += (this.messages[i].parts[x].text)
-        }
-      }
+      var filteredMessages = [];
+      var index = 0;
+      var self = this
+      if(this.messages){
+        Object.keys(this.messages).forEach(function(message){
+          filteredMessages.push({title: self.messages[message].title, text: ""})
+          for(var x in self.messages[message].parts){
+            filteredMessages[index].text += (self.messages[message].parts[x].text)
+          }
+          index = index+1
+        })
+      } 
       return filteredMessages
     }
 
     testMessage(){
+      
       var self = this
-      if(this.auth.getUser()){
-        this.auth.getUser().getIdToken().then(a => {
-          this.msgs.queryByUser(a, function(result){
-            self.messages = result
-            console.log("Anaconda")
-          })
-        }) 	
-      } else{
-        console.log("THERE IS NO USER FOR SOME FUCKING REASSON")
-      }
+
+      var theID = this.auth.getUser()
+
+      
+      this.msgs.queryByUser(theID, function(result){
+        self.messages = result
+        self.mgs = []
+        self.idStrings = []
+        Object.keys(self.messages).forEach(function(m){
+          self.mgs.push(result[m])
+          self.idStrings.push(m)
+        })
+        console.log(self.idStrings)
+
+
+      })    
+    }
+
+    goTo(index){
+      console.log(this.mgs[index])
+    }
+
+    delete(index){
+      delete this.messages[this.idStrings[index]]
+      console.log(this.messages)
+      this.idStrings.splice(index, 1)
+      console.log(this.idStrings)
+      this.msgs.delete(this.idStrings[index])
+    }
+
+    quickSend(index){
+
     }
   }
 
