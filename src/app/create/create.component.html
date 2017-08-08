@@ -46,8 +46,9 @@
                 <div class="panel-body">
                     <div *ngIf="category == 0" >
                         <div class="amicable" *ngFor="let sentence of amicable.intro">
-                            <input type="radio" id="amicable1" name="intro">
-                            <label for="amicable1" class="btn btn-primary" (click)="selectIntro(sentence)" id="amicable" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
+                            <!-- <input type="radio" id="amicable1" name="intro">
+                            <label for="amicable1" class="btn btn-primary" (click)="selectIntro(sentence)" id="amicable" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label> -->
+                            <button type="button" class="btn btn-primary" style="margin-bottom: 5px;" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</button>
                         </div>
                     </div>
                     <div  *ngIf="category == 1">
