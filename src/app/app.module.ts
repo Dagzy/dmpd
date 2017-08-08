@@ -11,7 +11,6 @@ import { CreateComponent } from './create/create.component';
 import   {MessageService} from './services/messageService'
 import {FirebaseService} from './services/authService'
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 
 // New imports to update based on AngularFire2 version 4
@@ -66,7 +65,7 @@ const appRoutes: Routes = [
     CreateComponent,
     NavComponent,
     MessagesComponent
-   
+
   ],
   imports: [
      AngularFireModule.initializeApp(config),

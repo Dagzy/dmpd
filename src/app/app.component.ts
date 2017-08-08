@@ -13,9 +13,9 @@ export class AppComponent {
 	user
 	constructor( public db: AngularFireDatabase, public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
 		this.user = this.afAuth.auth.currentUser;
-		
+
 	}
-	navShouldBe(){ //a function that determines whether or not the nav bar should appear. 
+	navShouldBe(){ //a function that determines whether or not the nav bar should appear.
 		var state: boolean
 		var url = window.location.href
 		var indexOfSlash: number
@@ -32,7 +32,7 @@ export class AppComponent {
 			state = true
 		}
 		return state
-	}	
+	}
 	title = 'app';
 
 

@@ -1,8 +1,15 @@
 .navbar {
   background-color: #dda2e5;
     box-shadow: 0 4px 10px 4px rgba(255, 255, 255, 1);
-    color: black;
+    color:purple;
+    opacity: .8;
 }
 button {
   background-color: purple;
+}
+li{
+  margin-left: 10px;
+}
+li a {
+  color: black;
 }
