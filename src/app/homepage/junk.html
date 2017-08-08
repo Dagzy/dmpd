@@ -1,0 +1,14 @@
+<div class="container"></div>
+<div class="card" *ngFor="let message of msg();let i=index">
+	<button (click)="sendMsg()">SMS GO </button>
+	<div class="card-block">
+		<ul>
+			<li>
+				<p>{{message.title}}</p>
+				<p> {{message.text}}</p>
+
+			</li>
+		</ul>
+	</div>
+</div>
+</div>
