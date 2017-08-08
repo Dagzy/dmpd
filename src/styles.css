@@ -2,7 +2,8 @@
  body{
 	background: url('./assets/background.png') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Indie Flower', cursive, sans-serif;
+  /* font-family: 'Indie Flower', cursive, sans-serif; */
+  font-family: 'Handlee', cursive;
   font-size: 20px;
 }
 
