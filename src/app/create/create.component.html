@@ -45,34 +45,33 @@
                 <div class="panel-heading"><h1 style="color: blue; text-align: center;" id="intro">Greeting</h1></div>
                 <div class="panel-body">
                     <div *ngIf="category == 0" >
-                        <div class="amicable" *ngFor="let sentence of amicable.intro">
-                            <!-- <input type="radio" id="amicable1" name="intro">
-                            <label for="amicable1" class="btn btn-primary" (click)="selectIntro(sentence)" id="amicable" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label> -->
-                            <button type="button" class="btn btn-primary" style="margin-bottom: 5px;" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</button>
+                        <div class="amicable" *ngFor="let sentence of amicable.intro">             
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label> 
                         </div>
                     </div>
                     <div  *ngIf="category == 1">
                         <div class="blunt" *ngFor="let sentence of blunt.intro">
-                            <input type="radio" id="blunt1" name="intro">
-                            <label for="blunt1" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div class="harsh" *ngIf="category == 2">
                         <div *ngFor="let sentence of harsh.intro">
-                            <input type="radio" id="harsh1" name="intro">
-                            <label for="harsh1" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div class="pa" *ngIf="category == 3">
                         <div *ngFor="let sentence of pa.intro">
-                            <input type="radio" id="pa1" name="intro">
-                            <label for="pa1" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div class="poems" *ngIf="category == 4">
                         <div *ngFor="let sentence of poems.intro">
-                            <input type="radio" id="poems1" name="intro">
-                            <label for="poems1" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                 </div>
@@ -85,32 +84,32 @@
                 <div class="panel-body">
                     <div *ngIf="category == 0">
                         <div *ngFor=" let sentence of amicable.mid">
-                            <input type="checkbox" id="amicable2" name="mid" value="all">
-                            <label for="amicable2" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
+                            <input type="checkbox" id="{{sentence}}" name="mid" value="all">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 1">
                         <div *ngFor="let sentence of blunt.mid">
-                            <input type="checkbox" id="blunt2" name="mid" value="all">
-                            <label for="blunt2" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
+                            <input type="checkbox" id="{{sentence}}" name="mid" value="all">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 2">
                         <div *ngFor="let sentence of harsh.mid">
-                            <input type="checkbox" id="harsh2" name="mid" value="all">
-                            <label for="harsh2" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
+                            <input type="checkbox" id="{{sentence}}" name="mid" value="all">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 3">
                         <div *ngFor="let sentence of pa.mid">
-                            <input type="checkbox" id="pa2" name="mid" value="all">
-                            <label for="pa2" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
+                            <input type="checkbox" id="{{sentence}}" name="mid" value="all">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 4">
                         <div *ngFor="let sentence of poems.mid">
-                            <input type="checkbox" id="poems2" name="mid" value="all">
-                            <label for="poems2" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
+                            <input type="checkbox" id="{{sentence}}" name="mid" value="all">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                 </div>
@@ -122,32 +121,32 @@
                 <div class="panel-body">
                     <div *ngIf="category == 0">
                         <div *ngFor=" let sentence of amicable.end">
-                            <input type="radio" id="amicable3" name="end">
-                            <label for="amicable3" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="end">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 1">
                         <div *ngFor="let sentence of blunt.end">
-                            <input type="radio" id="blunt3" name="end">
-                            <label for="blunt3" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="end">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 2">
                         <div *ngFor="let sentence of harsh.end">
-                            <input type="radio" id="harsh3" name="end">
-                            <label for="harsh3" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="end">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 3">
                         <div *ngFor="let sentence of pa.end">
-                            <input type="radio" id="pa3" name="end">
-                            <label for="pa3" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="end">
+                            <label for="{{sentence}}pa3" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 4">
                         <div *ngFor="let sentence of poems.end">
-                            <input type="radio" id="poems3" name="end">
-                            <label for="poems3" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
+                            <input type="radio" id="{{sentence}}" name="end">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                 </div>
