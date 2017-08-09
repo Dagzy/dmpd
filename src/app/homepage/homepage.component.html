@@ -1,36 +1,41 @@
 <!-- This is the homepage -->
-<div class = "container">
 
-<div class="col-md-3 col-md-offset-0" style="height: 4000px">
-      <div class="panel panel-default">
-
-        <div class="panel-heading" id="msgtxt">Welcome Back!</div>
-        <div class="panel-body" id="msgttl">
-          {{message.userId}}
-        </div>
-      </div>
-      <p><a class="btn btn-primary btn-md" id="msgttl" href="create" role="button">Write A Message For That Special Someone</a></p>
+<div class="container">
+  <div class="col-md-6 col-md-offset-3" >
+    <div class="panel panel-default">
+      <div class="panel-heading" id="msgtxt"><h1>Welcome Back!</h1></div>
+      <div class="panel-body" id="msgttl"><h3>{{message.userId}}</h3></div>
     </div>
+  </div>
+</div>
 <!-- <div class="container">
 <div class="row" width="100px" height="100px" background-color="red" >Text goes here</div>
 <button type="button" class="btn btn-primary">Text in here</button>
 <p>
   homepage works!
 </p>-->
+
+ <div class="container">
+    <div class="col-md-4 col-md-offset-4">
+      <p><a class="btn btn-primary btn-md" id="msgttl" href="create" role="button">Write A Message For That Special Someone</a></p>
+    </div>
+</div>
+
 <div class="container">
-
-  <ul>
-
-<!--This creates the containers for the for-loop to populate  -->
-        <li *ngFor="let message of filterMessages();let i=index" style="display: inline;">
-          <div class="panel panel-default col-md-4 col-md-offset-1" id="msgtxt">
-          <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb"> -->
-            <a class="panel-heading" href= {{message.url}} id="msgttl">{{message.title}}</a>
-            <div class="panel-body" >{{message.text}}</div>
-          <!-- </div> -->
-        </div>
-      </li>
-
-  </ul>
+  <div class="row justify-content-around">
+    <div class="col-12 col-md-auto">
+      <ul>
+    <!--This creates the containers for the for-loop to populate  -->
+          <li *ngFor="let message of filterMessages();let i=index" style="display: inline;">
+            <div class="panel panel-default col-md-4 col-md-offset-1" id="msgtxt">
+            <!-- <div class="col-lg-3 col-md-4 col-xs-6 thumb"> -->
+              <a class="panel-heading" href= {{message.url}} id="msgttl">{{message.title}}</a>
+              <form class="panel-body" >{{message.text}}</form>
+            <!-- </div> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 </div>

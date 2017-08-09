@@ -11,22 +11,6 @@ export class CreateComponent implements OnInit {
     this.category = typeNumber;
   }
 
-  //  addToMessage(selectedIntro: string): void {
-  //   function captureValue(){
-  //     if (selectedIntro){return};
-  //     this.intro[""]
-  //       .then(selectedIntro =>{
-  //         this.intro.push(selectedIntro);
-  //       })
-  //   }
-  //  };
-  // onSelect(intro: selectedIntro): void {
-  //   this.selectedIntro = intro;
-  // }
-  // onSelect(sentence.selectedIntro: string) {
-  //   return sentence.selectedIntro
-  // }
-
   constructedMessage: string;
   category: number;
   intro: string;
@@ -40,7 +24,7 @@ export class CreateComponent implements OnInit {
     end: ""
   }
   selectIntro(word){
-    console.log(word)
+    // console.log(word)
     this.intro = word
     this.updateMessage();
   }
@@ -70,17 +54,20 @@ export class CreateComponent implements OnInit {
     // null -> true -> false   for the !!
     this.constructedMessage = (!!this.intro? this.intro : "") + " " + (!!this.mid? this.mid : "") + " " + (!!this.end? this.end : "");
     // make it this.mid.push???
-    console.log(this.constructedMessage);
+    // console.log(this.constructedMessage);
   }
-
+  
+  // amicable = {
+  //   templateUrl: 'inMidEnd.html'
+  // }
   amicable = {
     intro: [ "amicable intro", "yo" ],
-    mid: [ "memme", "mememe" ],
+    mid: [ "memme", "mememe", "heyoheyoeyheyeohyeohyoeheyobsfbis shefouhsoeuhfous " ],
     end: [ "sup", "bybebye" ]
   }
   blunt = {
     intro: [ "blunt oeoe", "loo" ],
-    mid: [ "sfdlj", "sheiof" ],
+    mid: [ "sfdlj", "sheiof", "shefonsoiefnosh sjhdfohnsoefj snefosnofi jvnoshefo jwosf" ],
     end: [ "sdfln", "bybebye" ]
   }
   harsh = {
@@ -99,19 +86,9 @@ export class CreateComponent implements OnInit {
     end: [ "anpjdv", "bybebye", "more", "more" ]
   }
 
-
   ngOnInit() { 
     
   }
 
-  constructor() { }
-  
-  
 }
-// export class who {
-//   selectedIntro = true;
-// }
-// export class selectedIntro{
-//   intro: string;
 
-// }
