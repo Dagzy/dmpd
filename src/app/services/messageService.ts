@@ -2,9 +2,10 @@ import { Message } from '../models/message'
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
+import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MessageService{
-	constructor(private db: AngularFireDatabase){
+	constructor(private db: AngularFireDatabase, private http: HttpClient){
 		
 	}
 	makeMessage(theMessage, userId){
@@ -15,21 +16,36 @@ export class MessageService{
 	queryByUser(userId, callback){
 		var queryResult = []	
 		var self = this
-		this.db.database.ref('/messages').once("value").then(function(snapshot){
-			queryResult = self.siftForId(snapshot.val(), userId)
-			callback(queryResult)
+		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){
+			console.log(snapshot.val())
+			callback(snapshot.val())
 		})
+		// this.db.database.ref('/messages').once("value").then(function(snapshot){
+		// 	queryResult = self.siftForId(snapshot.val(), userId)
+		// 	callback(queryResult)
+		// })
 	}
 
-	siftForId(data : [Object], id){
-		var arrayToReturn = []
-		console.log(data)
-		Object.keys(data).forEach(function(key){
-			console.log("comparing " + data[key].ownerId + " and \n " + id)
-			if(data[key].ownerId === id){
-				arrayToReturn.push(data[key])
+	delete(messageData){
+		this.db.database.ref('/messages/' + messageData).remove((a: Error)=>{
+			if(a){
+				console.log(a)
 			}
 		})
-		return arrayToReturn
+
 	}
+
+	filterAMessage(messageObject){
+		var filteredMessage = {title: "", text: ""}
+		for(var x in messageObject.parts){
+            filteredMessage.text += (messageObject.parts[x].text)
+        }
+        return filteredMessage
+	}
+
+	sendMessage(message){
+		this.http.post('https://powerful-plateau-23250.herokuapp.com/sms', message).subscribe(resp => {console.log(resp)})
+	}
+
+
 }

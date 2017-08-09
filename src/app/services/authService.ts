@@ -8,7 +8,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class FirebaseService{
 	authState;
 	getUser(){
-		return this.af.auth.currentUser
+		return this.af.auth.currentUser.uid
 	}
 	signup(user: User){
 		this.af.auth.createUserWithEmailAndPassword(user.email,user.password)
