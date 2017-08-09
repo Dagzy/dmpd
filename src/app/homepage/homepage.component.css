@@ -1,9 +1,12 @@
+h1{
+  color: #1c1c1c;
+}
 #pushpanel {
   margin-top:  0px;
 }
 #msgtxt {
-  background-color: pink;
-  color: black;
+  background-color: #FCFCFC;
+  color: #1c1c1c;
 }
 #msgttl {
   background-color: purple;

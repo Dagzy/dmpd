@@ -62,12 +62,12 @@ export class CreateComponent implements OnInit {
   // }
   amicable = {
     intro: [ "amicable intro", "yo" ],
-    mid: [ "memme", "mememe" ],
+    mid: [ "memme", "mememe", "heyoheyoeyheyeohyeohyoeheyobsfbis shefouhsoeuhfous " ],
     end: [ "sup", "bybebye" ]
   }
   blunt = {
     intro: [ "blunt oeoe", "loo" ],
-    mid: [ "sfdlj", "sheiof" ],
+    mid: [ "sfdlj", "sheiof", "shefonsoiefnosh sjhdfohnsoefj snefosnofi jvnoshefo jwosf" ],
     end: [ "sdfln", "bybebye" ]
   }
   harsh = {
