@@ -1,4 +1,7 @@
 .card {
 	border: .5px solid black;
 	background-color: white;
+	margin: 0 auto;
+	width: 75%;
+	margin-bottom: 20px
 }
