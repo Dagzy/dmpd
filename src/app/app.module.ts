@@ -11,6 +11,7 @@ import { CreateComponent } from './create/create.component';
 import { MessageService } from './services/messageService'
 import {FirebaseService} from './services/authService'
 import { NavComponent } from './nav/nav.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 
 // New imports to update based on AngularFire2 version 4
@@ -18,7 +19,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MessagesComponent } from './messages/messages.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
   var config = {
     apiKey: "AIzaSyBBWJJG70QSKgGlWzz5D3lXgZitVNDp-XQ",
@@ -71,7 +71,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(config),
     BrowserModule,
     FormsModule,
-    HttpClientModule, 
+    HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(
