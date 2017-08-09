@@ -15,6 +15,7 @@ export class MessagesComponent implements OnInit {
   mgs = [] //The Array for the message objects
   messages
   idStrings = []
+  hasMessages
 
   queryMessagesByUser(){
     var theList
@@ -57,12 +58,21 @@ export class MessagesComponent implements OnInit {
         self.messages = result
         self.mgs = []
         self.idStrings = []
-        Object.keys(self.messages).forEach(function(m){
-          self.mgs.push(result[m])
-          self.idStrings.push(m)
-        })
-        console.log(self.idStrings)
-
+        if(self.messages){
+          this.hasMessages = true
+          Object.keys(self.messages).forEach(function(m){
+            for(var x in self.messages[m].parts){
+              self.mgs.push({title: self.messages[m].title, text: self.messages[m].parts[x].text})
+        
+            self.mgs.push(result[m])
+            console.log(result[m])
+            self.idStrings.push(m)
+          }
+          })
+          console.log(self.idStrings)
+        } else {
+          this.hasMessages = false
+        }
 
       })    
     }
@@ -80,7 +90,8 @@ export class MessagesComponent implements OnInit {
     }
 
     quickSend(index){
-
+        console.log(this.mgs[index])
+        this.msgs.sendMessage(this.mgs[index])
     }
   }
 
