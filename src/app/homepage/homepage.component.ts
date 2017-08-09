@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/authService';
-import { MessageService } from '../services/messageService';
+import {MessageService} from '../services/messageService';
 
 
 @Component({
-  selector: 'app-homepage',
+  selector: 'app-homepage',git
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })

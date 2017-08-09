@@ -17,11 +17,14 @@
 //     console.log(message.sid);
 // });
 
-let x = "foo",
-y = "oo";
+let x = 'foo';
+let y = 'oo';
 
-
-
-if (x.indexOf(y) ! == - 1){
+console.log(x);
+// console.log(x.indexOf(y))
+console.log(x.includes(y));
+if (x.includes(y)){
   console.log(y);
+}else{
+  console.log('shiz not workin')
 }
