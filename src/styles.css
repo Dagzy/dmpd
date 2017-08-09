@@ -4,7 +4,9 @@
   background-size: cover;
   /* font-family: 'Indie Flower', cursive, sans-serif; */
   font-family: 'Handlee', cursive;
-  font-size: 20px;
+}
+.navbar{
+  background-color: #3B0002;
 }
 
 /*colors:  123, 105, 127 | 235, 160, 255 | 245, 290?, 255 | 115, 67, 137 | 196, 168, 204 */
