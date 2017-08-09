@@ -2,16 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router'
-
+import { HttpClientModule }  from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LandingComponent } from './landing/landing.component';
 
 import { CreateComponent } from './create/create.component';
-import   {MessageService} from './services/messageService'
+import { MessageService } from './services/messageService'
 import {FirebaseService} from './services/authService'
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 
 // New imports to update based on AngularFire2 version 4
@@ -69,9 +68,10 @@ const appRoutes: Routes = [
    
   ],
   imports: [
-     AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(config),
     BrowserModule,
     FormsModule,
+    HttpClientModule, 
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(
