@@ -8,7 +8,7 @@ import { FirebaseService }  from '../services/authService';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  //messages 
+  //messages
   constructor( private msgs: MessageService, private auth: FirebaseService){
   }
   //messages
@@ -17,16 +17,16 @@ export class MessagesComponent implements OnInit {
   idStrings = []
   hasMessages
 
-  queryMessagesByUser(){
-    var theList
-    console.log(this.auth.getUser())
-    // this.auth.getUser().getIdToken().then(a => {
-      //     console.log(a)
-      //     theList = this.msgs.queryByUser(a)
-      //     return theList
-      //   })
+  // queryMessagesByUser(){
+  //   var theList
+  //   console.log(this.auth.getUser())
+  //   // this.auth.getUser().getIdToken().then(a => {
+  //     //     console.log(a)
+  //     //     theList = this.msgs.queryByUser(a)
+  //     //     return theList
+  //     //   })
 
-    }
+  //   }
     ngOnInit() {
         console.clear()
     }
@@ -43,17 +43,17 @@ export class MessagesComponent implements OnInit {
           }
           index = index+1
         })
-      } 
+      }
       return filteredMessages
     }
 
     testMessage(){
-      
+
       var self = this
 
       var theID = this.auth.getUser()
 
-      
+
       this.msgs.queryByUser(theID, function(result){
         self.messages = result
         self.mgs = []
@@ -63,7 +63,7 @@ export class MessagesComponent implements OnInit {
           Object.keys(self.messages).forEach(function(m){
             for(var x in self.messages[m].parts){
               self.mgs.push({title: self.messages[m].title, text: self.messages[m].parts[x].text})
-        
+
             self.mgs.push(result[m])
             console.log(result[m])
             self.idStrings.push(m)
@@ -74,7 +74,7 @@ export class MessagesComponent implements OnInit {
           this.hasMessages = false
         }
 
-      })    
+      })
     }
 
     goTo(index){
