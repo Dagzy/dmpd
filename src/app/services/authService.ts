@@ -16,6 +16,7 @@ export class FirebaseService{
 	getUser(){ //function that returns current user's id
 		return this.af.auth.currentUser.uid
 	}
+	
 	signup(user: User){ //signup function. takes in a user object 
 		this.af.auth.createUserWithEmailAndPassword(user.email,user.password) //AF's signup function takes in an email and a password (automatically saves it and stuff)
 		.then(() => { //when completed 

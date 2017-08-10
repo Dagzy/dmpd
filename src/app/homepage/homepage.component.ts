@@ -26,7 +26,7 @@ export class HomepageComponent implements OnInit {
             text: 'And that\'s all'
           }
         ],
-        url: '/create'
+        text: 'Hey, I\'ve been thinking... we should end this, and never speak again'
       },
 
       {
@@ -45,7 +45,7 @@ export class HomepageComponent implements OnInit {
             text: 'so goodbye.'
           }
         ],
-        url: '/create'
+        text: 'Hey, I\'ve been thinking... we should end this, and never speak again'
       },
 
      {
@@ -64,7 +64,7 @@ export class HomepageComponent implements OnInit {
             text: ' And never speak again'
           }
         ],
-        url: '/create'
+        text: 'Hey, I\'ve been thinking... we should end this, and never speak again'
       },
            {
       title: 'breakupFour',
@@ -82,7 +82,7 @@ export class HomepageComponent implements OnInit {
             text: ' And never speak again'
           }
         ],
-        url: '/create'
+        text: 'Hey, I\'ve been thinking... we should end this, and never speak again'
       },
            {
       title: 'breakupFive',
@@ -100,27 +100,23 @@ export class HomepageComponent implements OnInit {
             text: ' And never speak again'
           }
         ],
-        url: '/create'
+        text: 'Hey, I\'ve been thinking... we should end this, and never speak again'
       }
 
     ];
-  constructor() {
+  constructor(private messageService : MessageService, private auth : FirebaseService) {
 
   }
+
   ngOnInit() {
-  }
-  filterMessages(){
-        let filteredMessages = []
-        for (let i in this.pieces){
-            filteredMessages.push ({title: this.pieces[i].title, text: ''});
-            for (const x in this.pieces[i].parts){
-                console.log(filteredMessages[i].text);
-                filteredMessages[i].text += (this.pieces[i].parts[x].text);
-            }
-        }
-        return filteredMessages;
-    }
 
+  }
+
+  populate() {
+    this.messageService.queryByUser(this.auth.getUser(), function(theData){
+       this.pieces = this.messageService.filterToArray(theData)
+    })
+  }
 
 
 

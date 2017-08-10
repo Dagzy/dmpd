@@ -6,13 +6,12 @@
 </div>
 
 
-<div *ngIf="!hasMessage">
-	<h2>YOU HAVE NO MESSAGES :(</h2>
-	<div class="col-sm-offset-5 col-sm-2">
-		<button href="create" class="btn btn-primary btn-lg"> <a href="create"> Create something! :)</a></button>
-	</div>
+<div *ngIf="!(weHaveMessages())"> <!--if there are no messages to be displayed, then it displays the following message -->
+	<h2>YOU HAVE NO MESSAGES</h2>
+	<button> <a routerLink="/create"> Create some </a></button> <!-- this button sends you to the create a message page -->
+
 </div>
-<div class="card" *ngFor="let message of filterMessages();let i=index"> <!-- For every message that is retrieved from the filterMessages function, display and instance of this template -->
+<div class="card" *ngFor="let message of messageList;let i=index"> <!-- For every message that is retrieved from the filterMessages function, display and instance of this template -->
 	<div class="card-block">
 		<ul>
 			<li>
@@ -25,7 +24,9 @@
 	<button (click)="quickSend(i)" class="btn btn-success btn-lg"> Quick Send </button>
 	<button (click)="delete(i)" class="btn btn-danger btn-lg"> Delete </button>
 </div>
+
 <br>
 <br>
 <br>
 <button (click)="testMessage()">Populate Field </button>
+
