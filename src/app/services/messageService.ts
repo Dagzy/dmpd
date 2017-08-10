@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MessageService{
 	constructor(private db: AngularFireDatabase, private http: HttpClient){
-		
 	}
-	makeMessage(theMessage, userId){
-		theMessage.ownerId = userId
-		this.db.database.ref('/messages').push(theMessage)
+	
+	makeMessage(constructedMessage, userId){
+		constructedMessage.ownerId = userId
+		this.db.database.ref('/messages').push(constructedMessage)
 	}
 
 	queryByUser(userId, callback){
