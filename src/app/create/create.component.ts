@@ -5,6 +5,8 @@ import {User} from '../models/user';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Http } from '@angular/http';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create',
@@ -34,11 +36,6 @@ export class CreateComponent implements OnInit {
     this.intro = word
     this.updateMessage();
   }
-
-  // appendToMid(){
-  //   this.mid.push(this.model.mid);
-  //   this.updateMessage();
-  // }
   appendToMid(word){
     if(this.midArray.includes(word))
       // tskes away stuff. at index of teh word take one
@@ -50,7 +47,6 @@ export class CreateComponent implements OnInit {
     this.mid = this.midArray.join(" ");
     this.updateMessage();
   }
-
   selectEnd(word){
     this.end = word;
     this.updateMessage();
@@ -59,8 +55,6 @@ export class CreateComponent implements OnInit {
     //ternary. if this is true, put; if not, noth9ng
     // null -> true -> false   for the !!
     this.constructedMessage = (!!this.intro? this.intro : "") + " " + (!!this.mid? this.mid : "") + " " + (!!this.end? this.end : "");
-    // make it this.mid.push???
-    // console.log(this.constructedMessage);
   }
   
   amicable = {
@@ -86,52 +80,15 @@ export class CreateComponent implements OnInit {
   poems = {
     intro: [ "jsjs", "sjsjs" ],
     mid: [ "aoscuh", "mememe" ],
-    end: [ "anpjdv", "bybebye", "more", "more" ]
+    end: [ "anpjdv", "bybebye", "more", "mmoorree" ]
   }
 
-  ngOnInit() { 
-    
+  ngOnInit() {
   }
-  
-  // public intro: Array<string>;
-  // constructor(){
-  //   this.intro = [amicable]
-  // }
-  // public selectIntro(sentence){
-  //   alert()
-  // }
 
-
-  // constructor(public MessageService:MessageService){
-  //   this.MessageService.index(constructedMessage => 
-  //     this.index = constructedMessage
-  //   )
-  // }
-
-  // onSubmit(){
-  //   this.MessageService.constructedMessage(constructedMessage)
-  //     .then(() => {
-  //       this.router.navigateByUrl('/messages')
-  //   })
-  //   .catch((e) => {
-	// 		console.log(e);
-	// 	})
-  // }
-
-  // myData = {description: 'Data I want to pass, could be any kind of data/ object'}
-  // this.http.post('https://my-api.com/endpoint', myData)
-  //   .map(
-  //       (response: Response) => {
-  //           // map() is totally optional, you just subscribe() without it!
-  //           return response.json(); // fetch the body of the response - this of course also works for post requests
-  //       }
-  //   )
-  //   .subscribe(
-  //       (transformedData: any) => {
-  //           // Use your response data here
-  //           console.log(transformedData);
-  //       }
-  //   );
-
+// colon specifies type??..... create class after : and a class makes it own datatype
+  constructor(private messageService: MessageService, private db: AngularFireDatabase, private http: HttpClient, private fb: FirebaseService){}
+  onSubmit(makeMessage){
+    this.messageService.makeMessage({title: "DEFAULYTESDFK", text: this.constructedMessage },this.fb.getUser())
+  }
 }
-
