@@ -31,13 +31,26 @@ export class MessageService{
 
 	}
 
-	filterAMessage(messageObject){
-		var filteredMessage = {title: "", text: ""}
-		for(var x in messageObject.parts){
-            filteredMessage.text += (messageObject.parts[x].text)
-        }
-        return filteredMessage
+	filterToArray(messageObject){ //Turns the object into an array
+		var arrayFor = []
+		Object.keys(messageObject).forEach(function(message){ //loop over the keys in the message object (remember that the key names are the object Id's for the message and their values are the acutal message data)
+        	arrayFor.push({title: messageObject[message].title,
+        				   text: messageObject[message].text,
+        				   part: messageObject[message].text,
+        				   id: message
+        				  })//This adds an object with title (gotten from the object)
+        })
+
+        return arrayFor
 	}
+
+	// filterAMessage(messageObject){
+	// 	var filteredMessage = {title: "", text: "" }
+	// 	for(var x in messageObject.parts){
+ //            filteredMessage.text += (messageObject.parts[x].text)
+ //        }
+ //        return filteredMessage
+	// }
 
 	sendMessage(message){
 		this.http.post('https://powerful-plateau-23250.herokuapp.com/sms', message).subscribe(resp => {console.log(resp)})

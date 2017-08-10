@@ -1,11 +1,11 @@
 <h1> My Messages </h1>
 
 
-<div *ngIf="!(hasMessages)"> <!--if there are no messages to be displayed, then it displays the following message -->
+<div *ngIf="!(weHaveMessages())"> <!--if there are no messages to be displayed, then it displays the following message -->
 	<h2>YOU HAVE NO MESSAGES</h2>
-	<button> <a href="create"> Create some </a></button> <!-- this button sends you to the create a message page -->
+	<button> <a routerLink="/create"> Create some </a></button> <!-- this button sends you to the create a message page -->
 </div>
-<div class="card" *ngFor="let message of filterMessages();let i=index"> <!-- For every message that is retrieved from the filterMessages function, display and instance of this template -->
+<div class="card" *ngFor="let message of messageList;let i=index"> <!-- For every message that is retrieved from the filterMessages function, display and instance of this template -->
 	<div class="card-block">
 		<ul>
 			<li>
@@ -19,4 +19,4 @@
 	<button (click)="quickSend(i)"> Quick Send </button> 
 	<button (click)="delete(i)"> Delete </button>
 </div>
-<button (click)="testMessage()">Populate Field </button> <!--Since I cant get a user immedatletrygas[sic], I have to maually populate the list of messages the user has created by clicking this button --> 
+<!--<button (click)="testMessage()">Populate Field </button> Since I cant get a user immedatletrygas[sic], I have to maually populate the list of messages the user has created by clicking this button --> 
