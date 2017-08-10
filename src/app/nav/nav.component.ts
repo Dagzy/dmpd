@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FirebaseService } from '../services/authService'
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+	currentUser(){
+		return (this.auth.getUser())
+	}
+  constructor(private auth: FirebaseService) { }
 
   ngOnInit() {
   }

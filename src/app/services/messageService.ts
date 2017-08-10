@@ -5,25 +5,20 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MessageService{
+
 	constructor(private db: AngularFireDatabase, private http: HttpClient){
 	}
-	
-	makeMessage(constructedMessage, userId){
-		constructedMessage.ownerId = userId
-		this.db.database.ref('/messages').push(constructedMessage)
+	makeMessage(theMessage, userId){ //function that takes in a message object and a user Id
+		theMessage.ownerId = userId //adds the Id to the message object
+		this.db.database.ref('/messages').push(theMessage) //adds it to the database
 	}
 
-	queryByUser(userId, callback){
-		var queryResult = []	
-		var self = this
-		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){
-			console.log(snapshot.val())
-			callback(snapshot.val())
+	queryByUser(userId, callback){	
+		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){ //go to /messages in the database 
+			
+			callback(snapshot.val())//runs callback function with this data.
 		})
-		// this.db.database.ref('/messages').once("value").then(function(snapshot){
-		// 	queryResult = self.siftForId(snapshot.val(), userId)
-		// 	callback(queryResult)
-		// })
+
 	}
 
 	delete(messageData){

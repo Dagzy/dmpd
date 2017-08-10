@@ -9,10 +9,10 @@
 </div>
 <div class='container'>
 	<div class="form">
-		<div *ngIf="signup;else login">
+		<div *ngIf="signup;else login">   <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
 			<ul class="tab-group">
 				<li class="tab active"><a>Sign Up</a></li>
-				<li class="tab" (click)="swap()"><a>Log In</a></li>
+				<li class="tab" (click)="swap()"><a>Log In</a></li> 
 			</ul>
 			<div id="signup">   
 				<h1>Sign Up</h1>
@@ -31,7 +31,7 @@
 		
 		</div>
 
-		<ng-template #login>
+		<ng-template #login> <!-- the ng-template is for the login view when you swap from signup to login -->
 			<ul class="tab-group">
 				<li class="tab" (click)="swap()"><a>Sign Up</a></li>
 				<li class="tab active"><a>Log In</a></li>
