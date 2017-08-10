@@ -1,20 +1,26 @@
+<!-- Just an image -->
+<!-- <nav class="navbar navbar-dark">
+    <a class="navbar-brand" href="#">
+        <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="">
+    </a>
+</nav> -->
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse col-md-10 col-md-offset-1">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/home">DUMPD</a>
+      </button> -->
+      <a class="navbar-brand" href="/home"><strong>dumpd</strong></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/home">Home</a></li>
-        <li><a href="messages">My Messages</a></li>
-        <li><a href="create">New Messages</a></li>
-        <li><a href="forum">Forum</a></li>
+        <li routerLinkActive="active" [routerLink]="['home']"><a href="/home">Home</a></li>
+        <li routerLinkActive="active" [routerLink]="['messages']"><a href="messages">My Messages</a></li>
+        <li routerLinkActive="active" [routerLink]="['create']"><a href="create">New Messages</a></li>
+        <li routerLinkActive="active" [routerLink]="['forum']"><a href="forum">Forum</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -23,3 +29,4 @@
     </div>
   </div>
 </nav>
+<br/>

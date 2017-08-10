@@ -1,10 +1,26 @@
+h1{
+	text-align: center;
+	color: #b00505
+}
+.panel-default{
+	border: 2px solid #1c1c1c;
+}
+.panel-default>.panel-heading{
+	background-color: #FCFCFC;
+}
+.panel-default>.panel-body{
+	background-color: #e8e8e8;
+}
+
 button.btn.btn-primary{
 	vertical-align: middle;
 }
 /* button.btn.btn-primary:active{
     background-color: green !important;
 } */
-
+/* .btn.btn-primary.btn-lg{
+	width: 2000px;
+} */
 input[type=radio], input[type=checkbox] {
 	display:none;
 	overflow-y: auto;

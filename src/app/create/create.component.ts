@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../services/messageService';
+import { FirebaseService }  from '../services/authService';
+import {User} from '../models/user';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-create',
@@ -57,9 +63,6 @@ export class CreateComponent implements OnInit {
     // console.log(this.constructedMessage);
   }
   
-  // amicable = {
-  //   templateUrl: 'inMidEnd.html'
-  // }
   amicable = {
     intro: [ "amicable intro", "yo" ],
     mid: [ "memme", "mememe", "heyoheyoeyheyeohyeohyoeheyobsfbis shefouhsoeuhfous " ],
@@ -89,6 +92,46 @@ export class CreateComponent implements OnInit {
   ngOnInit() { 
     
   }
+  
+  // public intro: Array<string>;
+  // constructor(){
+  //   this.intro = [amicable]
+  // }
+  // public selectIntro(sentence){
+  //   alert()
+  // }
+
+
+  // constructor(public MessageService:MessageService){
+  //   this.MessageService.index(constructedMessage => 
+  //     this.index = constructedMessage
+  //   )
+  // }
+
+  // onSubmit(){
+  //   this.MessageService.constructedMessage(constructedMessage)
+  //     .then(() => {
+  //       this.router.navigateByUrl('/messages')
+  //   })
+  //   .catch((e) => {
+	// 		console.log(e);
+	// 	})
+  // }
+
+  // myData = {description: 'Data I want to pass, could be any kind of data/ object'}
+  // this.http.post('https://my-api.com/endpoint', myData)
+  //   .map(
+  //       (response: Response) => {
+  //           // map() is totally optional, you just subscribe() without it!
+  //           return response.json(); // fetch the body of the response - this of course also works for post requests
+  //       }
+  //   )
+  //   .subscribe(
+  //       (transformedData: any) => {
+  //           // Use your response data here
+  //           console.log(transformedData);
+  //       }
+  //   );
 
 }
 
