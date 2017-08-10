@@ -1,9 +1,16 @@
-<h1> My Messages </h1>
+<br/>
+<div>
+	<br>
+	<br>
+	<h1> My Messages </h1>
+</div>
 
 
 <div *ngIf="!hasMessage">
-	<h2>YOU HAVE NO MESSAGES</h2>
-	<button href="create"> <a href="create"> Create some </a></button>
+	<h2>YOU HAVE NO MESSAGES :(</h2>
+	<div class="col-sm-offset-5 col-sm-2">
+		<button href="create" class="btn btn-primary btn-lg"> <a href="create"> Create something! :)</a></button>
+	</div>
 </div>
 <div class="card" *ngFor="let message of filterMessages();let i=index">
 	<div class="card-block">
@@ -11,12 +18,14 @@
 			<li>
 				<p>{{message.title}}</p>
 				<p> {{message.text}}</p>
-
 			</li>
 		</ul>
 	</div>
-	<button (click)="goTo(i)"> Go To </button> 
-	<button (click)="quickSend(i)"> Quick Send </button>
-	<button (click)="delete(i)"> Delete </button>
+	<button (click)="goTo(i)" class="btn btn-primary btn-lg"> Go To </button> 
+	<button (click)="quickSend(i)" class="btn btn-success btn-lg"> Quick Send </button>
+	<button (click)="delete(i)" class="btn btn-danger btn-lg"> Delete </button>
 </div>
+<br>
+<br>
+<br>
 <button (click)="testMessage()">Populate Field </button>
