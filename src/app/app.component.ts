@@ -26,7 +26,7 @@ export class AppComponent {
 			}
 		}
 		var urlEnd = url.substring(indexOfSlash, url.length)
-		if(urlEnd === "/#login" || urlEnd === "/#signup" || urlEnd==="/landing"){
+		if(urlEnd === "/" || urlEnd==="/landing"){
 			state = false
 		} else {
 			state = true
