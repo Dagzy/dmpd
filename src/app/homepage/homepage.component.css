@@ -1,13 +1,19 @@
 h1{
   color: #1c1c1c;
 }
+a{
+  font-size: 23px;
+}
+
 #pushpanel {
   margin-top:  0px;
 }
+
 #msgtxt {
   background-color: #FCFCFC;
   color: #1c1c1c;
 }
+
 #msgttl {
   background-color: purple;
   color: white;
