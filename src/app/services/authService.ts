@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import {User} from '../models/user';
-
-import { Router } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
-export class FirebaseService{
+export class FirebaseService implements CanActivate{
 	authState; //variable for the state of authentication 
 
 	constructor(private af: AngularFireAuth, private router: Router){ //class has AngularFireAuth (af's way of authenticating users) and the router (for setting the view based on the url)
@@ -13,8 +12,11 @@ export class FirebaseService{
 			this.authState = authState //sets the variable authState to the resut of this function
 		})
 	}
-	getUser(){ //function that returns current user's id
+	getUserId(){ //function that returns current user's id
 		return this.af.auth.currentUser.uid
+	}
+	getUser(){
+		return this.af.auth.currentUser
 	}
 	
 	signup(user: User){ //signup function. takes in a user object 
@@ -47,6 +49,16 @@ export class FirebaseService{
 	}
 	isAuthed(){
 		return !!this.authState; //Determines whether or not there is a user logged in
+	}
+
+	canActivate(){
+		if(!!(this.getUser())){
+			return true
+		} else {
+			this.router.navigateByUrl('landing')
+			return false
+		}
+		
 	}
 	
 }
