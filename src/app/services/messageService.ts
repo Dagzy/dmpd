@@ -23,9 +23,9 @@ export class MessageService{
 	}
 
 	delete(messageData){
-		this.db.database.ref('/messages/' + messageData).remove((a: Error)=>{
-			if(a){
-				console.log(a)
+		this.db.database.ref('/messages/' + messageData).remove((err: Error)=>{
+			if(err){
+				console.log(err)
 			}
 		})
 
