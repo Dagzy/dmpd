@@ -1,36 +1,55 @@
+<br>
+<br>
+<div class='container'>
+	<br>
+    <br>
+    <div class="row">
+        <div class="col-md-6 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h1 style="font-size: 40px">New Message</h1></div>
+                <div class="panel-body">
+                    <div class="col-md-10 col-md-offset-1">
+                        <input placeholder="Title of Message" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div class='container' style="display: inline">
+<div class='container'>
     <div class="row"> 
         <!-- rows do same line and coumns do different lines -->
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12">
+            <br/>
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: violet; text-align: center;">Category</h1></div>
+                <div class="panel-heading"><h1>Category</h1></div>
                 <div class="panel-body">
                     <!-- <ul class="categories"> -->
                     <!-- the nums re[present thst if 0, load amicable -->
-                    <div class="amicable">
+                    <div class="col-md-2 col-md-offset-1">
                         <input type="radio" id="amicable" name="cat">
-                        <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(0)" >Amicable</label>
+                        <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(0)" style="transform: scale(1.2);" >Amicable</label>
                     </div>
-                    <br/>
-                    <div class="blunt">
+                    
+                    <div class="col-md-2">
                         <input type="radio" id="blunt" name="cat">
-                        <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)">Blunt</label>
+                        <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)" style="transform: scale(1.2);" >Blunt</label>
                     </div>
-                    <br/>
-                    <div class="harsh">
+                    
+                    <div class="col-md-2">
                         <input type="radio" id="harsh" name="cat">
-                        <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(2)">Harsh</label>
+                        <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(2)" style="transform: scale(1.2);" >Harsh</label>
                     </div>
-                    <br/>
-                    <div class="pa">
+                    
+                    <div class="col-md-3">
                         <input type="radio" id="pa" name="cat">
-                        <label for="pa" class="btn btn-primary" id="pa" (click)="setType(3)">Passive Aggressive</label>
+                        <label for="pa" class="btn btn-primary" id="pa" (click)="setType(3)" style="transform: scale(1.2);" >Passive Aggressive</label>
                     </div>
-                    <br/>
-                    <div class="poems">
+                    
+                    <div class="col-md-2">
                         <input type="radio" id="poems" name="cat">
-                        <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)">Poems</label>
+                        <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)" style="transform: scale(1.2);" >Poems</label>
                     </div>
                 </div>
             </div>
@@ -172,9 +191,9 @@
 <br/>
 
 <div class="container">
-    <div class="col-md-offset-5">
-        <button class="btn btn-primary btn-lg" >Save</button>
-        <button class="btn btn-danger btn-lg">Cancel</button>
+    <div class="col-sm-offset-5">
+        <button id="def-save" (click)="onSubmit(i)" class="btn btn-primary btn-lg"><a href="/messages">Save</a></button>
+        <button class="btn btn-danger btn-lg"><a href="home">Cancel</a></button> 
     </div>
 </div>
 
