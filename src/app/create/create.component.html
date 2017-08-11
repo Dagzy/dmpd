@@ -1,6 +1,10 @@
 <br>
 <br>
-<div class='container'>
+<div *ngIf="this.message.id">
+  <input id="updatemsg" type="text">
+</div>
+
+<div class='container' *ngIf="!this.message.id">
 	<br>
     <br>
     <div class="row">
@@ -17,8 +21,8 @@
     </div>
 </div>
 
-<div class='container'>
-    <div class="row"> 
+<div class='container' *ngIf="!this.message.id">
+    <div class="row">
         <!-- rows do same line and coumns do different lines -->
         <div class="col-md-12">
             <br/>
@@ -31,29 +35,29 @@
                         <input type="radio" id="amicable" name="cat">
                         <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(0)" style="transform: scale(1.2);" >Amicable</label>
                     </div>
-                    
+
                     <div class="col-md-2">
                         <input type="radio" id="blunt" name="cat">
                         <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)" style="transform: scale(1.2);" >Blunt</label>
                     </div>
-                    
+
                     <div class="col-md-2">
                         <input type="radio" id="harsh" name="cat">
                         <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(2)" style="transform: scale(1.2);" >Harsh</label>
                     </div>
-                    
+
                     <div class="col-md-3">
                         <input type="radio" id="pa" name="cat">
                         <label for="pa" class="btn btn-primary" id="pa" (click)="setType(3)" style="transform: scale(1.2);" >Passive Aggressive</label>
                     </div>
-                    
+
                     <div class="col-md-2">
                         <input type="radio" id="poems" name="cat">
                         <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)" style="transform: scale(1.2);" >Poems</label>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
 </div>
 
@@ -64,9 +68,9 @@
                 <div class="panel-heading"><h1 style="color: blue; text-align: center;" id="intro">Greeting</h1></div>
                 <div class="panel-body">
                     <div *ngIf="category == 0" >
-                        <div class="amicable" *ngFor="let sentence of amicable.intro">             
+                        <div class="amicable" *ngFor="let sentence of amicable.intro">
                             <input type="radio" id="{{sentence}}" name="intro">
-                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label> 
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div  *ngIf="category == 1">
@@ -185,15 +189,15 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 
 <br/>
 
-<div class="container">
+<div class="container" *ngIf="!this.message.id">
     <div class="col-sm-offset-5">
         <button id="def-save" (click)="onSubmit(i)" class="btn btn-primary btn-lg"><a href="/messages">Save</a></button>
-        <button class="btn btn-danger btn-lg"><a href="home">Cancel</a></button> 
+        <button class="btn btn-danger btn-lg"><a href="home">Cancel</a></button>
     </div>
 </div>
 
