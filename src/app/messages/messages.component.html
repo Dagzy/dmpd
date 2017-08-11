@@ -15,14 +15,18 @@
 	<div class="card-block">
 		<ul>
 			<li>
-				<p>{{message.title}}</p>
-				<p> {{message.text}}</p>
+				<h2>{{message.title}}</h2>
+				<a> {{message.text}}</a>
 			</li>
 		</ul>
 	</div>
-	<button (click)="goTo(i)" class="btn btn-primary btn-lg"> Go To </button> 
-	<button (click)="quickSend(i)" class="btn btn-success btn-lg"> Quick Send </button>
-	<button (click)="delete(i)" class="btn btn-danger btn-lg"> Delete </button>
+	<div class="container">
+		<div class="col-sm-offset-3">
+			<button (click)="goTo(i)" class="btn btn-primary btn-lg"> Go To </button> 
+			<button (click)="quickSend(i)" class="btn btn-success btn-lg"> Quick Send </button>
+			<button (click)="delete(i)" class="btn btn-danger btn-lg"> Delete </button>
+		</div>
+	</div>
 </div>
 
 <br>
