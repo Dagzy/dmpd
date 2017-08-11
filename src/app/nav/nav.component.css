@@ -1,6 +1,9 @@
 .navbar {
-  background-color: #B00505;
-    box-shadow: 0 4px 20px 4px rgba(232, 232, 232, .6);
+  background-color: rgba(176, 5, 5, .6);
+  box-shadow: 0 4px 20px 4px rgba(232, 232, 232, .6);
+}
+.navbar-header a{
+  font-size: 25px;
 }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a{
   color: #FCFCFC;
@@ -10,6 +13,12 @@
   text-shadow: -1px -1px #757575, 1px -1px #757575, -1px 1px #757575, 1px 1px #757575;
   background-color: #BA0005;
 }
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+  color: #FCFCFC;
+  text-shadow: -1px -1px #757575, 1px -1px #757575, -1px 1px #757575, 1px 1px #757575; 
+  background-color: #BA0005;
+}
+
 /* HAMBURGER menu */
 button {
   background-color: orange;

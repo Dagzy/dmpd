@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../services/messageService';
+import { FirebaseService }  from '../services/authService';
+import {User} from '../models/user';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Http } from '@angular/http';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create',
@@ -13,26 +21,27 @@ export class CreateComponent implements OnInit {
 
   constructedMessage: string;
   category: number;
+  title: string;
   intro: string;
   mid: string;
   midArray=[];
   end: string;
 
   model = {
+    title: "",
     intro: "", 
     mid: "",
     end: ""
   }
-  selectIntro(word){
-    // console.log(word)
-    this.intro = word
+  addTitle(word){
+    this.title = word;
     this.updateMessage();
   }
-
-  // appendToMid(){
-  //   this.mid.push(this.model.mid);
-  //   this.updateMessage();
-  // }
+  selectIntro(word){
+    // console.log(word)
+    this.intro = word;
+    this.updateMessage();
+  }
   appendToMid(word){
     if(this.midArray.includes(word))
       // tskes away stuff. at index of teh word take one
@@ -44,7 +53,6 @@ export class CreateComponent implements OnInit {
     this.mid = this.midArray.join(" ");
     this.updateMessage();
   }
-
   selectEnd(word){
     this.end = word;
     this.updateMessage();
@@ -52,15 +60,11 @@ export class CreateComponent implements OnInit {
   updateMessage(){
     //ternary. if this is true, put; if not, noth9ng
     // null -> true -> false   for the !!
-    this.constructedMessage = (!!this.intro? this.intro : "") + " " + (!!this.mid? this.mid : "") + " " + (!!this.end? this.end : "");
-    // make it this.mid.push???
-    // console.log(this.constructedMessage);
+    this.constructedMessage = (!!this.title? this.title : "") + (!!this.intro? this.intro : "") + " " + (!!this.mid? this.mid : "") + " " + (!!this.end? this.end : "");
   }
   
-  // amicable = {
-  //   templateUrl: 'inMidEnd.html'
-  // }
   amicable = {
+    title: "",
     intro: [ "amicable intro", "yo" ],
     mid: [ "memme", "mememe", "heyoheyoeyheyeohyeohyoeheyobsfbis shefouhsoeuhfous " ],
     end: [ "sup", "bybebye" ]
@@ -83,12 +87,15 @@ export class CreateComponent implements OnInit {
   poems = {
     intro: [ "jsjs", "sjsjs" ],
     mid: [ "aoscuh", "mememe" ],
-    end: [ "anpjdv", "bybebye", "more", "more" ]
+    end: [ "anpjdv", "bybebye", "more", "mmoorree" ]
   }
 
-  ngOnInit() { 
-    
+  ngOnInit() {
   }
 
+// colon specifies type??..... create class after : and a class makes it own datatype
+  constructor(private messageService: MessageService, private db: AngularFireDatabase, private http: HttpClient, private fb: FirebaseService){}
+  onSubmit(makeMessage){
+    this.messageService.makeMessage({title: "", text: this.constructedMessage},this.fb.getUser())
+  }
 }
-

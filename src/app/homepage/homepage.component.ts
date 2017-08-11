@@ -11,117 +11,22 @@ import { MessagesComponent } from '../messages/messages.component';
 })
 export class HomepageComponent implements OnInit {
 
-   pieces= [ {
-      title: 'breakupOne',
-      parts: [
-          {
-            begmidend: 'beg',
-            text: 'Hey, I\'ve been thinking '
-          },
-          {
-            begmidend: 'mid',
-            text: 'We should break up '
-          },
-          {
-            begmidend: 'end',
-            text: 'And that\'s all'
-          }
-        ],
-        url: '/create'
-      },
-
-      {
-      title: 'breakupTwo',
-      parts: [
-          {
-            begmidend: 'beg',
-            text: 'The time has come '
-          },
-          {
-            begmidend: 'mid',
-            text: 'for us to break it off '
-          },
-          {
-            begmidend: 'end',
-            text: 'so goodbye.'
-          }
-        ],
-        url: '/create'
-      },
-
-     {
-      title: 'breakupThree',
-      parts: [
-          {
-            begmidend: 'beg',
-            text: 'Hey, I\'ve been thinking'
-          },
-          {
-            begmidend: 'mid',
-            text: ' We should end this'
-          },
-          {
-            begmidend: 'end',
-            text: ' And never speak again'
-          }
-        ],
-        url: '/create'
-      },
-           {
-      title: 'breakupFour',
-      parts: [
-          {
-            begmidend: 'beg',
-            text: 'Hey, I\'ve been thinking'
-          },
-          {
-            begmidend: 'mid',
-            text: ' We should end this'
-          },
-          {
-            begmidend: 'end',
-            text: ' And never speak again'
-          }
-        ],
-        url: '/create'
-      },
-           {
-      title: 'breakupFive',
-      parts: [
-          {
-            begmidend: 'beg',
-            text: 'Hey, I\'ve been thinking'
-          },
-          {
-            begmidend: 'mid',
-            text: ' We should end this'
-          },
-          {
-            begmidend: 'end',
-            text: ' And never speak again'
-          }
-        ],
-        url: '/create'
-      }
-
-    ];
-  constructor() {
+   pieces= []
+  constructor(private messageService : MessageService, private auth : FirebaseService) {
 
   }
+
   ngOnInit() {
+    this.populate()
   }
-  filterMessages(){
-        let filteredMessages = []
-        for (let i in this.pieces){
-            filteredMessages.push ({title: this.pieces[i].title, text: ''});
-            for (const x in this.pieces[i].parts){
-                console.log(filteredMessages[i].text);
-                filteredMessages[i].text += (this.pieces[i].parts[x].text);
-            }
-        }
-        return filteredMessages;
-    }
 
+  populate() {
+    console.log("GEWFIJSDLK")
+    var self = this
+    this.messageService.queryByUser(this.auth.getUser(), function(theData){
+       self.pieces = self.messageService.filterToArray(theData)
+    })
+  }
 
 // Twilio Credentials
 
