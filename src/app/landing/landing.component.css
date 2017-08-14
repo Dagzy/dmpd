@@ -18,7 +18,7 @@ body {
 
 a {
   text-decoration: none;
-  color: pink;
+  color: #f5f5f5;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
@@ -27,7 +27,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0);
+  background: rgba(19, 35, 47, .1);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
