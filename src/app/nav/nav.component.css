@@ -5,6 +5,9 @@
 .navbar-header a{
   font-size: 25px;
 }
+a{
+  font-size: 20px;
+}
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a{
   color: #FCFCFC;
 }
@@ -13,7 +16,8 @@
   text-shadow: -1px -1px #757575, 1px -1px #757575, -1px 1px #757575, 1px 1px #757575;
   background-color: #BA0005;
 }
-.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+/* .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .nav.navbar-nav:focus, .collapse .navbar-collapse:focus, .collapse .navbar-collapse:active*/
+.collapse .navbar-collapse .nav .navbar-nav a:focus, .collapse .navbar-collapse .nav .navbar-nav a:focus{
   color: #FCFCFC;
   text-shadow: -1px -1px #757575, 1px -1px #757575, -1px 1px #757575, 1px 1px #757575; 
   background-color: #BA0005;
