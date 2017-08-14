@@ -4,7 +4,8 @@
 	background-color: white;
 	margin: 0 auto;
 	width: 75%;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	border-radius: 10px;
 }
 
 h1{
