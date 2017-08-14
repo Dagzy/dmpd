@@ -10,11 +10,9 @@
     <div class="row">
         <div class="col-md-6 col-sm-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="font-size: 40px">New Message</h1></div>
+                <div class="panel-heading"><h1 style="font-size: 45px;"><strong>New Message</strong></h1></div>
                 <div class="panel-body">
-                    <div class="col-md-10 col-md-offset-1">
-                        <input placeholder="Title of Message" />
-                    </div>
+                    <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
                 </div>
             </div>
         </div>
@@ -27,7 +25,7 @@
         <div class="col-md-12">
             <br/>
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>Category</h1></div>
+                <div class="panel-heading"><h1 style="font-size: 38px">Category</h1></div>
                 <div class="panel-body">
                     <!-- <ul class="categories"> -->
                     <!-- the nums re[present thst if 0, load amicable -->
@@ -65,7 +63,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: blue; text-align: center;" id="intro">Greeting</h1></div>
+                <div class="panel-heading"><h1 style="color: #d60000" id="intro">Greeting</h1></div>
                 <div class="panel-body">
                     <div *ngIf="category == 0" >
                         <div class="amicable" *ngFor="let sentence of amicable.intro">
@@ -102,7 +100,7 @@
         </div>
         <div class="col-md-4 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: violet; text-align: center;" id="mid">Main Message</h1></div>
+                <div class="panel-heading"><h1 style="color: #d60000" id="mid">Main Message</h1></div>
                 <!-- <h3 style="color: violet; text-align: center;" id="mid">Pick as many as you wish</h3> -->
                 <div class="panel-body">
                     <div *ngIf="category == 0">
@@ -140,7 +138,7 @@
         </div>
         <div class="col-md-3 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: blue; text-align: center;" id="end">Goodbye</h1></div>
+                <div class="panel-heading"><h1 style="color: #d60000" id="end">Goodbye</h1></div>
                 <div class="panel-body">
                     <div *ngIf="category == 0">
                         <div class="prac" *ngFor=" let sentence of amicable.end">
@@ -183,6 +181,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h1 style="color: #F52887; text-align: center;">Message</h1></div>
                 <div class="panel-body">
+                     <div *ngIf="this.constructedTitle">
+                        <h2>{{this.constructedTitle}}</h2>
+                    </div>
                     <div *ngIf="this.constructedMessage">
                         <h3>{{this.constructedMessage}}</h3>
                     </div>
@@ -196,10 +197,13 @@
 
 <div class="container" *ngIf="!this.message.id">
     <div class="col-sm-offset-5">
-        <button id="def-save" (click)="onSubmit(i)" class="btn btn-primary btn-lg"><a href="/messages">Save</a></button>
-        <button class="btn btn-danger btn-lg"><a href="home">Cancel</a></button>
+        <button id="def-save" (click)="onSubmit(i)" class="btn btn-primary btn-lg"><a routerLink="/messages">Save</a></button>
+        <button class="btn btn-danger btn-lg"><a routerLink="/home">Cancel</a></button>
     </div>
 </div>
+  <div>
+    <button (click)="updateMsg()">CLick me</button>
+  </div>
 
 <br/>
 <br/>

@@ -34,27 +34,31 @@ import { MessagesComponent } from './messages/messages.component';
 const appRoutes: Routes = [
   {
   	 path: 'home',
-   	 component: HomepageComponent
+   	 component: HomepageComponent,
+     canActivate: [FirebaseService]
    },
    {
 
      path: 'landing',
-     component: LandingComponent,
+     component: LandingComponent
 
    },
    {
      path: 'create',
-     component: CreateComponent
+     component: CreateComponent,
+     canActivate: [FirebaseService]
 
    },
    {
      path: 'messages',
-     component: MessagesComponent
+     component: MessagesComponent,
+     canActivate: [FirebaseService]
    },
    {
      path: '',
-     component: LandingComponent
-   }
+     redirectTo: 'landing',
+     pathMatch: 'full'
+   },
    ]
 
 @NgModule({
