@@ -7,6 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Http } from '@angular/http';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
+import { Message } from '../models/message';
 
 @Component({
   selector: 'app-create',
@@ -20,6 +21,7 @@ export class CreateComponent implements OnInit {
   }
 
   constructedMessage: string;
+  constructedTitle: string;
   category: number;
   title: string;
   intro: string;
@@ -29,16 +31,12 @@ export class CreateComponent implements OnInit {
 
   model = {
     title: "",
-    intro: "", 
+    intro: "",
     mid: "",
     end: ""
   }
-  addTitle(word){
-    this.title = word;
-    this.updateMessage();
-  }
+
   selectIntro(word){
-    // console.log(word)
     this.intro = word;
     this.updateMessage();
   }
@@ -48,7 +46,7 @@ export class CreateComponent implements OnInit {
       this.midArray.splice(this.midArray.indexOf(word), 1)
     else
       this.midArray.push(word);
-    // takes array and convert to string 
+    // takes array and convert to string
     // ["hi","hello","wassup"] -> "hi,hello,wassup" -> the () makes it a spacr nit a ,
     this.mid = this.midArray.join(" ");
     this.updateMessage();
@@ -57,14 +55,16 @@ export class CreateComponent implements OnInit {
     this.end = word;
     this.updateMessage();
   }
+  updateTitle(){
+    this.constructedTitle = (!!this.title? this.title : "");
+  }
   updateMessage(){
     //ternary. if this is true, put; if not, noth9ng
     // null -> true -> false   for the !!
-    this.constructedMessage = (!!this.title? this.title : "") + (!!this.intro? this.intro : "") + " " + (!!this.mid? this.mid : "") + " " + (!!this.end? this.end : "");
+    this.constructedMessage = (!!this.intro? this.intro : "") + " " + (!!this.mid? this.mid : "") + " " + (!!this.end? this.end : "");
   }
-  
+
   amicable = {
-    title: "",
     intro: [ "amicable intro", "yo" ],
     mid: [ "memme", "mememe", "heyoheyoeyheyeohyeohyoeheyobsfbis shefouhsoeuhfous " ],
     end: [ "sup", "bybebye" ]
@@ -75,7 +75,7 @@ export class CreateComponent implements OnInit {
     end: [ "sdfln", "bybebye" ]
   }
   harsh = {
-    intro: [ "harsh oj", "op" ], 
+    intro: [ "harsh oj", "op" ],
     mid: [ "memme", "aefpi" ],
     end: [ "sfoj", "bybebye" ]
   }
@@ -92,10 +92,19 @@ export class CreateComponent implements OnInit {
 
   ngOnInit() {
   }
+  updateMsg(id){//query message by id to populate field on create with existing message
+    this.db.database.ref('/messages').on("value", function(data){
+      Object.keys(data.val()).forEach(function(key){
+        if(id===key){
+          return data.val()[key]
+        }
+      })
+    })
+  }
 
 // colon specifies type??..... create class after : and a class makes it own datatype
   constructor(private messageService: MessageService, private db: AngularFireDatabase, private http: HttpClient, private fb: FirebaseService){}
   onSubmit(makeMessage){
-    this.messageService.makeMessage({title: "", text: this.constructedMessage},this.fb.getUser())
+    this.messageService.makeMessage({title: this.model.title, text: this.constructedMessage}, this.fb.getUserId())
   }
 }

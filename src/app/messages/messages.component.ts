@@ -25,7 +25,7 @@ export class MessagesComponent implements OnInit {
 
   getTheMessages(){ //
      var self = this
-     this.msgs.queryByUser(this.auth.getUser(), function(theData){
+     this.msgs.queryByUser(this.auth.getUserId(), function(theData){
        self.messages = theData
        self.messageList = self.msgs.filterToArray(theData)
      })
