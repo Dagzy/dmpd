@@ -5,43 +5,51 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MessageService{
+
 	constructor(private db: AngularFireDatabase, private http: HttpClient){
-		
 	}
-	makeMessage(theMessage, userId){
-		theMessage.ownerId = userId
-		this.db.database.ref('/messages').push(theMessage)
+	makeMessage(theMessage, userId){ //function that takes in a message object and a user Id
+		theMessage.ownerId = userId //adds the Id to the message object
+		this.db.database.ref('/messages').push(theMessage) //adds it to the database
 	}
 
-	queryByUser(userId, callback){
-		var queryResult = []	
-		var self = this
-		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){
-			console.log(snapshot.val())
-			callback(snapshot.val())
+	queryByUser(userId, callback){	
+		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){ //go to /messages in the database 
+			
+			callback(snapshot.val())//runs callback function with this data.
 		})
-		// this.db.database.ref('/messages').once("value").then(function(snapshot){
-		// 	queryResult = self.siftForId(snapshot.val(), userId)
-		// 	callback(queryResult)
-		// })
+
 	}
 
 	delete(messageData){
-		this.db.database.ref('/messages/' + messageData).remove((a: Error)=>{
-			if(a){
-				console.log(a)
+		this.db.database.ref('/messages/' + messageData).remove((err: Error)=>{
+			if(err){
+				console.log(err)
 			}
 		})
 
 	}
 
-	filterAMessage(messageObject){
-		var filteredMessage = {title: "", text: ""}
-		for(var x in messageObject.parts){
-            filteredMessage.text += (messageObject.parts[x].text)
-        }
-        return filteredMessage
+	filterToArray(messageObject){ //Turns the object into an array
+		var arrayFor = []
+		Object.keys(messageObject).forEach(function(message){ //loop over the keys in the message object (remember that the key names are the object Id's for the message and their values are the acutal message data)
+        	arrayFor.push({title: messageObject[message].title,
+        				   text: messageObject[message].text,
+        				   part: messageObject[message].text,
+        				   id: message
+        				  })//This adds an object with title (gotten from the object)
+        })
+
+        return arrayFor
 	}
+
+	// filterAMessage(messageObject){
+	// 	var filteredMessage = {title: "", text: "" }
+	// 	for(var x in messageObject.parts){
+ //            filteredMessage.text += (messageObject.parts[x].text)
+ //        }
+ //        return filteredMessage
+	// }
 
 	sendMessage(message){
 		this.http.post('https://powerful-plateau-23250.herokuapp.com/sms', message).subscribe(resp => {console.log(resp)})

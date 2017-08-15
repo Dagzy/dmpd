@@ -1,22 +1,40 @@
-<h1> My Messages </h1>
-
-
-<div *ngIf="!hasMessage">
-	<h2>YOU HAVE NO MESSAGES</h2>
-	<button href="create"> <a href="create"> Create some </a></button>
+<br/>
+<div>
+	<br>
+	<br>
+	<h1> My Messages </h1>
 </div>
-<div class="card" *ngFor="let message of filterMessages();let i=index">
+
+
+<div *ngIf="!(weHaveMessages())"> <!--if there are no messages to be displayed, then it displays the following message -->
+	<h2>YOU HAVE NO MESSAGES</h2>
+	<button> <a routerLink="/create"> Create some </a></button> <!-- this button sends you to the create a message page -->
+
+</div>
+<div class="card" *ngFor="let message of messageList;let i=index"> <!-- For every message that is retrieved from the filterMessages function, display and instance of this template -->
 	<div class="card-block">
 		<ul>
 			<li>
-				<p>{{message.title}}</p>
-				<p> {{message.text}}</p>
-
+				<h2><strong>{{message.title}}</strong></h2>
+				<p>{{message.text}}</p>
 			</li>
 		</ul>
+		<div class="btn-group btn-group-justified"> 
+			<div class="btn-group">
+			<button (click)="goTo(i)" class="btn btn-primary btn-lg"> Customize </button> 
+			</div>
+		<div class="btn-group">
+			<button (click)="quickSend(i)" class="btn btn-success btn-lg"> Send to Phone </button>
+			</div>
+		<div class="btn-group">
+			<button (click)="delete(i)" class="btn btn-danger btn-lg"> Delete </button>
+			</div>
+		</div>
 	</div>
-	<button (click)="goTo(i)"> Go To </button> 
-	<button (click)="quickSend(i)"> Quick Send </button>
-	<button (click)="delete(i)"> Delete </button>
 </div>
-<button (click)="testMessage()">Populate Field </button>
+
+<br>
+<br>
+<br>
+<!-- <button (click)="testMessage()">Populate Field </button> -->
+
