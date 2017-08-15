@@ -1,13 +1,11 @@
 <br>
 <br>
+<h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>New Message</strong></h1>
 <div class='container'>
-	<br>
-    <br>
     <div class="row">
-        <div class="col-md-6 col-sm-offset-3">
+        <div class="col-md-8 col-sm-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="font-size: 45px;"><strong>New Message</strong></h1></div>
-                <div class="panel-body">   
+                <div class="panel-heading">
                     <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
                 </div>
             </div>
@@ -21,7 +19,7 @@
         <div class="col-md-12">
             <br/>
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="font-size: 38px">Category</h1></div>
+                <div class="panel-heading"><h1 style="text-align: center; color: #d60000;">Category</h1></div>
                 <div class="panel-body">
                     <!-- <ul class="categories"> -->
                     <!-- the nums re[present thst if 0, load amicable -->
@@ -40,9 +38,9 @@
                         <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(2)" style="transform: scale(1.2);" >Harsh</label>
                     </div>
                     
-                    <div class="col-md-3">
-                        <input type="radio" id="pa" name="cat">
-                        <label for="pa" class="btn btn-primary" id="pa" (click)="setType(3)" style="transform: scale(1.2);" >Passive Aggressive</label>
+                    <div class="col-md-2">
+                        <input type="radio" id="haikus" name="cat">
+                        <label for="haikus" class="btn btn-primary" id="haikus" (click)="setType(3)" style="transform: scale(1.2);" >Haikus</label>
                     </div>
                     
                     <div class="col-md-2">
@@ -59,7 +57,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: #d60000" id="intro">Greeting</h1></div>
+                <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="intro">Greeting</h1></div>
                 <div class="panel-body">
                     <div *ngIf="category == 0" >
                         <div class="amicable" *ngFor="let sentence of amicable.intro">             
@@ -79,8 +77,8 @@
                             <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
-                    <div class="pa" *ngIf="category == 3">
-                        <div *ngFor="let sentence of pa.intro">
+                    <div class="haikus" *ngIf="category == 3">
+                        <div *ngFor="let sentence of haikus.intro">
                             <input type="radio" id="{{sentence}}" name="intro">
                             <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro(sentence)" [(ngModel)]="model.intro" ngDefaultControl>{{sentence}}</label>
                         </div>
@@ -96,7 +94,7 @@
         </div>
         <div class="col-md-4 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: #d60000" id="mid">Main Message</h1></div>
+                <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="mid">Main Message</h1></div>
                 <!-- <h3 style="color: violet; text-align: center;" id="mid">Pick as many as you wish</h3> -->
                 <div class="panel-body">
                     <div *ngIf="category == 0">
@@ -118,7 +116,7 @@
                         </div>
                     </div>
                     <div *ngIf="category == 3">
-                        <div *ngFor="let sentence of pa.mid">
+                        <div *ngFor="let sentence of haikus.mid">
                             <input type="checkbox" id="{{sentence}}" name="mid" value="all">
                             <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
                         </div>
@@ -134,7 +132,7 @@
         </div>
         <div class="col-md-3 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: #d60000" id="end">Goodbye</h1></div>
+                <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="end">Goodbye</h1></div>
                 <div class="panel-body">
                     <div *ngIf="category == 0">
                         <div class="prac" *ngFor=" let sentence of amicable.end">
@@ -155,7 +153,7 @@
                         </div>
                     </div>
                     <div *ngIf="category == 3">
-                        <div *ngFor="let sentence of pa.end">
+                        <div *ngFor="let sentence of haikus.end">
                             <input type="radio" id="{{sentence}}" name="end">
                             <label for="{{sentence}}" class="btn btn-primary" (click)="selectEnd(sentence)" [(ngModel)]="model.end" ngDefaultControl>{{sentence}}</label>
                         </div>
@@ -175,11 +173,13 @@
      <div class="row">
         <div class="col-md-12" id="message">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: #F52887; text-align: center;">Message</h1></div>
+                <div class="panel-heading">
+                    <div *ngIf="this.model.title" >
+                        <h2>{{this.model.title}}</h2>
+                    </div>
+                </div>
                 <div class="panel-body">
-                     <div *ngIf="this.constructedTitle">
-                        <h2>{{this.constructedTitle}}</h2>
-                    </div> 
+                      
                     <div *ngIf="this.constructedMessage">
                         <h3>{{this.constructedMessage}}</h3>
                     </div>
@@ -193,8 +193,8 @@
 
 <div class="container">
     <div class="col-sm-offset-5">
-        <button id="def-save" (click)="onSubmit(i)" class="btn btn-primary btn-lg"><a routerLink="/messages">Save</a></button>
-        <button class="btn btn-danger btn-lg"><a routerLink="/home">Cancel</a></button> 
+        <a routerLink="/messages"><button id="def-save" (click)="onSubmit(i)" class="btn btn-primary btn-lg">Save</button></a>
+        <a routerLink="/home"><button class="btn btn-danger btn-lg">Cancel</button></a>
     </div>
 </div>
 

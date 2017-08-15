@@ -18,7 +18,7 @@ body {
 
 a {
   text-decoration: none;
-  color: pink;
+  color: #f5f5f5;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
@@ -27,7 +27,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0);
+  background: rgba(117, 117, 117, .3);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -49,8 +49,8 @@ a:hover {
   display: block;
   text-decoration: none;
   padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
-  color: #a0b3b0;
+  background: rgba( 232, 232, 232, .3);
+  color: #f5f5f5;
   font-size: 20px;
   float: left;
   width: 50%;
@@ -60,12 +60,12 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: purple;
-  color: #ffffff;
+  background-color: #630007;
+  color: #f5f5f5;
 }
 .tab-group .active a {
-  background: pink;
-  color: #ffffff;
+  background-color: #811025;
+  color: #f5f5f5;
 }
 
 .tab-content > div:last-child {
@@ -74,12 +74,12 @@ a:hover {
 
 h1 {
   text-align: center;
-  color: #ffffff;
+  color: #f5f5f5;
   font-weight: 300;
   margin: 0 0 40px;
 }
 
-label {
+/* label {
   position: absolute;
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
@@ -108,7 +108,7 @@ label.active .req {
 
 label.highlight {
   color: #ffffff;
-}
+} */
 
 input, textarea {
   font-size: 22px;
@@ -119,14 +119,14 @@ input, textarea {
   background: none;
   background-image: none;
   border: 1px solid #a0b3b0;
-  color: #ffffff;
+  color: #f5f5f5;
   border-radius: 0;
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
 input:focus, textarea:focus {
   outline: 0;
-  border-color: pink;
+  border-color: #1c1c1c;
 }
 
 textarea {
