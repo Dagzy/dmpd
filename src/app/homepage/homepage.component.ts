@@ -10,9 +10,9 @@ import {MessageService} from '../services/messageService';
 })
 export class HomepageComponent implements OnInit {
 
-   pieces= []
+   pieces = []
   constructor(private messageService : MessageService, private auth : FirebaseService) {
-
+      this.populate()
   }
 
   ngOnInit() {
@@ -20,9 +20,9 @@ export class HomepageComponent implements OnInit {
   }
 
   populate() {
-    console.log("GEWFIJSDLK")
     var self = this
-    this.messageService.queryByUser(this.auth.getUser(), function(theData){
+    var uid = this.auth.getUserId()
+    this.messageService.queryByUser(uid, function(theData){
        self.pieces = self.messageService.filterToArray(theData)
     })
   }
