@@ -26,6 +26,7 @@ export class CreateComponent implements OnInit {
   title: string;
   intro: string;
   mid: string;
+  mid2: string;
   midArray=[];
   end: string;
 
@@ -33,6 +34,7 @@ export class CreateComponent implements OnInit {
     title: "",
     intro: "", 
     mid: "",
+    mid2: "",
     end: ""
   }
 
@@ -51,6 +53,10 @@ export class CreateComponent implements OnInit {
     this.mid = this.midArray.join(" ");
     this.updateMessage();
   }
+  selectMid(word){
+    this.mid2 = word;
+    this.updateMessage();
+  }
   selectEnd(word){
     this.end = word;
     this.updateMessage();
@@ -61,7 +67,7 @@ export class CreateComponent implements OnInit {
   updateMessage(){
     //ternary. if this is true, put; if not, noth9ng
     // null -> true -> false   for the !!
-    this.constructedMessage = (!!this.intro? this.intro : "") + " " + (!!this.mid? this.mid : "") + " " + (!!this.end? this.end : "");
+    this.constructedMessage = (!!this.intro? this.intro : "") + " " + ((!!this.mid? this.mid : "") || (!!this.mid2? this.mid2 : "")) + " " + (!!this.end? this.end : "");
   }
   
   amicable = {
@@ -80,13 +86,13 @@ export class CreateComponent implements OnInit {
     end: [ "Never contact me again.", "I hope you find someone as terrible as you.", "I’m not sure who could love you, but I definitely know I don’t.", "Don’t come running back to me.", "Breaking up with you will always remain one of my best accomplishments.", "Don’t let the door hit you on the way out." ]
   }
   haikus = {
-    intro: [ "Letting go is hard,", "I’m leaving you,", "I’m saying goodbye.", "I don’t deserve this.", "I need to tell you", "You bore me to tears.", "You bore me to death.", "You deserve better.", "Hey. We need to talk."],
-    mid: [ "and forgetting is harder,", "so this is my last goodbye.", "This loveless relationship", "Don’t come running back to me.", "that I'm breaking up with you.", "I don’t love you anymore.", "I can do better than you.", "Never contact me again.", "I need to focus on me.", "This isn’t worth the effort.", "I am breaking up with you.", "I’m better off without you."],
+    intro: [ "Letting go is hard,", "I’m leaving you,", "I’m saying goodbye.", "I don’t deserve this.", "I need to tell you", "You bore me to tears.", "You bore me to death.", "You deserve better.", "Hey. We need to talk.", "I don't deserve this."],
+    mid2: [ "and forgetting is harder,", "so this is my last goodbye.", "This loveless relationship", "Don’t come running back to me.", "that I'm breaking up with you.", "I don’t love you anymore.", "I can do better than you.", "Never contact me again.", "I need to focus on me.", "This isn’t worth the effort.", "I am breaking up with you.", "I’m better off without you."],
     end: [ "but I will succeed.", "Please don’t contact me.", "is over for good.", "I will turn you down.", "See you later, chump.", "Bye! See you never!", "I deserve better.", "Please leave me alone.", "Goodbye forever.", "Can we still be friends?", "That is all. Goodbye.", "This is for the best." ]
   }
   poems = {
     intro: [ "Roses are Red. Violets are blue." ],
-    mid: [ "Trash is dumped,", "I'm saying goodbye because", "I'm breaking up with you.", "I hate your face.", "You suck like a vacuum." ],
+    mid2: [ "Trash is dumped,", "I'm saying goodbye because", "I'm breaking up with you.", "I hate your face.", "You suck like a vacuum." ],
     end: [ "and so are you.", "I'm better off without you.", "Leave me the hell alone.", "I'm breaking up with you.", "It's not me; it's you." ]
   }
 

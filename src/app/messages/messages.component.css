@@ -15,7 +15,7 @@ h1{
 }
 h2, a {
 	color: #1c1c1c;
-	text-align: center;
+
 }
 p, a{
 	font-size: 20px;
@@ -26,11 +26,13 @@ li {
 }
 
 button.btn.btn-primary, button.btn.btn-success, button.btn.btn-danger {
-	vertical-align: middle;
 	display: block;
 	background-color: #811025;
 	border: transparent;
 }
 button.btn.btn-primary:hover, button.btn.btn-success:hover, button.btn.btn-danger:hover{
-	background-color: rgb(176, 5, 5);
+	background-color: #630007;
+}
+button.btn.btn-primary:focus, button.btn.btn-success:focus, button.btn.btn-danger:focus{
+	background-color: #b00505;
 }
