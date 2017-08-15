@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+img{
+  width: 500px;
+  height: auto;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -13,7 +18,7 @@ body {
 
 a {
   text-decoration: none;
-  color: pink;
+  color: #f5f5f5;
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
@@ -22,7 +27,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0);
+  background: rgba(28, 28, 28, .3);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -44,8 +49,8 @@ a:hover {
   display: block;
   text-decoration: none;
   padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
-  color: #a0b3b0;
+  background: rgba( 232, 232, 232, .25);
+  color: white;
   font-size: 20px;
   float: left;
   width: 50%;
@@ -53,14 +58,15 @@ a:hover {
   cursor: pointer;
   -webkit-transition: .5s ease;
   transition: .5s ease;
+  border-radius: 8px;
 }
 .tab-group li a:hover {
-  background: purple;
-  color: #ffffff;
+  background-color: #630007;
+  color: #f5f5f5;
 }
 .tab-group .active a {
-  background: pink;
-  color: #ffffff;
+  background-color: #811025;
+  color: #f5f5f5;
 }
 
 .tab-content > div:last-child {
@@ -69,12 +75,12 @@ a:hover {
 
 h1 {
   text-align: center;
-  color: #ffffff;
+  color: #f5f5f5;
   font-weight: 300;
   margin: 0 0 40px;
 }
 
-label {
+/* label {
   position: absolute;
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
@@ -103,7 +109,7 @@ label.active .req {
 
 label.highlight {
   color: #ffffff;
-}
+} */
 
 input, textarea {
   font-size: 22px;
@@ -113,21 +119,26 @@ input, textarea {
   padding: 5px 10px;
   background: none;
   background-image: none;
-  border: 1px solid #a0b3b0;
-  color: #ffffff;
-  border-radius: 0;
+  border: 1px solid rgba(245, 245, 245, .8);
+  color: rgba(245, 245, 245,1);
+  border-radius: 8px;
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
+input::placeholder{
+  color: rgba(245, 245, 245,.7);
+}
 input:focus, textarea:focus {
   outline: 0;
-  border-color: pink;
+  border-color: #1c1c1c;
+  color: white;
+  background-color: rgba( 99, 0, 7, .4);
 }
 
-textarea {
+/* textarea {
   border: 2px solid #a0b3b0;
   resize: vertical;
-}
+} */
 
 .field-wrap {
   position: relative;
@@ -151,20 +162,23 @@ textarea {
 .button {
   border: 0;
   outline: none;
-  border-radius: 0;
+  border-radius: 8px;
   padding: 15px 0;
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
-  background: purple;
+  background: #811025;
   color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
-.button:hover, .button:focus {
-  background: purple;
+.button:hover {
+  background: #630007;
+}
+.button:focus {
+  background: #b00505;
 }
 
 .button-block {
