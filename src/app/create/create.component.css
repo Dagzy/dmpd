@@ -9,7 +9,7 @@ input, label {
 	margin: auto;
 	float: none;
 	display:inline-block;
-	width: 587px;
+	/* width: auto; */
 	padding: 4px;
 	font-size: 20px;
 }

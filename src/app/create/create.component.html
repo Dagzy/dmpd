@@ -116,15 +116,15 @@
                         </div>
                     </div>
                     <div *ngIf="category == 3">
-                        <div *ngFor="let sentence of haikus.mid">
-                            <input type="checkbox" id="{{sentence}}" name="mid" value="all">
-                            <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
+                        <div *ngFor="let sentence of haikus.mid2">
+                            <input type="radio" id="{{sentence}}" name="mid2">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectMid(sentence)" [(ngModel)]="model.mid2" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 4">
-                        <div *ngFor="let sentence of poems.mid">
-                            <input type="checkbox" id="{{sentence}}" name="mid" value="all">
-                            <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid(sentence)" [(ngModel)]="model.mid" ngDefaultControl>{{sentence}}</label>
+                        <div *ngFor="let sentence of poems.mid2">
+                            <input type="radio" id="{{sentence}}" name="mid2">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectMid(sentence)" [(ngModel)]="model.mid2" ngDefaultControl>{{sentence}}</label>
                         </div>
                     </div>
                 </div>
