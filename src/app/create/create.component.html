@@ -1,7 +1,7 @@
 <br>
 <br>
 <h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>New Message</strong></h1>
-<div class='container'>
+<div class='container' *ngIf="!this.message.id">
     <div class="row">
         <div class="col-md-8 col-sm-offset-2">
             <div class="panel panel-default">
@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<div class='container'>
+<div class='container' *ngIf="!this.message.id">
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default">
@@ -198,7 +198,10 @@
     </div>
 </div>
   <div>
-    <button (click)="updateMsg()">CLick me</button>
+     <button (click)='updateMsg(i)'>CLick me</button>
+  </div>
+  <div class="container" *ngIf="">
+    <input type="text" [(ngModel)]="messageContent">
   </div>
 
 <br/>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageService} from '../services/messageService'
 import { FirebaseService }  from '../services/authService';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-messages',
@@ -9,7 +11,7 @@ import { FirebaseService }  from '../services/authService';
 })
 export class MessagesComponent implements OnInit {
   //messages
-  constructor( private msgs: MessageService, private auth: FirebaseService){} //msgs is messageService and auth is authService(stupidly called FirebaseService)
+  constructor( private msgs: MessageService, private auth: FirebaseService, private router: Router){} //msgs is messageService and auth is authService(stupidly called FirebaseService)
 
   //messages
   messageList = [] //The Array for the message objects that are completed { title: "theTitle", text: "text"}
@@ -33,7 +35,9 @@ export class MessagesComponent implements OnInit {
   }
 
   goTo(index){
-    console.log(this.messageList[index])
+    let self = this
+    console.log(this.messageList[index].id)
+    this.router.navigate(['/edit', self.messageList[index].id])
   }
 
   delete(index){

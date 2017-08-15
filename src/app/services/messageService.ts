@@ -55,8 +55,10 @@ export class MessageService{
 		this.http.post('https://powerful-plateau-23250.herokuapp.com/sms', message).subscribe(resp => {console.log(resp)})
   }
 
-  getMsgbyId(){
-    console.log(this.db.database.ref('/messages'))
+  getMsgbyId(id){
+    return this.db.database.ref('/messages/' + id).once('value').then((s) => {
+      return s.val();
+    });
 
   }
 

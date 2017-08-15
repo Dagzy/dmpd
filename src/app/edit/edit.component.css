@@ -1,0 +1,9 @@
+textarea{
+  font-size: 30px;
+  min-width: 100%;
+  border: red;
+  border-width: 50px;
+}
+.btn{
+  justify-content: center;
+}
