@@ -61,6 +61,11 @@ export class MessageService{
     });
 
   }
+  update(messageData, newtext){
+    this.db.database.ref('/messages/' + messageData).update({
+      text: newtext
+		})
+  }
 
 
 }

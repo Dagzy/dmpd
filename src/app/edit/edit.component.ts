@@ -22,7 +22,9 @@ export class EditComponent implements OnInit {
    }
 
 updateMessage(makeMessage){
-    this.msgs.makeMessage({text: this.message}, this.fb.getUserId())
+    this.route.params.subscribe((params) => {
+      this.msgs.update(params.id, this.message);
+    });
   }
 
   ngOnInit() {
