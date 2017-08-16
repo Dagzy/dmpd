@@ -4,6 +4,8 @@ import { FirebaseService }  from '../services/authService';
 import { Router } from '@angular/router';
 
 
+
+declare const Twilio: any;
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
