@@ -69,6 +69,15 @@ export class CreateComponent implements OnInit {
     // null -> true -> false   for the !!
     this.constructedMessage = (!!this.intro? this.intro : "") + " " + ((!!this.mid? this.mid : "") || (!!this.mid2? this.mid2 : "")) + " " + (!!this.end? this.end : "");
   }
+  weHaveTitle(){
+    return !!(this.model.title)
+  }
+  weHaveMessage(){
+    return !!(this.constructedMessage)
+  }
+  weHaveIntro(){
+    return !!(this.selectIntro)
+  }
   
   amicable = {
     intro: [ "Hey, friend. We need to talk.", "This won't be easy, but there’s something I need to get off my chest.", "I don’t think you will like this, but you need to hear it." ],
@@ -82,7 +91,7 @@ export class CreateComponent implements OnInit {
   }
   harsh = {
     intro: [ "I’m breaking up with you.", "Today is great because I’m dumping you!", "‘Tis a lovely day to leave you." ], 
-    mid: [ "You are inferior to me.", "I deserve better.", "You don’t deserve me.", "You bore me.", "You’re beneath me.", "This isn’t worth the effort.", "You’re not worth the effort.", "I would have been better off if we had never met.", "I don’t love you anymore.", "I don’t love you anymore. In fact, I don't know if I ever did.", "You’re dragging me down.", "I need to make some changes in my life, and one of them is you.", "I hate being around you." ],
+    mid: [ "You are inferior to me.", "I deserve better.", "You don’t deserve me.", "You bore me.", "You’re beneath me.", "This isn’t worth the effort.", "You’re not worth the effort.", "I would have been better off if we had never met.", "I don’t love you anymore.", "I don’t love you anymore. In fact, I don't know if I ever did.", "You’re dragging me down.", "I need to make some changes in my life, and one of them is you.", "I hate being around you.", "I've found someone better." ],
     end: [ "Never contact me again.", "I hope you find someone as terrible as you.", "I’m not sure who could love you, but I definitely know I don’t.", "Don’t come running back to me.", "Breaking up with you will always remain one of my best accomplishments.", "Don’t let the door hit you on the way out." ]
   }
   haikus = {
