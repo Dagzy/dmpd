@@ -1,0 +1,52 @@
+<div id="fb-root"></div>
+<br/>
+<div>
+	<br/>
+
+	<h1><img src="../assets/dumpdlogo/dumpd-2.png"></h1>
+</div>
+<div class='container'>
+	<div class="form">
+		<div *ngIf="signup;else login">   <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
+			<ul class="tab-group">
+				<li class="tab active"><a>Sign Up</a></li>
+				<li class="tab" (click)="swap()"><a>Log In</a></li>
+			</ul>
+			<div id="signup">
+				<h1>Sign Up</h1>
+					<div class="top-row">
+
+					</div>
+					<div class="field-wrap">
+						<input placeholder="Email" id="login" type="email"required autocomplete="off" [(ngModel)]="model.newEmail"/>
+					</div>
+					<div class="field-wrap">
+						<input id="password" placeholder="Set A Password" type="password"required autocomplete="off" [(ngModel)]="model.newPass"/>
+
+					</div>
+					<button type="submit" (click)="create()" class="button button-block">Get Started</button>
+			</div>
+
+		</div>
+
+		<ng-template #login> <!-- the ng-template is for the login view when you swap from signup to login -->
+			<ul class="tab-group">
+				<li class="tab" (click)="swap()"><a>Sign Up</a></li>
+				<li class="tab active"><a>Log In</a></li>
+			</ul>
+			<div id="login">
+				<h1>Welcome Back!</h1>
+					<div class="field-wrap">
+
+						<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" />
+					</div>
+					<div class="field-wrap">
+						<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" />
+					</div>
+					<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
+					<button class="button button-block" (click)="logIn()">Log In</button>
+			</div>
+		</ng-template>
+	</div>
+</div>
+<br/>
