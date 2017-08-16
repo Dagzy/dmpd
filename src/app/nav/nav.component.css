@@ -26,6 +26,8 @@ a{
 .logo {
   width: 130px;
   vertical-align: middle;
+  margin-top: -12px;
+  height: 50px;
 
 }
 
