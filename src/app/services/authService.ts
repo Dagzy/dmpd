@@ -27,6 +27,7 @@ export class FirebaseService implements CanActivate{
 		})
 		.catch((e) => {
 			console.log(e);//if error, print the error
+			return alert(e);
 		})
 	}
 	signin(user: User){
@@ -36,6 +37,7 @@ export class FirebaseService implements CanActivate{
 		})
 		.catch((e) => {
 			console.log(e);
+			return alert(e);
 		})
 	}
 	signout(){
