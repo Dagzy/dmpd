@@ -32,16 +32,18 @@ export class CreateComponent implements OnInit {
   mid2: string;
   midArray=[];
   end: string;
+  phoneNum: string;
 
   activated: any = {};   
 
   model = {
-    title: "",
-    intro: "",
-    mid: "",
-    mid2: "",
-    end: ""
-  }
+    title: '',
+    intro: '',
+    mid: '',
+    mid2: '',
+    end: '',
+    phoneNum: ''
+  };
 
   selectIntro(identifier,word, index){
     console.log(identifier,word,index);
@@ -162,7 +164,8 @@ export class CreateComponent implements OnInit {
     }
 
     onSubmit(makeMessage){
-    this.messageService.makeMessage({title: this.model.title, text: this.constructedMessage}, this.fb.getUserId())
+    this.messageService.makeMessage({title: this.model.title, text: this.constructedMessage, phoneNum: this.model.phoneNum},
+      this.fb.getUserId());
   }
 
 }
