@@ -1,17 +1,25 @@
 <br>
 <br>
 <h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>New Message</strong></h1>
-<div class='container' *ngIf="!this.message.id">
+<div class='container'>
     <div class="row">
-        <div class="col-md-8 col-sm-offset-2">
+        <div class="col-md-10 col-sm-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading a">
-                    <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title" style="border: transparent;"/>
+                <div class="panel-heading">
+                    <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
+                    <input type="text" placeholder="Your Phone Number +12223334444" class="constructedTitle" [(ngModel)]="model.phoneNum"/>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
+          </div>
+                              <!-- <div class="col-md-4 col-sm-pull-7">
+                                  <div class="panel panel-default">
+                                      <div class="panel-heading">
+                                      </div>
+                                  </div>
+                              </div> -->
+
 
 <div class='container' *ngIf="!this.message.id">
     <div class="row">
@@ -23,17 +31,17 @@
                 <div class="panel-body" ng-init="active = true">
                     <!-- <ul class="categories"> -->
                     <!-- the nums re[present thst if 0, load amicable -->
-                    <div class="btn-group btn-group-justified"> 
+                    <div class="btn-group btn-group-justified">
                         <div class="btn-group">
                             <input type="radio" id="amicable" name="cat">
                             <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(0)" style="border-radius:8px; font-size: 20px;">Amicable</label>
                         </div>
-                        
+
                         <div class="btn-group">
                             <input type="radio" id="blunt" name="cat">
                             <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)" style="border-radius:8px; font-size: 20px;">Blunt</label>
                         </div>
-                        
+
                         <div class="btn-group">
                                 <input type="radio" id="haikus" name="cat">
                                 <label for="haikus" class="btn btn-primary" id="haikus" (click)="setType(2)" style="border-radius:8px; font-size: 20px;" >Haikus</label>
@@ -43,7 +51,7 @@
                             <input type="radio" id="harsh" name="cat">
                             <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(3)" style="border-radius:8px; font-size: 20px;">Harsh</label>
                         </div>
-                        
+
                         <div class="btn-group">
                             <input type="radio" id="poems" name="cat">
                             <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)" style="border-radius:8px; font-size: 20px;" >Poems</label>
@@ -203,8 +211,8 @@
                     </div>
                 </div>
             </div>
-        </div> 
-    </div> 
+        </div>
+    </div>
 </div>
 
 <br/>
@@ -217,7 +225,7 @@
 </div>
   <!-- <div>
      <button (click)='updateMsg(i)'>CLick me</button>
-  </div>
+  </div> -->
   <div class="container" *ngIf="">
     <input type="text" [(ngModel)]="messageContent">
   </div> -->
