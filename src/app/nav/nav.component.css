@@ -14,17 +14,24 @@ a{
 }
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-nav>li>a:hover{
   color: #FCFCFC;
-  text-shadow: -1px -1px #757575, 1px -1px #757575, -1px 1px #757575, 1px 1px #757575; 
+  text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; 
   background-color: #811025;
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus {
   color: #FCFCFC;
-  text-shadow: -1px -1px #757575, 1px -1px #757575, -1px 1px #757575, 1px 1px #757575; 
+  text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; 
   background-color: rgba(176, 5, 5, 1);
+}
+
+.logo {
+  width: 130px;
+  vertical-align: middle;
+  
 }
 
 /* HAMBURGER menu */
 button {
-  background-color: orange;
+  background-color: rgba(176, 5, 5, 1);
+  border: 2px solid #1c1c1c;
 }
 

@@ -18,11 +18,11 @@
 						
 					</div>
 					<div class="field-wrap">
-						<input placeholder="Email" id="login" type="email"required autocomplete="off" [(ngModel)]="model.newEmail"/>
+						<input placeholder="Email" id="login" type="email"required autocomplete="off" [(ngModel)]="model.newEmail"(keyup.enter)="create()"/>
 					</div>
 					<div class="field-wrap">
-						<input id="password" placeholder="Set A Password" type="password"required autocomplete="off" [(ngModel)]="model.newPass"/>
-
+						<input id="password" placeholder="Set A Password" type="password"required autocomplete="off" [(ngModel)]="model.newPass" (keyup.enter)="create()"/>
+						<a style="font-size: 18px;">Please enter at least 6 characters</a>
 					</div>
 					<button type="submit" (click)="create()" class="button button-block">Get Started</button>
 			</div>
@@ -37,14 +37,13 @@
 			<div id="login">   
 				<h1>Welcome Back!</h1>
 					<div class="field-wrap">
-			
-						<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" />
+						<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" (keyup.enter)="logIn()"/>
 					</div>
 					<div class="field-wrap">
-						<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" />
+						<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
 					</div>
 					<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
-					<button class="button button-block" (click)="logIn()">Log In</button>
+					<button class="button button-block" (click)="logIn()" >Log In</button>
 			</div>
 		</ng-template>
 	</div> 
