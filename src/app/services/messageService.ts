@@ -13,9 +13,9 @@ export class MessageService{
 		this.db.database.ref('/messages').push(theMessage) //adds it to the database
 	}
 
-	queryByUser(userId, callback){	
-		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){ //go to /messages in the database 
-			
+	queryByUser(userId, callback){
+		this.db.database.ref('/messages').orderByChild('ownerId').equalTo(userId).on("value", function(snapshot){ //go to /messages in the database
+
 			callback(snapshot.val())//runs callback function with this data.
 		})
 
@@ -53,7 +53,19 @@ export class MessageService{
 
 	sendMessage(message){
 		this.http.post('https://powerful-plateau-23250.herokuapp.com/sms', message).subscribe(resp => {console.log(resp)})
-	}
+  }
+
+  getMsgbyId(id){
+    return this.db.database.ref('/messages/' + id).once('value').then((s) => {
+      return s.val();
+    });
+
+  }
+  update(messageData, newtext){
+    this.db.database.ref('/messages/' + messageData).update({
+      text: newtext
+		})
+  }
 
 
 }

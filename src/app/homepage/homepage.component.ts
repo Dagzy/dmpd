@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/authService';
 import {MessageService} from '../services/messageService';
+import { MessagesComponent } from '../messages/messages.component';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class HomepageComponent implements OnInit {
     })
   }
 
+// Twilio Credentials
 
 
 }
