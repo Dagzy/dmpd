@@ -56,4 +56,3 @@ export class MessagesComponent implements OnInit {
     this.msgs.sendMessage(this.messageList[index])
   }
 }
-
