@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../services/messageService';
 import { FirebaseService }  from '../services/authService';
 import {User} from '../models/user';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Http } from '@angular/http';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 import { Message } from '../models/message';
+import { MessagesComponent } from '../messages/messages.component';
+
 
 @Component({
   selector: 'app-create',
@@ -16,10 +18,11 @@ import { Message } from '../models/message';
 })
 
 export class CreateComponent implements OnInit {
+  message: any = {};
+  messageContent= "";
   setType(typeNumber){
     this.category = typeNumber;
   }
-
   constructedMessage: string;
   constructedTitle: string;
   category: number;
@@ -32,7 +35,7 @@ export class CreateComponent implements OnInit {
 
   model = {
     title: "",
-    intro: "", 
+    intro: "",
     mid: "",
     mid2: "",
     end: ""
@@ -48,7 +51,7 @@ export class CreateComponent implements OnInit {
       this.midArray.splice(this.midArray.indexOf(word), 1)
     else
       this.midArray.push(word);
-    // takes array and convert to string 
+    // takes array and convert to string
     // ["hi","hello","wassup"] -> "hi,hello,wassup" -> the () makes it a spacr nit a ,
     this.mid = this.midArray.join(" ");
     this.updateMessage();
@@ -106,11 +109,32 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.messageComp.getTheMessages()
+    // console.log("Got the messages on the create page")
+  }
+  updateMsg(id){//query message by id to populate field on create with existing message
+    console.log(id)
+    const self = this
+    this.db.database.ref('/messages').on("value", function(data){
+      console.log(data.val())
+          id = data.val()
+      Object.keys(data.val()).forEach(function(key){
+        if(id === key){
+          self.messageContent = data.val()[key].text
+          return data.val()[key]
+        }
+      })
+    })
   }
 
 // colon specifies type??..... create class after : and a class makes it own datatype
-  constructor(private messageService: MessageService, private db: AngularFireDatabase, private http: HttpClient, private fb: FirebaseService){}
-  onSubmit(makeMessage){
+  constructor(private messageService: MessageService, private db: AngularFireDatabase, private http: HttpClient, private fb: FirebaseService
+    ){
+
+    }
+
+    onSubmit(makeMessage){
     this.messageService.makeMessage({title: this.model.title, text: this.constructedMessage}, this.fb.getUserId())
   }
+
 }

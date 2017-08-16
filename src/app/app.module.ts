@@ -6,10 +6,11 @@ import { HttpClientModule }  from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LandingComponent } from './landing/landing.component';
-
-import { CreateComponent } from './create/create.component'
-import { MessageService } from './services/messageService'
-import {FirebaseService} from './services/authService'
+import { EditComponent } from './edit/edit.component';
+import { CreateComponent } from './create/create.component';
+import { MessageService } from './services/messageService';
+import { AuthGuard } from './services/auth-guard.service';
+import {FirebaseService} from './services/authService';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
   {
   	 path: 'home',
    	 component: HomepageComponent,
-     canActivate: [FirebaseService]
+     canActivate: [AuthGuard]
    },
    {
 
@@ -46,13 +47,18 @@ const appRoutes: Routes = [
    {
      path: 'create',
      component: CreateComponent,
-     canActivate: [FirebaseService]
+     canActivate: [AuthGuard]
 
    },
+  {
+    path: 'edit/:id',
+    component: EditComponent,
+    canActivate: [AuthGuard]
+  },
    {
      path: 'messages',
      component: MessagesComponent,
-     canActivate: [FirebaseService]
+     canActivate: [AuthGuard]
    },
    {
      path: '',
@@ -68,14 +74,15 @@ const appRoutes: Routes = [
     LandingComponent,
     CreateComponent,
     NavComponent,
-    MessagesComponent
-   
+    MessagesComponent,
+    EditComponent
+
   ],
   imports: [
     AngularFireModule.initializeApp(config),
     BrowserModule,
     FormsModule,
-    HttpClientModule, 
+    HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(
@@ -83,7 +90,7 @@ const appRoutes: Routes = [
     	{enableTracing: true} //debugging
     )
   ],
-  providers: [MessageService, FirebaseService],
+  providers: [MessageService, FirebaseService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
