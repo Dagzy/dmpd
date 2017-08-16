@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MessageService} from '../services/messageService'
-import { FirebaseService }  from '../services/authService';
+import { MessageService } from '../services/messageService'
+import { FirebaseService } from '../services/authService';
 import { Router } from '@angular/router';
 
 
@@ -13,7 +13,7 @@ declare const Twilio: any;
 })
 export class MessagesComponent implements OnInit {
   //messages
-  constructor( private msgs: MessageService, private auth: FirebaseService, private router: Router){} //msgs is messageService and auth is authService(stupidly called FirebaseService)
+  constructor(private msgs: MessageService, private auth: FirebaseService, private router: Router) { } //msgs is messageService and auth is authService(stupidly called FirebaseService)
 
   //messages
   messageList = [] //The Array for the message objects that are completed { title: "theTitle", text: "text"}
@@ -27,33 +27,31 @@ export class MessagesComponent implements OnInit {
   }
 
 
-  getTheMessages(){ //
-     var self = this
-     this.msgs.queryByUser(this.auth.getUserId(), function(theData){
-       self.messages = theData
-       self.messageList = self.msgs.filterToArray(theData)
-     })
+  getTheMessages() { //
+    var self = this
+    this.msgs.queryByUser(this.auth.getUserId(), function (theData) {
+      self.messages = theData
+      self.messageList = self.msgs.filterToArray(theData)
+    })
 
   }
 
-  goTo(index){
+  goTo(index) {
     let self = this
     console.log(this.messageList[index].id)
     this.router.navigate(['/edit', self.messageList[index].id])
   }
 
-  delete(index){
-
-    console.log()
+  delete(index) {
     this.msgs.delete(this.messageList[index].id)
     this.getTheMessages()
   }
 
-  weHaveMessages(){
+  weHaveMessages() {
     return !!(this.messages)
   }
 
-  quickSend(index){
+  quickSend(index) {
     console.log(this.messageList[index])
     this.msgs.sendMessage(this.messageList[index])
   }
