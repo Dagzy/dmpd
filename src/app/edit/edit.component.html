@@ -1,14 +1,15 @@
 <br>
 <br>
 <br>
-<br>
-<!-- <h2 [(ngModel)] = "title" ><strong>{{this.model.title}}</strong></h2> -->
+<h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>Update "{{model.title}}" Message</strong></h1>
 <div class="container">
   <div class="form col-xs-12">
       <br>
       <br>
       <div class="panel panel-default">
-        <div class="panel-heading"><textarea [(ngModel)] = "message" name = "message" ></textarea></div>
+        <div class="panel-heading"><textarea [(ngModel)]="model.title" name="title" style="text-align: center"></textarea></div>
+        <br>
+        <div class="panel-body"><textarea [(ngModel)]="model.message" name="message"></textarea></div>
       </div>
     <br>
   </div>
@@ -19,3 +20,5 @@
     <a routerLink="/messages"><button class="btn btn-danger btn-lg">Cancel</button></a>
   </div>
 </div>
+<br>
+<br>
