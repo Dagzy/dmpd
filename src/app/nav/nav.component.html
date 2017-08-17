@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top col-md-10 col-md-offset-1">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a routerLink="/home" class="navbar-brand navbar-left"><img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png"></a>
+            <img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png">
             <!-- the toggleState is for the hamburger menu and is needed here for it to come down -->
                 <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
                 <span class="sr-only">Toggle navigation</span>
@@ -18,7 +18,7 @@
               <li role="presentation" routerLinkActive="active" ><a class="tryme" routerLink="create">New Messages</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li *ngIf="currentUser()"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+              <li *ngIf="currentUser()"><a href="#"><span class="glyphicon glyphicon-log-out" style="margin-top: -3px;"></span> Logout</a></li>
             </ul>
         </div>
     </div>

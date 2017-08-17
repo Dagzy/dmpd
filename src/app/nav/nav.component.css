@@ -3,11 +3,9 @@
   box-shadow: 0 4px 20px 4px rgba(232, 232, 232, .6);
   border-radius: 8px;
 }
-.navbar-header a{
-  font-size: 25px;
-}
 a {
   font-size: 20px;
+  margin-top: 5px;
 }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a{
   color: #fcfcfc;
@@ -24,10 +22,10 @@ a {
 }
 
 .logo {
-  width: 150px;
+  width: 160px;
   vertical-align: middle;
-  margin-top: -11px;
-  height: 50px;
+  margin-top: 3px;
+  height: 55px;
 }
 
 /* HAMBURGER menu */
