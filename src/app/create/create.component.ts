@@ -101,9 +101,6 @@ export class CreateComponent implements OnInit {
   weHaveMessage(){
     return !!(this.constructedMessage)
   }
-  weHaveIntro(){
-    return !!(this.selectIntro)
-  }
   isActivated(word,index){
     //We check if the list does not exist in object already, and if it doesn't, we make it
     if(!this.activated[word])
@@ -123,7 +120,7 @@ export class CreateComponent implements OnInit {
     end: [ "I don’t think we should stay friends, so this is my last goodbye.", "Don’t try to convince me otherwise. I’ve already made up my mind.", "I just don’t see this working.", "This isn't working, and I don't think it ever will.", "Goodbye.", "This day would never have come if you loved me just as much as I have always loved you." ]
   }
   haikus = {
-    intro: [ "Letting go is hard,", "I’m leaving you,", "I’m saying goodbye.", "I don’t deserve this.", "I need to tell you", "You bore me to tears.", "You bore me to death.", "You deserve better.", "Hey. We need to talk.", "I don't deserve this."],
+    intro: [ "Letting go is hard,", "I am leaving you,", "I’m saying goodbye.", "I don’t deserve this.", "I need to tell you", "You bore me to tears.", "You bore me to death.", "You deserve better.", "Hey. We need to talk.", "I don't deserve this."],
     mid2: [ "and forgetting is harder,", "so this is my last goodbye.", "This loveless relationship", "Don’t come running back to me.", "that I'm breaking up with you.", "I don’t love you anymore.", "I can do better than you.", "Never contact me again.", "I need to focus on me.", "This isn’t worth the effort.", "I am breaking up with you.", "I’m better off without you."],
     end: [ "but I will succeed.", "Please don’t contact me.", "is over for good.", "I will turn you down.", "See you later, chump.", "Bye! See you never!", "I deserve better.", "Please leave me alone.", "Goodbye forever.", "Can we still be friends?", "That is all. Goodbye.", "This is for the best." ]
   }

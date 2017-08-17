@@ -1,13 +1,14 @@
 <br>
 <br>
+<br>
 <h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>New Message</strong></h1>
 <div class='container'>
     <div class="row">
         <div class="col-md-10 col-sm-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading a">
                     <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
-                    <input type="text" placeholder="Your Phone Number +12223334444" class="constructedTitle" [(ngModel)]="model.phoneNum"/>
+                    <input type="text" placeholder="Your Phone Number (Ex: +12223334444)" class="constructedTitle" [(ngModel)]="model.phoneNum"/>
                   </div>
                 </div>
               </div>
@@ -21,7 +22,7 @@
                               </div> -->
 
 
-<div class='container' *ngIf="!this.message.id">
+<div class='container'>
     <div class="row">
         <!-- rows do same line and coumns do different lines -->
         <div class="col-md-12">
@@ -34,7 +35,7 @@
                     <div class="btn-group btn-group-justified">
                         <div class="btn-group">
                             <input type="radio" id="amicable" name="cat">
-                            <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(0)" style="border-radius:8px; font-size: 20px;">Amicable</label>
+                            <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(5)" style="border-radius:8px; font-size: 20px;">Amicable</label>
                         </div>
 
                         <div class="btn-group">
@@ -63,43 +64,40 @@
     </div>
 </div>
 
-<div class='container' *ngIf="!this.message.id">
+<div class='container' *ngIf="this.category">
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="intro">Greeting</h1></div>
-                <div *ngIf="!(weHaveIntro())"></div>
-                <div *ngIf="(weHaveIntro())" class="hello">
-                    <div class="panel-body">
-                        <div *ngIf="category == 0" >
-                            <div class="amicable" *ngFor="let sentence of amicable.intro; let i = index">             
-                                <input type="radio" id="{{sentence}}" name="intro">
-                                <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('amicable-intro', sentence, i)" [class.highlight]="isActivated('amicable-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label> 
-                            </div>
+                <div class="panel-body">
+                    <div *ngIf="category == 5" >
+                        <div class="amicable" *ngFor="let sentence of amicable.intro; let i = index">             
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('amicable-intro', sentence, i)" [class.highlight]="isActivated('amicable-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label> 
                         </div>
-                        <div  *ngIf="category == 1">
-                            <div class="blunt" *ngFor="let sentence of blunt.intro; let i = index">
-                                <input type="radio" id="{{sentence}}" name="intro">
-                                <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('blunt-intro', sentence, i)" [class.highlight]="isActivated('blunt-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
-                            </div>
+                    </div>
+                    <div  *ngIf="category == 1">
+                        <div class="blunt" *ngFor="let sentence of blunt.intro; let i = index">
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('blunt-intro', sentence, i)" [class.highlight]="isActivated('blunt-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
-                        <div *ngIf="category == 2">
-                            <div *ngFor="let sentence of haikus.intro; let i = index">
-                                <input type="radio" id="{{sentence}}" name="intro">
-                                <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('haikus-intro', sentence, i)" [class.highlight]="isActivated('haikus-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
-                            </div>
+                    </div>
+                    <div *ngIf="category == 2">
+                        <div *ngFor="let sentence of haikus.intro; let i = index">
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('haikus-intro', sentence, i)" [class.highlight]="isActivated('haikus-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
-                        <div *ngIf="category == 3">
-                            <div class="harsh" *ngFor="let sentence of harsh.intro; let i = index">
-                                <input type="radio" id="{{sentence}}" name="intro">
-                                <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('harsh-intro', sentence, i)" [class.highlight]="isActivated('harsh-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
-                            </div>
+                    </div>
+                    <div *ngIf="category == 3">
+                        <div class="harsh" *ngFor="let sentence of harsh.intro; let i = index">
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('harsh-intro', sentence, i)" [class.highlight]="isActivated('harsh-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
-                        <div class="poems" *ngIf="category == 4; let i = index">
-                            <div *ngFor="let sentence of poems.intro; let i = index">
-                                <input type="radio" id="{{sentence}}" name="intro">
-                                <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('poems-intro', sentence, i)" [class.highlight]="isActivated('poems-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
-                            </div>
+                    </div>
+                    <div class="poems" *ngIf="category == 4; let i = index">
+                        <div *ngFor="let sentence of poems.intro; let i = index">
+                            <input type="radio" id="{{sentence}}" name="intro">
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('poems-intro', sentence, i)" [class.highlight]="isActivated('poems-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
                     </div>
                 </div>
@@ -108,9 +106,8 @@
         <div class="col-md-4 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="mid">Main Message</h1></div>
-                <!-- <h3 style="color: violet; text-align: center;" id="mid">Pick as many as you wish</h3> -->
                 <div class="panel-body">
-                    <div *ngIf="category == 0">
+                    <div *ngIf="category == 5">
                         <div *ngFor=" let sentence of amicable.mid; let i = index">
                             <input type="checkbox" id="{{sentence}}" name="mid" value="all">
                             <label for="{{sentence}}" class="btn btn-primary" (click)="appendToMid('amicable-mid',sentence,i)" [class.highlight]="isActivated('amicable-mid',i)" [(ngModel)]="model.mid" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
@@ -147,15 +144,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="end">Goodbye</h1></div>
                 <div class="panel-body">
-                    <div *ngIf="category == 0">
+                    <div *ngIf="category == 5">
                         <div class="prac" *ngFor=" let sentence of amicable.end; let i = index">
                             <input type="radio" id="{{sentence}}" name="end">
                             <label for="{{sentence}}" class="btn btn-primary" (click)="selectEnd('amicable-end',sentence,i)" [class.highlight]="isActivated('amicable-end',i)"[(ngModel)]="model.end" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
                     </div>
                     <div *ngIf="category == 1">
-                        <div *ngFor="let sentence of blunt.end">
-                            <input type="radio" id="{{sentence}}" name="end; let i = index">
+                        <div *ngFor="let sentence of blunt.end; let i = index">
+                            <input type="radio" id="{{sentence}}" name="end">
                             <label for="{{sentence}}" class="btn btn-primary" (click)="selectEnd('blunt-end',sentence,i)" [class.highlight]="isActivated('blunt-end',i)"[(ngModel)]="model.end" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
                     </div>
@@ -181,28 +178,32 @@
             </div>
         </div>
     </div>
-    <br/>
-    <br/>
-    <div class="container">
-        <div *ngIf="!(weHaveTitle())"></div>
-        <div *ngIf="(weHaveTitle())">
-            <div class="row">
-                <div class="col-md-12" id="message">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div *ngIf="this.model.title" >
-                                <h2>{{this.model.title}}</h2>
-                            </div>
+</div>
+
+<br/>
+<br/>
+
+<div class="container">
+    <div *ngIf="!(weHaveTitle())"></div>
+    <div *ngIf="(weHaveTitle())">
+        <div class="row">
+            <div class="col-md-12" id="message">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div *ngIf="this.model.title" >
+                            <h2>{{this.model.title}}</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="!(weHaveMessage())"></div>
-        <div *ngIf="(weHaveMessage())">
-            <div class="row">
-                <div class="col-md-12" id="message">
-                    <div class="panel panel-default">
+    </div>
+    <div *ngIf="!(weHaveMessage())"></div>
+    <div *ngIf="(weHaveMessage())">
+        <div class="row">
+            <div class="col-md-12" id="message">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color: #e8e8e8">
                         <div class="panel-body">
                             <div *ngIf="this.constructedMessage">
                                 <h3>{{this.constructedMessage}}</h3>
@@ -228,7 +229,7 @@
   </div> -->
   <div class="container" *ngIf="">
     <input type="text" [(ngModel)]="messageContent">
-  </div> -->
+  </div>
 
 <br/>
 <br/>
