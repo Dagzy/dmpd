@@ -37,6 +37,8 @@ h3{
 	background-color: #FCFCFC;
 	border-radius: 8px;
 	border: 1px solid #e8e8e8;
+	outline-color: #b00505;
+	margin: 1px;
 }
 
 /* other stuff */
@@ -127,14 +129,15 @@ input[type=radio] + label:hover, input[type=checkbox] + label:hover{
 }
 
 /* buttons */
-button.btn.btn-danger {
+.btn {
 	background-color: #811025;
 	border: transparent;
 	font-size: 20px;
 }
-button.btn.btn-danger:hover{
+.btn:hover{
 	background-color: #630007;
 }
-button.btn.btn-danger:focus{
+.btn:focus{
 	background-color: #b00505;
+	outline-color: transparent;
 }
