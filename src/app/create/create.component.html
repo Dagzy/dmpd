@@ -220,8 +220,8 @@
 
 <div class="container" *ngIf="!this.message.id">
     <div class="col-sm-offset-5">
-        <a routerLink="/messages"><button id="def-save" (click)="onSubmit(i)" class="btn btn-danger btn-lg">Save</button></a>
-        <a routerLink="/home"><button class="btn btn-danger btn-lg">Cancel</button></a>
+        <a routerLink="/messages" role="button" id="def-save" (click)="onSubmit(i)" class="btn btn-danger btn-lg">Save</a>
+        <a routerLink="/home" role="button" class="btn btn-danger btn-lg">Cancel</a>
     </div>
 </div>
   <!-- <div>

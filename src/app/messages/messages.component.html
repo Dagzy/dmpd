@@ -8,12 +8,13 @@
 
 <div *ngIf="!(weHaveMessages())"> <!--if there are no messages to be displayed, then it displays the following message -->
 	<br>
-	<br>
+
 	<h3>YOU HAVE NO MESSAGES... YET ;)</h3>
 	<div id="toolbar">
 		<div class="wrapper text-center">
 			<div class="btn-group">
-				<button class="btn btn-primary btn-lg"> <a routerLink="/create" style="color: white;"> Break some hearts </a></button> <!-- this button sends you to the create a message page -->
+				<br>
+				<p><a routerLink="/create" role="button" id="msgttl" class="btn btn-primary btn-lg">Break some hearts </a></p> <!-- this button sends you to the create a message page -->
 			</div>
 		</div>
 	</div>
