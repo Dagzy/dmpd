@@ -3,8 +3,19 @@
 }
 
 img{
-  width: 500px;
+  width: 625px;
   height: auto;
+}
+.gradient {
+	background-image:
+    	radial-gradient(
+      	rgba(117, 117, 117, .9),
+      	rgba(252,252,252, .1),
+      	transparent
+    );
+	width: 100%;
+	height: auto;
+
 }
 
 html {
