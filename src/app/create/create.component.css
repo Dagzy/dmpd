@@ -1,10 +1,3 @@
-/* h1{
-	text-align: center;
-	color: #b00505;
-	font-size: 33px;
-	
-} */
-
 input, label {
 	margin: auto;
 	float: none;
@@ -27,32 +20,46 @@ h3{
 	height: auto;
 }
 
-/* .panel-default{ */
-	/* border: 2px solid #1c1c1c;
-	border-radius: 8px; */
-	/* border: transparent; */
-	/* border-radius:  0px 8px 0px 8px; */
-	/* background: transparent
-} */
+.panel-default{
+	border: 2px solid #1c1c1c;
+	border-radius: 8px;
+	border: transparent;
+	border-radius:  0px 8px 0px 8px;
+	background: transparent
+}
+
+/* title */
+.panel-default>.panel-heading.a{
+	background-color: #e8e8e8;
+	border-radius: 8px;
+}
+.panel-default>.panel-heading>input.constructedTitle {
+	background-color: #FCFCFC;
+	border-radius: 8px;
+	border: 1px solid #e8e8e8;
+	outline-color: #b00505;
+	margin: 1px;
+}
+
+/* other stuff */
 .panel-default>.panel-heading{
 	background-color: #FCFCFC;
 	border-radius: 8px;
 }
-.panel-default>.panel-body, .panel-default>.hello>.panel-body{
+.panel-default>.panel-body {
 	background-color: #e8e8e8;
 	border-radius: 8px;
 }
+/* for printed message only */
+.panel-default>.panel-heading>.panel-body {
+	background-color: #fcfcfc;
+	border-radius: 8px;
+}
 
+/* category, etc, buttons: radio/checkbox */
 button.btn.btn-primary{
 	vertical-align: middle;
 }
-/* button.btn.btn-primary:active{
-    background-color: green !important;
-} */
-/* .btn.btn-primary.btn-lg{
-	width: 2000px;
-} */
-
 input[type=radio], input[type=checkbox] {
 	display:none;
 	overflow-y: auto;
@@ -100,7 +107,7 @@ input[type=radio] + label:hover, input[type=checkbox] + label:hover{
 	overflow-y: auto; 
 	display: block;
 }
-input[type=radio]:checked + label, input[type=checkbox]:checked + label{
+/*input[type=radio]:checked + label.highlight, input[type=checkbox]:checked + label.highlight{
 	background-image: none;
 	outline: 0;
 	-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
@@ -109,17 +116,28 @@ input[type=radio]:checked + label, input[type=checkbox]:checked + label{
 	background-color:#b00505;
 	 overflow-y: auto; 
 	display: block;
-	
+} */
+.highlight{
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	background-color:#b00505 !important;
+	 overflow-y: auto; 
+	display: block;
 }
 
-button.btn.btn-danger {
+/* buttons */
+.btn {
 	background-color: #811025;
 	border: transparent;
 	font-size: 20px;
 }
-button.btn.btn-danger:hover{
+.btn:hover{
 	background-color: #630007;
 }
-button.btn.btn-danger:focus{
+.btn:focus{
 	background-color: #b00505;
+	outline-color: transparent;
 }

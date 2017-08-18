@@ -2,8 +2,7 @@
 <br/>
 <div>
 	<br/>
-
-	<h1><img src="../assets/dumpdlogo/dumpd-2.png"></h1>
+	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2.png"></h1>
 </div>
 <div class='container'>
 	<div class="form">
@@ -14,21 +13,17 @@
 			</ul>
 			<div id="signup">
 				<h1>Sign Up</h1>
-					<div class="top-row">
-
-					</div>
-					<div class="field-wrap">
-						<input placeholder="Email" id="login" type="email"required autocomplete="off" [(ngModel)]="model.newEmail"(keyup.enter)="create()"/>
-					</div>
-					<div class="field-wrap">
-						<input id="password" placeholder="Set A Password" type="password"required autocomplete="off" [(ngModel)]="model.newPass" (keyup.enter)="create()"/>
-						<a style="font-size: 18px;">Please enter at least 6 characters</a>
-					</div>
-					<button type="submit" (click)="create()" class="button button-block">Get Started</button>
+				<div class="top-row"></div>
+				<div class="field-wrap">
+					<input placeholder="Email" id="login" type="email"required autocomplete="off" [(ngModel)]="model.newEmail"(keyup.enter)="create()"/>
+				</div>
+				<div class="field-wrap">
+					<input id="password" placeholder="Set A Password" type="password"required autocomplete="off" [(ngModel)]="model.newPass" (keyup.enter)="create()"/>
+					<a style="font-size: 18px;">Please enter at least 6 characters</a>
+				</div>
+				<button type="submit" (click)="create()" class="button button-block">Get Started</button>
 			</div>
-
 		</div>
-
 		<ng-template #login> <!-- the ng-template is for the login view when you swap from signup to login -->
 			<ul class="tab-group">
 				<li class="tab" (click)="swap()"><a>Sign Up</a></li>
@@ -36,14 +31,14 @@
 			</ul>
 			<div id="login">
 				<h1>Welcome Back!</h1>
-					<div class="field-wrap">
-						<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" (keyup.enter)="logIn()"/>
-					</div>
-					<div class="field-wrap">
-						<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
-					</div>
-					<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
-					<button class="button button-block" (click)="logIn()" >Log In</button>
+				<div class="field-wrap">
+					<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" (keyup.enter)="logIn()"/>
+				</div>
+				<div class="field-wrap">
+					<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
+				</div>
+				<!-- <p class="forgot"><a routerLink="#">Forgot Password?</a></p> -->
+				<button class="button button-block" (click)="logIn()" >Log In</button>
 			</div>
 		</ng-template>
 	</div>

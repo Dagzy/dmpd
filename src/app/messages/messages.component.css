@@ -35,12 +35,30 @@ button.btn.btn-primary, button.btn.btn-success, button.btn.btn-danger {
 	display: block;
 	background-color: #811025;
 	border: transparent;
+	font-size: 23px;
 }
 button.btn.btn-primary:hover, button.btn.btn-success:hover, button.btn.btn-danger:hover{
 	background-color: #630007;
 }
 button.btn.btn-primary:focus, button.btn.btn-success:focus, button.btn.btn-danger:focus{
 	background-color: #b00505;
+	outline: none;
+}
+
+#msgttl {
+	background-color: #811025;
+	color: #FCFCFC;
+	border: transparent;
+	border-radius: 8px;
+	font-size: 23px;
+}
+#msgttl:hover {
+	background-color: #630007;
+	color: #FCFCFC;
+}
+#msgttl:active {
+	background-color: #b00505;
+	color: #FCFCFC;
 }
 
 #toolbar {
