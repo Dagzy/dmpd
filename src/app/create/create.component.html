@@ -7,7 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
-                    <input type="text" placeholder="Your Phone Number +12223334444" class="constructedTitle" [(ngModel)]="model.phoneNum"/>
+                    <input type="text" placeholder="Your Phone Number +12223334444" (focus)="alertify()"
+                    class="constructedTitle" [(ngModel)]="model.phoneNum"/>
                   </div>
                 </div>
               </div>
@@ -217,7 +218,7 @@
 
 <br/>
 
-<div class="container" *ngIf="!this.message.id">
+<div class="container">
     <div class="col-sm-offset-5">
         <a routerLink="/messages"><button id="def-save" (click)="onSubmit(i)" class="btn btn-danger btn-lg">Save</button></a>
         <a routerLink="/home"><button class="btn btn-danger btn-lg">Cancel</button></a>
