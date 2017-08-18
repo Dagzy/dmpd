@@ -14,6 +14,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
+  // this helps make the hamburger menu dropdown
   isIn = false;   // store state
   toggleState() { // click handler
       let bool = this.isIn;
