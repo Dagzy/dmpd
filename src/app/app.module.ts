@@ -19,6 +19,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MessagesComponent } from './messages/messages.component';
+import { HttpModule } from '@angular/http';
+import { EmbedVideo } from 'ngx-embed-video';
 
 
   var config = {
@@ -88,7 +90,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
     	appRoutes,
     	{enableTracing: true} //debugging
-    )
+    ),
+    HttpModule,
+    EmbedVideo.forRoot()
   ],
   providers: [MessageService, FirebaseService, AuthGuard],
   bootstrap: [AppComponent]
