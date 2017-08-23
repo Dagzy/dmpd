@@ -164,5 +164,8 @@ export class CreateComponent implements OnInit {
     this.messageService.makeMessage({title: this.model.title, text: this.constructedMessage, phoneNum: this.model.phoneNum},
       this.fb.getUserId());
   }
+  alertify(){
+    window.confirm("This Feature Unavailable On The Trial Version.")
+  }
 
 }
