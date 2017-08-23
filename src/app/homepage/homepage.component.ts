@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/authService';
 import { MessageService } from '../services/messageService';
 import { MessagesComponent } from '../messages/messages.component';
-import * as firebase from 'firebase/app';
+import { EmbedVideoService } from 'ngx-embed-video';
 
 
 @Component({
@@ -11,10 +11,14 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  public recaptchaVerifier: firebase.auth.RecaptchaVerifier
-  pieces = []
-  constructor(private messageService: MessageService, private auth: FirebaseService) {
 
+  //video
+  youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
+  youtubeId = "L9oMb3_UW-o";
+   pieces= []
+  constructor(private messageService : MessageService, private auth : FirebaseService,  private embedService: EmbedVideoService) {
+    console.log(this.embedService.embed(this.youtubeUrl));
+    console.log(this.embedService.embed_youtube(this.youtubeId));
   }
 
   ngOnInit() {
@@ -30,45 +34,10 @@ export class HomepageComponent implements OnInit {
     })
   }
 
-  // Twilio Credentials
-  signIn(phoneNumber: number) {
-    const appVerifier = this.recaptchaVerifier;
-    const phoneNumberString = "+" + phoneNumber;
-    firebase.auth().signInWithPhoneNumber(phoneNumberString, appVerifier)
-      .then(confirmationResult => {
-        // SMS sent. Prompt user to type the code from the message, then sign the
-        // user in with confirmationResult.confirm(code).
-        // let prompt = this.alertCtrl.create({
-        //   title: 'Enter the Confirmation code',
-        //   inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
-        //   buttons: [
-        //     {
-        //       text: 'Cancel',
-        //       handler: data => { console.log('Cancel clicked'); }
-        //     },
-        //     {
-        //       text: 'Send',
-        //       handler: data => {
-        //         confirmationResult.confirm(data.confirmationCode)
-        //           .then(function (result) {
-        //             // User signed in successfully.
-        //             console.log(result.user);
-        //             // ...
-        //           }).catch(function (error) {
-        //             // User couldn't sign in (bad verification code?)
-        //             // ...
-        //           });
-        //       }
-        //     }
-        //   ]
-        // });
-        // prompt.present();
-      })
-      .catch(function (error) {
-        console.error("SMS not sent", error);
-      });
 
-  }
+
+
+// Twilio Credentials
 
 
 }
