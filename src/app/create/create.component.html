@@ -72,9 +72,9 @@
                 <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="intro">Greeting</h1></div>
                 <div class="panel-body">
                     <div *ngIf="category == 5" >
-                        <div class="amicable" *ngFor="let sentence of amicable.intro; let i = index">             
+                        <div class="amicable" *ngFor="let sentence of amicable.intro; let i = index">
                             <input type="radio" id="{{sentence}}" name="intro">
-                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('amicable-intro', sentence, i)" [class.highlight]="isActivated('amicable-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label> 
+                            <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('amicable-intro', sentence, i)" [class.highlight]="isActivated('amicable-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
                     </div>
                     <div  *ngIf="category == 1">
@@ -219,7 +219,7 @@
 
 <br/>
 
-<div class="container" *ngIf="!this.message.id">
+<div class="container">
     <div class="col-sm-offset-5">
         <a routerLink="/messages" role="button" id="def-save" (click)="onSubmit(i)" class="btn btn-danger btn-lg">Save</a>
         <a routerLink="/home" role="button" class="btn btn-danger btn-lg">Cancel</a>
