@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     this.populate()
-    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+
   }
 
   populate() {
