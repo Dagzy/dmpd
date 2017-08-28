@@ -33,8 +33,9 @@ export class CreateComponent implements OnInit {
   midArray=[];
   end: string;
   phoneNum: string;
+  fragments: any = {};
 
-  activated: any = {};   
+  activated: any = {};
 
   model = {
     title: '',
@@ -106,9 +107,9 @@ export class CreateComponent implements OnInit {
     if(!this.activated[word])
         this.activated[word]=[];
     //Return the boolean value stored in the index of the list
-    return this.activated[word][index]; 
+    return this.activated[word][index];
   }
-  
+
   amicable = {
     intro: [ "Hey, friend. We need to talk.", "This won't be easy, but there’s something I need to get off my chest.", "I don’t think you will like this, but you need to hear it." ],
     mid: [ "I think we need a break.", "I don’t want to hold you back.", "I love you too much, and it scares me.", "You deserve someone better", "I don't deserve you.", "You deserve so much more than I can give.", "It’s not you. It’s me.", "I need to focus on me right now.", "I’m not sure what I want, but as long as I feel this way, it’s not fair to you.", "We’ve tried so hard to make this work, but I think it’s time to let go.", "I have a lot more growing to do before I’m ready for something like this.", "I love you but I’m not in love with you.", "I love you enough to want something better for you than what I can give.", "You deserve to find your perfect match. It’s just not me."],
@@ -121,51 +122,55 @@ export class CreateComponent implements OnInit {
   }
   haikus = {
     intro: [ "Letting go is hard,", "I am leaving you,", "I’m saying goodbye.", "I don’t deserve this.", "I need to tell you", "You bore me to tears.", "You bore me to death.", "You deserve better.", "Hey. We need to talk.", "I don't deserve this."],
-    mid2: [ "and forgetting is harder,", "so this is my last goodbye.", "This loveless relationship", "Don’t come running back to me.", "that I'm breaking up with you.", "I don’t love you anymore.", "I can do better than you.", "Never contact me again.", "I need to focus on me.", "This isn’t worth the effort.", "I am breaking up with you.", "I’m better off without you."],
-    end: [ "but I will succeed.", "Please don’t contact me.", "is over for good.", "I will turn you down.", "See you later, chump.", "Bye! See you never!", "I deserve better.", "Please leave me alone.", "Goodbye forever.", "Can we still be friends?", "That is all. Goodbye.", "This is for the best." ]
+    mid2: [ "and forgetting is harder,", "so this is my last goodbye.", "This loveless relationship", "Don’t come running back to me.", "that I'm breaking up with you.", "I don’t love you anymore.", "I can do better than you.", "Never contact me again.", 'I need to focus on me.', 'This isn’t worth the effort.', 'I am breaking up with you.', 'I’m better off without you.'],
+    end: [ 'but I will succeed.', 'Please don’t contact me.', 'is over for good.', 'I will turn you down.', 'See you later, chump.', 'Bye! See you never!', 'I deserve better.', 'Please leave me alone.', 'Goodbye forever.', 'Can we still be friends?', 'That is all. Goodbye.', 'This is for the best.' ]
   }
   harsh = {
-    intro: [ "I’m breaking up with you.", "Today is great because I’m dumping you!", "‘Tis a lovely day to leave you." ], 
-    mid: [ "You are inferior to me.", "I deserve better.", "You don’t deserve me.", "You bore me.", "You’re beneath me.", "This isn’t worth the effort.", "You’re not worth the effort.", "I would have been better off if we had never met.", "I don’t love you anymore.", "I don’t love you anymore. In fact, I don't know if I ever did.", "You’re dragging me down.", "I need to make some changes in my life, and one of them is you.", "I hate being around you.", "I've found someone better." ],
-    end: [ "Never contact me again.", "I hope you find someone as terrible as you.", "I’m not sure who could love you, but I definitely know I don’t.", "Don’t come running back to me.", "Breaking up with you will always remain one of my best accomplishments.", "Don’t let the door hit you on the way out." ]
+    intro: [ 'I’m breaking up with you.', 'Today is great because I’m dumping you!', '‘Tis a lovely day to leave you.' ],
+    mid: [ 'You are inferior to me.', 'I deserve better.', 'You don’t deserve me.', 'You bore me.', 'You’re beneath me.', 'This isn’t worth the effort.', 'You’re not worth the effort.', 'I would have been better off if we had never met.', 'I don’t love you anymore.', 'I don’t love you anymore. In fact, I don\'t know if I ever did.', 'You’re dragging me down.', 'I need to make some changes in my life, and one of them is you.', 'I hate being around you.', 'I\'ve found someone better.' ],
+    end: [ 'Never contact me again.', 'I hope you find someone as terrible as you.', 'I’m not sure who could love you, but I definitely know I don’t.', 'Don’t come running back to me.', 'Breaking up with you will always remain one of my best accomplishments.', 'Don’t let the door hit you on the way out.' ]
   }
   poems = {
-    intro: [ "Roses are Red. Violets are blue." ],
-    mid2: [ "Trash is dumped,", "I'm saying goodbye because", "I'm breaking up with you.", "I hate your face.", "You suck like a vacuum." ],
-    end: [ "and so are you.", "I'm better off without you.", "Leave me the hell alone.", "I'm breaking up with you.", "It's not me; it's you." ]
-  }
+    intro: [ 'Roses are Red. Violets are blue.' ],
+    mid2: [ 'Trash is dumped,', 'I\'m saying goodbye because', 'I\'m breaking up with you.', 'I hate your face.', 'You suck like a vacuum.' ],
+    end: [ 'and so are you.', 'I\'m better off without you.', 'Leave me the hell alone.', 'I\'m breaking up with you.', 'It\'s not me; it\'s you.' ]
+  };
 
   ngOnInit() {
+    const frags = this.messageService.retrieveFragments();
+    // console.log(frags.Ks_isaANL9jzgzRmUmj[]);
+    // this.messageService.queryForFrags();
+
+    //this.messageService.fragmentsToDB(this.poems); //this saves the current version of a category to database
     // this.messageComp.getTheMessages()
     // console.log("Got the messages on the create page")
   }
-  updateMsg(id){//query message by id to populate field on create with existing message
-    console.log(id)
-    const self = this
-    this.db.database.ref('/messages').on("value", function(data){
+  updateMsg(id){// query message by id to populate field on create with existing message
+    console.log(id);
+    const self = this;
+    this.db.database.ref('/messages').on('value', function(data){
       console.log(data.val())
-          id = data.val()
+      id = data.val()
       Object.keys(data.val()).forEach(function(key){
         if(id === key){
           self.messageContent = data.val()[key].text
           return data.val()[key]
         }
-      })
-    })
+      });
+    });
   }
 
-// colon specifies type??..... create class after : and a class makes it own datatype
+  // colon specifies type??..... create class after : and a class makes it own datatype
   constructor(private messageService: MessageService, private db: AngularFireDatabase, private http: HttpClient, private fb: FirebaseService
-    ){
+  ){
 
-    }
+  }
 
-    onSubmit(makeMessage){
+  onSubmit(makeMessage){
     this.messageService.makeMessage({title: this.model.title, text: this.constructedMessage, phoneNum: this.model.phoneNum},
       this.fb.getUserId());
-  }
-  alertify(){
-    window.confirm("This Feature Unavailable On The Trial Version.")
-  }
-
+    }
+    alertify(){
+      window.confirm('This Feature Unavailable On The Trial Version.');
+    }
 }
