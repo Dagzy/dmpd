@@ -22,7 +22,7 @@ export class MessagesComponent implements OnInit {
   hasMessages //a boolean that designatees whether or not the message object has any keys (if there are any messages belonging to this user)
 
   ngOnInit() {
-    console.clear()
+    //console.clear()
     this.getTheMessages()
   }
 
