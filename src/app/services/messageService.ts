@@ -5,6 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MessageService {
+  foo = "foo"
 
   constructor(private db: AngularFireDatabase, private http: HttpClient) {
   }
@@ -101,6 +102,21 @@ export class MessageService {
 
   // }
 // now that fragments are retrieved, assign each id to a parameter
+queryFrags(id){
+  console.log(id);
+  const self = this;
+  this.db.database.ref('/fragments').on('value', function(data){
+    console.log(data.val())
+    id = data.val()
+    Object.keys(data.val()).forEach(function(key){
+      if(id === key){
+        console.log(id);
+        // self.foo = data.val()[key].text
+        // return data.val()[key]
+      }
+    });
+  });
+}
 
 
 }
