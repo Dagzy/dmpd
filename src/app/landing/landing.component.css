@@ -6,6 +6,12 @@ img{
   width: 625px;
   height: auto;
 }
+@media screen and (max-device-width: 480px) {
+	img { 
+		width: 100%;
+    height: auto;
+	}
+}
 .gradient {
 	background-image:
     	radial-gradient(
