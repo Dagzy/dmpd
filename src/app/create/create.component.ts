@@ -133,17 +133,18 @@ export class CreateComponent implements OnInit {
   poems = {
     intro: [ 'Roses are Red. Violets are blue.' ],
     mid2: [ 'Trash is dumped,', 'I\'m saying goodbye because', 'I\'m breaking up with you.', 'I hate your face.', 'You suck like a vacuum.' ],
-    end: [ 'and so are you.', 'I\'m better off without you.', 'Leave me the hell alone.', 'I\'m breaking up with you.', 'It\'s not me; it\'s you.' ]
+    end: []
+
   };
 
   ngOnInit() {
-    this.messageService.retrievePoems();
+    this.poems.end.push(this.messageService.retrievePoemsEnd());
     // this.messageService.retrieveFragments();
    // this.messageService.queryFrags('-Ks_isaANL9jzgzRmUmj');
     // console.log(frags.Ks_isaANL9jzgzRmUmj[]);
     // this.messageService.queryForFrags();
 
-    // this.messageService.poemsToDB(this.poems); //this saves the current version of a category to database
+    // this.messageService.poemsToDB(this.haikus); //this saves the current version of a category to database
     // this.messageComp.getTheMessages()
     // console.log("Got the messages on the create page")
   }

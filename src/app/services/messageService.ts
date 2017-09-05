@@ -5,8 +5,6 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MessageService {
-  foo = "foo"
-
   constructor(private db: AngularFireDatabase, private http: HttpClient) {
   }
   makeMessage(theMessage, userId) { //function that takes in a message object and a user Id
@@ -79,7 +77,7 @@ export class MessageService {
 
   // make a method that saves the fragments on Firebase
   poemsToDB(fragments) {
-    this.db.database.ref('/fragments/poems').push(fragments) // adds it to the database
+    this.db.database.ref('/fragments/haikus').push(fragments) // adds it to the database
   }
 // make a method that retrieves the stored fragments from the db
   // queryForFrags() {
@@ -103,13 +101,24 @@ queryFrags(id){
     });
   });
 }
+// change from once single param
+retrievePoemsEnd(){
+  const arrayFor = [];
+  return this.db.database.ref('/fragments/poems/-KtHDCcfS_oIGZUekXeG/end').once('value', function(snapshot){
+    // const name = Object.keys(snapshot.val());
+    // console.log(name);
+    const end = snapshot.val();
+    console.log(end);
+    const head = snapshot.val()[1];
+    console.log(head);
+    console.log(end.length);
 
-retrievePoems(){
-  return this.db.database.ref().orderByChild('/fragments/poems').once('value').then((s)=>{
-    const name = Object.keys(s.val());
-    console.log(name);
-    const key = snapshot.key;
-    console.log(key);
+    for (var i = 0; i < end.length; i++) {
+      arrayFor.push(end[i]);
+    }
+    console.log(arrayFor);
+    return arrayFor;
+
 });
 }
 
@@ -145,5 +154,7 @@ retrieveFragments(){
 
   });
 }
+//build a loop that creates DOM elements to house each sentence fragment
+
 
 }
