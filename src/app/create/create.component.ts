@@ -137,7 +137,8 @@ export class CreateComponent implements OnInit {
   };
 
   ngOnInit() {
-    const frags = this.messageService.retrieveFragments();
+    this.messageService.retrieveFragments();
+    this.messageService.queryFrags("-Ks_isaANL9jzgzRmUmj");
     // console.log(frags.Ks_isaANL9jzgzRmUmj[]);
     // this.messageService.queryForFrags();
 
