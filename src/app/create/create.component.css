@@ -137,10 +137,10 @@ input[type=radio] + label:hover, input[type=checkbox] + label:hover{
 	overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */ 
 	white-space: normal;
 }
-.btn:hover{
+.btn:hover {
 	background-color: #630007;
 }
-.btn:focus{
+.btn:focus {
 	background-color: #b00505;
 	outline-color: transparent;
 }
@@ -150,3 +150,15 @@ input[type=radio] + label:hover, input[type=checkbox] + label:hover{
 		display:block;
 	} 
 } 
+/* #saveCancel {
+	min-width:20%;
+    max-width:20%;
+	margin:0% 39% 0% 40%; 
+} */
+#outer {
+    width:100%;
+    text-align: center;
+}
+.inner {
+    display: inline-block;
+}
