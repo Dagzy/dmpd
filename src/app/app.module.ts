@@ -23,7 +23,7 @@ import { HttpModule } from '@angular/http';
 import { EmbedVideo } from 'ngx-embed-video';
 
 
-  var config = {
+  export const config = {
     apiKey: "AIzaSyBBWJJG70QSKgGlWzz5D3lXgZitVNDp-XQ",
     authDomain: "split-500b7.firebaseapp.com",
     databaseURL: "https://split-500b7.firebaseio.com",
@@ -88,8 +88,8 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot(
-    	appRoutes,
-    	{enableTracing: true} //debugging
+    appRoutes,
+    {enableTracing: true} //debugging
     ),
     HttpModule,
     EmbedVideo.forRoot()

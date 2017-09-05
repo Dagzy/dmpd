@@ -38,7 +38,16 @@
 					<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
 				</div>
 				<!-- <p class="forgot"><a routerLink="#">Forgot Password?</a></p> -->
-				<button class="button button-block" (click)="logIn()" >Log In</button>
+        <button class="button button-block" (click)="logIn()" >Log In</button>
+
+        <button class="loginBtn loginBtn--facebook">
+          Login with Facebook
+        </button>
+
+        <button class="loginBtn loginBtn--google">
+          Login with Google
+        </button>
+
 			</div>
 		</ng-template>
 	</div>

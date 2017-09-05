@@ -17,8 +17,8 @@ export class HomepageComponent implements OnInit {
   youtubeId = "L9oMb3_UW-o";
    pieces= []
   constructor(private messageService : MessageService, private auth : FirebaseService,  private embedService: EmbedVideoService) {
-    console.log(this.embedService.embed(this.youtubeUrl));
-    console.log(this.embedService.embed_youtube(this.youtubeId));
+    // console.log(this.embedService.embed(this.youtubeUrl));
+    // console.log(this.embedService.embed_youtube(this.youtubeId));
   }
 
   ngOnInit() {

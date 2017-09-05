@@ -137,12 +137,13 @@ export class CreateComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.messageService.retrieveFragments();
-    this.messageService.queryFrags("-Ks_isaANL9jzgzRmUmj");
+    this.messageService.retrievePoems();
+    // this.messageService.retrieveFragments();
+   // this.messageService.queryFrags('-Ks_isaANL9jzgzRmUmj');
     // console.log(frags.Ks_isaANL9jzgzRmUmj[]);
     // this.messageService.queryForFrags();
 
-    //this.messageService.fragmentsToDB(this.poems); //this saves the current version of a category to database
+    // this.messageService.poemsToDB(this.poems); //this saves the current version of a category to database
     // this.messageComp.getTheMessages()
     // console.log("Got the messages on the create page")
   }
