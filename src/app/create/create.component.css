@@ -133,6 +133,9 @@ input[type=radio] + label:hover, input[type=checkbox] + label:hover{
 	background-color: #811025;
 	border: transparent;
 	font-size: 20px;
+	word-wrap: break-word;         /* All browsers since IE 5.5+ */
+	overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */ 
+	white-space: normal;
 }
 .btn:hover{
 	background-color: #630007;
@@ -141,3 +144,9 @@ input[type=radio] + label:hover, input[type=checkbox] + label:hover{
 	background-color: #b00505;
 	outline-color: transparent;
 }
+@media all and (max-width:480px) {
+	.btn-group {
+		width: 100%; 
+		display:block;
+	} 
+} 
