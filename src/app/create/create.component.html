@@ -219,18 +219,20 @@
 
 <br/>
 
-<div class="container">
-    <div class="col-sm-offset-5">
+<div id="outer">
+    <div class="inner">
         <a routerLink="/messages" role="button" id="def-save" (click)="onSubmit(i)" class="btn btn-danger btn-lg">Save</a>
+    </div>
+    <div class="inner">
         <a routerLink="/home" role="button" class="btn btn-danger btn-lg">Cancel</a>
     </div>
 </div>
   <!-- <div>
      <button (click)='updateMsg(i)'>CLick me</button>
   </div> -->
-  <div class="container" *ngIf="">
+  <!-- <div class="container" *ngIf="">
     <input type="text" [(ngModel)]="messageContent">
-  </div>
+  </div> -->
 
 <br/>
 <br/>
