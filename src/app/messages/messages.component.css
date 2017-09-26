@@ -70,7 +70,7 @@ button.btn.btn-primary, button.btn.btn-success, button.btn.btn-danger {
 	/* display:block; */
 	float: left;
 }
-.col-sm-2 .vcenter .pull-right {
+#outer .inner {
 	/* display:block; */
 	float: right;
 	display: flex;
@@ -78,17 +78,18 @@ button.btn.btn-primary, button.btn.btn-success, button.btn.btn-danger {
 	justify-content: center;
 }
 @media screen and (max-device-width: 480px) {
-	.col-sm-2 .pull-right button { 
-		vertical-align: bottom;
-		text-align: center;
-		float:none;
-		display:inline-block;
-		margin: 0 auto;
-	}
 	.col-sm-10 {
 		padding: 0px 2px 0px 0px;
 	}
+	#outer {
+	width:100%;
+	text-align: center;
+  }
+  .inner {
+	display: inline-block;
+  }
 }
+
 
 /* no messages button */
 #msgttl {
@@ -119,3 +120,5 @@ button.btn.btn-primary, button.btn.btn-success, button.btn.btn-danger {
 /* 
 #toolbar .wrapper {
 } */
+
+ 

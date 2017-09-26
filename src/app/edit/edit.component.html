@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-<h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>Update "{{model.title}}" Message</strong></h1>
+<h1 class="col-sm-10 col-sm-offset-1"><strong>Update "{{model.title}}" Message</strong></h1>
 <div class="container">
   <div class="form col-xs-12">
       <br>
@@ -14,9 +14,11 @@
     <br>
   </div>
 </div>
-<div class="container">
-  <div class="col-sm-offset-5">
+<div id="outer">
+  <div class="inner">
     <a routerLink="/messages" role="button" class="btn btn-danger btn-lg" (click)="updateMessage()">Save</a>
+  </div>
+  <div class="inner">
     <a routerLink="/messages" role="button" class="btn btn-danger btn-lg">Cancel</a>
   </div>
 </div>
