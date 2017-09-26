@@ -3,19 +3,51 @@
 <br>
 <h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>New Message</strong></h1>
 <div class='container'>
-    <div class="row">
-        <div class="col-md-10 col-sm-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading a">
-                    <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
-                    <input type="text" placeholder="Your Phone Number (Ex: +12223334444)" class="constructedTitle" [(ngModel)]="model.phoneNum"/>
-                    <h3>The Send to Phone function is being revamped, so it will not send to a phone :(</h3>
-                  </div>
+  <div class="row">
+    <div class="col-md-10 col-sm-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading a">
+          <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
+          <!-- <input type="text" placeholder="Your Phone Number (Ex: +12223334444)" class="constructedTitle" [(ngModel)]="model.phoneNum"/>
+          <h3>The Send to Phone function is being revamped, so it will not send to a phone :(</h3> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div *ngIf="!(weHaveTitle())"></div>
+    <div *ngIf="(weHaveTitle())">
+        <div class="row">
+            <div class="col-md-12" id="message">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div *ngIf="this.model.title" >
+                            <h2>{{this.model.title}}</h2>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-                              <!-- <div class="col-md-4 col-sm-pull-7">
+        </div>
+    </div>
+    <div *ngIf="!(weHaveMessage())"></div>
+    <div *ngIf="(weHaveMessage())">
+        <div class="row">
+            <div class="col-md-12" id="message">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background-color: #e8e8e8">
+                        <div class="panel-body">
+                            <div *ngIf="this.constructedMessage">
+                                <h3>{{this.constructedMessage}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="col-md-4 col-sm-pull-7">
                                   <div class="panel panel-default">
                                       <div class="panel-heading">
                                       </div>
@@ -25,38 +57,38 @@
 
 <div class='container'>
     <div class="row">
-        <!-- rows do same line and coumns do different lines -->
-        <div class="col-md-12">
-            <br/>
-            <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="text-align: center; color: #d60000;">Category</h1></div>
-                <div class="panel-body" ng-init="active = true">
-                    <!-- <ul class="categories"> -->
+      <!-- rows do same line and columns do different lines -->
+      <div class="circle btn poo"></div>
+      <div class="col-md-12">
+        <br/>
+        <div class="panel panel-default">
+          <div class="panel-heading"><h1 style="text-align: center; color: #d60000;">How do you want to breakup?</h1></div>
+          <div class="panel-body" ng-init="active = true">
+            <!-- <ul class="categories"> -->
                     <!-- the nums re[present thst if 0, load amicable -->
                     <div class="btn-group btn-group-justified">
-                        <div class="btn-group">
+                        <div class="btn-group circle amicable">
                             <input type="radio" id="amicable" name="cat">
-                            <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(5)" style="border-radius:8px; font-size: 20px;">Amicable</label>
+                            <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(5)" style="border-radius:8px; font-size: 20px;"></label>
+                        </div>
+                        <div class="btn-group circle poo">
+                            <input type="radio" id="blunt" name="cat" class=" circle">
+                            <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)" style="border-radius:8px; font-size: 20px;"></label>
                         </div>
 
-                        <div class="btn-group">
-                            <input type="radio" id="blunt" name="cat">
-                            <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)" style="border-radius:8px; font-size: 20px;">Blunt</label>
-                        </div>
-
-                        <div class="btn-group">
+                        <div class="btn-group circle poo">
                                 <input type="radio" id="haikus" name="cat">
-                                <label for="haikus" class="btn btn-primary" id="haikus" (click)="setType(2)" style="border-radius:8px; font-size: 20px;" >Haikus</label>
+                                <label for="haikus" class="btn btn-primary" id="haikus" (click)="setType(2)" style="border-radius:8px; font-size: 20px;" ></label>
                         </div>
 
-                        <div class="btn-group">
+                        <div class="btn-group circle poo">
                             <input type="radio" id="harsh" name="cat">
-                            <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(3)" style="border-radius:8px; font-size: 20px;">Harsh</label>
+                            <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(3)" style="border-radius:8px; font-size: 20px;"></label>
                         </div>
 
-                        <div class="btn-group">
+                        <div class="btn-group circle poems">
                             <input type="radio" id="poems" name="cat">
-                            <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)" style="border-radius:8px; font-size: 20px;" >Poems</label>
+                            <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)" style="border-radius:8px; font-size: 20px;" ></label>
                         </div>
                     </div>
                 </div>
@@ -184,38 +216,6 @@
 <br/>
 <br/>
 
-<div class="container">
-    <div *ngIf="!(weHaveTitle())"></div>
-    <div *ngIf="(weHaveTitle())">
-        <div class="row">
-            <div class="col-md-12" id="message">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div *ngIf="this.model.title" >
-                            <h2>{{this.model.title}}</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="!(weHaveMessage())"></div>
-    <div *ngIf="(weHaveMessage())">
-        <div class="row">
-            <div class="col-md-12" id="message">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: #e8e8e8">
-                        <div class="panel-body">
-                            <div *ngIf="this.constructedMessage">
-                                <h3>{{this.constructedMessage}}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <br/>
 

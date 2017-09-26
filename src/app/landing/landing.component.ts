@@ -33,7 +33,7 @@ export class LandingComponent implements OnInit {
       console.log("fbasyncinit")
 
       FB.init({
-        appId: 'facebook app id here',
+        appId: 127561051211040,
         autoLogAppEvents: true,
         xfbml: true,
         version: 'v2.10'

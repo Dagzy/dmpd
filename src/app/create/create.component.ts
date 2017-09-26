@@ -117,12 +117,12 @@ export class CreateComponent implements OnInit {
   }
   blunt = {
     intro: [ "I’m breaking up with you.", "I’ll come right out and say it: I’m breaking up with you.", "It’s time to face the facts. We aren’t meant to be together." ],
-    mid: [ "I just don’t want you.", "We aren’t right for each other.", "Our relationship is taking up too much of my time.", "I gave you too many chances. This was the last straw.", "I’m not going to say, “It’s not you; it’s me.” It clearly you.", "I don’t want to be stuck in a loveless relationship.", "Something about us doesn’t feel right, and I need to do something about it.", "I need something more.", "We’ve both changed and grown apart.", "Love shouldn’t be this hard.", "We are not each other’s soulmate.", "I never asked for a lot. All I ever wanted was to be liked by you for who I was, not for who you wanted me to be.", "Nothing can come close to the intensity with which I loved you, except maybe the intensity with which you took me for granted.", "You are not worth my love if you need reasons to find me worthy of yours." ],
-    end: [ "I don’t think we should stay friends, so this is my last goodbye.", "Don’t try to convince me otherwise. I’ve already made up my mind.", "I just don’t see this working.", "This isn't working, and I don't think it ever will.", "Goodbye.", "This day would never have come if you loved me just as much as I have always loved you." ]
+    mid: [ "I just don’t want you.", "We aren’t right for each other.", "Our relationship is taking up too much of my time.", "I gave you too many chances. This was the last straw.", "I’m not going to say, “It’s not you; it’s me.” It clearly you.", "I don’t want to be stuck in a loveless relationship.", "Something about us doesn’t feel right, and I need to do something about it.", "I need something more.", "We’ve both changed and grown apart.", "Love shouldn’t be this hard.", "We are not each other’s soulmate.", "I never asked for a lot. All I ever wanted was to be liked by you for who I was, not for who you wanted me to be.", "Nothing can come close to the intensity with which I loved you, except maybe the intensity with which you took me for granted.", 'You are not worth my love if you need reasons to find me worthy of yours.' ],
+    end: [ 'I don’t think we should stay friends, so this is my last goodbye.', 'Don’t try to convince me otherwise. I’ve already made up my mind.', 'I just don’t see this working.', 'This isn\'t working, and I don\'t think it ever will.', 'Goodbye.', 'This day would never have come if you loved me just as much as I have always loved you.' ]
   }
   haikus = {
-    intro: [ "Letting go is hard,", "I am leaving you,", "I’m saying goodbye.", "I don’t deserve this.", "I need to tell you", "You bore me to tears.", "You bore me to death.", "You deserve better.", "Hey. We need to talk.", "I don't deserve this."],
-    mid2: [ "and forgetting is harder,", "so this is my last goodbye.", "This loveless relationship", "Don’t come running back to me.", "that I'm breaking up with you.", "I don’t love you anymore.", "I can do better than you.", "Never contact me again.", 'I need to focus on me.', 'This isn’t worth the effort.', 'I am breaking up with you.', 'I’m better off without you.'],
+    intro: [ 'Letting go is hard,', 'I am leaving you,', 'I’m saying goodbye.', 'I don’t deserve this.', 'I need to tell you', 'You bore me to tears.', 'You bore me to death.', 'You deserve better.', 'Hey. We need to talk.', 'I don\'t deserve this.'],
+    mid2: [ 'and forgetting is harder,', 'so this is my last goodbye.', 'This loveless relationship', 'Don’t come running back to me.', 'that I\'m breaking up with you.', 'I don’t love you anymore.', 'I can do better than you.', 'Never contact me again.', 'I need to focus on me.', 'This isn’t worth the effort.', 'I am breaking up with you.', 'I’m better off without you.'],
     end: [ 'but I will succeed.', 'Please don’t contact me.', 'is over for good.', 'I will turn you down.', 'See you later, chump.', 'Bye! See you never!', 'I deserve better.', 'Please leave me alone.', 'Goodbye forever.', 'Can we still be friends?', 'That is all. Goodbye.', 'This is for the best.' ]
   }
   harsh = {
@@ -134,15 +134,17 @@ export class CreateComponent implements OnInit {
     intro: [ 'Roses are Red. Violets are blue.' ],
     mid2: [ 'Trash is dumped,', 'I\'m saying goodbye because', 'I\'m breaking up with you.', 'I hate your face.', 'You suck like a vacuum.' ],
     end: [ 'and so are you.', 'I\'m better off without you.', 'Leave me the hell alone.', 'I\'m breaking up with you.', 'It\'s not me; it\'s you.' ]
+
   };
 
   ngOnInit() {
-    this.messageService.retrieveFragments();
-    this.messageService.queryFrags("-Ks_isaANL9jzgzRmUmj");
+    //this.poems.end.push(this.messageService.retrievePoemsEnd());
+    // this.messageService.retrieveFragments();
+   // this.messageService.queryFrags('-Ks_isaANL9jzgzRmUmj');
     // console.log(frags.Ks_isaANL9jzgzRmUmj[]);
     // this.messageService.queryForFrags();
 
-    //this.messageService.fragmentsToDB(this.poems); //this saves the current version of a category to database
+    // this.messageService.poemsToDB(this.haikus); //this saves the current version of a category to database
     // this.messageComp.getTheMessages()
     // console.log("Got the messages on the create page")
   }
@@ -150,12 +152,12 @@ export class CreateComponent implements OnInit {
     console.log(id);
     const self = this;
     this.db.database.ref('/messages').on('value', function(data){
-      console.log(data.val())
-      id = data.val()
+      console.log(data.val());
+      id = data.val();
       Object.keys(data.val()).forEach(function(key){
         if(id === key){
-          self.messageContent = data.val()[key].text
-          return data.val()[key]
+          self.messageContent = data.val()[key].text;
+          return data.val()[key];
         }
       });
     });
