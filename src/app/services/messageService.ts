@@ -5,8 +5,6 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MessageService {
-  foo = "foo"
-
   constructor(private db: AngularFireDatabase, private http: HttpClient) {
   }
   makeMessage(theMessage, userId) { //function that takes in a message object and a user Id
@@ -43,7 +41,7 @@ export class MessageService {
       })// This adds an object with title (gotten from the object)
     });
 
-    return arrayFor
+    return arrayFor;
   }
 
   // filterAMessage(messageObject){
@@ -78,24 +76,10 @@ export class MessageService {
   }
 
   // make a method that saves the fragments on Firebase
-  fragmentsToDB(fragments) {
-    this.db.database.ref('/fragments').push(fragments) // adds it to the database
+  poemsToDB(fragments) {
+    this.db.database.ref('/fragments/haikus').push(fragments) // adds it to the database
   }
 // make a method that retrieves the stored fragments from the db
-  retrieveFragments(){
-    return this.db.database.ref('/fragments').once('value').then((s)=>{
-      // const name = s.child();
-      // const key = s.key;
-      // console.log(name.key);
-      // console.log(key);
-      const name = Object.keys(s);
-      console.log('THE FRAGMENT OBJECT')
-      console.log(s.val());
-      console.log(name);
-      return s.val();
-    });
-  }
-
   // queryForFrags() {
   //   console.log('queryforfrags');
   //   console.log( this.db.database.ref('/fragments').orderByChild('key'));
@@ -110,13 +94,67 @@ queryFrags(id){
     id = data.val()
     Object.keys(data.val()).forEach(function(key){
       if(id === key){
-        console.log(id);
+        console.log(key);
         // self.foo = data.val()[key].text
         // return data.val()[key]
       }
     });
   });
 }
+// change from once single param
+retrievePoemsEnd(){
+  const arrayFor = [];
+  return this.db.database.ref('/fragments/poems/-KtHDCcfS_oIGZUekXeG/end').once('value', function(snapshot){
+    // const name = Object.keys(snapshot.val());
+    // console.log(name);
+    const end = snapshot.val();
+    console.log(end);
+    const head = snapshot.val()[1];
+    console.log(head);
+    console.log(end.length);
+
+    for (var i = 0; i < end.length; i++) {
+      arrayFor.push(end[i]);
+    }
+    console.log(arrayFor);
+    return arrayFor;
+
+});
+}
+
+retrieveFragments(){
+  return this.db.database.ref('/fragments').once('value').then((s)=>{
+    // const name = s.child();
+    // const key = s.key;
+    // console.log(name.key);
+    // console.log(key);
+    const name = Object.keys(s.val());
+    console.log('THE FRAGMENT OBJECT')
+    console.log(s.val());
+    console.log(name);
+    const fraggies = s.val();
+    console.log(fraggies);
+    for (let i = 0; i < name.length; i++) {
+      if(name[i] === '-Ks_isaANL9jzgzRmUmj'){
+        console.log(name[i]);
+        // return name[i];
+      }else if(name[i] === '-Ks_jEkqvtqBcT7B4upk'){
+        console.log(name[i]);
+      }else if(name[i] === '-Ks_jOo8mgvCEtFyS8aE'){
+        console.log(name[i]);
+      }else if(name[i] === '-Ks_jSOPmQb-DJdGVuL3'){
+        console.log(name[i]);
+      }else if(name[i] === '-Ks_jUTC_Cd-Fws3Yhmu'){
+        console.log(name[i]);
+      }else {
+        console.log('RAGHLBLARGHLBLAGHGHAHATBG');
+      }
+    }
+    // return s.val();
+
+  });
+}
+//build a loop that creates DOM elements to house each sentence fragment
 
 
 }

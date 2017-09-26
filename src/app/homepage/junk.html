@@ -12,3 +12,22 @@
 	</div>
 </div>
 </div>
+retrieveFragments(){
+  return this.db.database.ref('/fragments').once('value').then((s) => {
+    // const name = s.child();
+    const key = Object.keys(s.val());
+    // console.log(name.key);
+    // console.log(key);
+    // const name = Object.keys(s.val());
+    // console.log('THE FRAGMENT OBJECT')
+    // console.log(s.val());
+    // console.log(name);
+    Object.keys(s.val()).forEach(function(id){
+      if(id === key) {
+        console.log('Here\'s the shit!');
+        console.log(id);
+      }
+    });
+    return s.val();
+  });
+}

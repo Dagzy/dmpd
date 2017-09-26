@@ -4,9 +4,14 @@
 	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2-top.png"></h1>
 </div>
 <div class='container'>
-	<!--<div class="form">
-		<div *ngIf="signup;else login"> -->  <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
-			<!--<ul class="tab-group">
+    <img src="{{ user.photoUrl }}">
+    <div>
+      <h4>{{ user.name }}</h4>
+      <p>{{ user.email }}</p>
+    </div>
+	<div class="form">
+		<div *ngIf="signup;else login">  <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
+			<ul class="tab-group">
 				<li class="tab active"><a>Sign Up</a></li>
 				<li class="tab" (click)="swap()"><a>Log In</a></li>
 			</ul>
@@ -22,23 +27,31 @@
 				<button type="submit" (click)="create()" class="button button-block">Get Started</button>
 			</div>
 		</div>
-		<ng-template #login>--> <!-- the ng-template is for the login view when you swap from signup to login -->
-			<!-- <ul class="tab-group">
+		<ng-template #login> <!-- the ng-template is for the login view when you swap from signup to login -->
+			<ul class="tab-group">
 				<li class="tab" (click)="swap()"><a>Sign Up</a></li>
 				<li class="tab active"><a>Log In</a></li>
 			</ul>
-			<div id="login"> -->
-				<!-- <h1>Welcome Back!</h1> -->
-				<!-- <div class="field-wrap">
+			<div id="login">
+				<h1>Welcome Back!</h1>
+				<div class="field-wrap">
 					<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" (keyup.enter)="logIn()"/>
 				</div>
 				<div class="field-wrap">
 					<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
-				</div> -->
-				<!-- <p class="forgot"><a routerLink="#">Forgot Password?</a></p> -->
-				<br/><br/><br/><br/><br/>
-				<button class="button button-block" (click)="logIn()" >Log In</button>
-			<!-- </div>
+				</div>
+				<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
+        <button class="button button-block" (click)="logIn()" >Log In</button>
+
+        <button class="loginBtn loginBtn--facebook">
+          Login with Facebook
+        </button>
+
+        <button class="loginBtn loginBtn--google">
+          Login with Google
+        </button>
+
+			</div>
 		</ng-template>
-	</div>-->
+	</div>
 </div> 
