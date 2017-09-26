@@ -5,11 +5,11 @@
 	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2-top.png"></h1>
 </div>
 <div class='container'>
-    <img src="{{ user.photoUrl }}">
+    <!-- <img src="{{ user.photoUrl }}">
     <div>
       <h4>{{ user.name }}</h4>
       <p>{{ user.email }}</p>
-    </div>
+    </div> -->
 	<div class="form">
 		<div *ngIf="signup;else login">  <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
 			<ul class="tab-group">
