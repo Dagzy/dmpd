@@ -13,8 +13,8 @@ import {FirebaseService} from './services/authService';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
-import { SocialLoginModule, AuthServiceConfig } from 'angular4-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
+// import { SocialLoginModule, AuthServiceConfig } from 'angular4-social-login';
+// import { GoogleLoginProvider, FacebookLoginProvider } from 'angular4-social-login';
 
 // New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -32,16 +32,16 @@ import { EmbedVideo } from 'ngx-embed-video';
     storageBucket: "",
     messagingSenderId: "524073548350"
   };
-  let configure = new AuthServiceConfig ([
-    {
-      id: GoogleLoginProvider.PROVIDER_ID,
-      provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
-  },
-  {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("Facebook-App-Id")
-  }
-]);
+//   let configure = new AuthServiceConfig ([
+//     {
+//       id: GoogleLoginProvider.PROVIDER_ID,
+//       provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+//   },
+//   {
+//     id: FacebookLoginProvider.PROVIDER_ID,
+//     provider: new FacebookLoginProvider("Facebook-App-Id")
+//   }
+// ]);
 
 
 
@@ -104,7 +104,7 @@ const appRoutes: Routes = [
     ),
     HttpModule,
     EmbedVideo.forRoot(),
-    SocialLoginModule.initialize(configure)
+    // SocialLoginModule.initialize(configure)
   ],
   providers: [MessageService, FirebaseService, AuthGuard],
   bootstrap: [AppComponent]
