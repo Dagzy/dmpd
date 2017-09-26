@@ -1,6 +1,6 @@
-*, *:before, *:after {
+/* *, *:before, *:after {
   box-sizing: border-box;
-}
+} */
 
 img{
   width: 625px;
@@ -24,14 +24,14 @@ img{
 
 }
 
-html {
+/* html {
   overflow-y: scroll;
-}
+} */
 
-body {
-  background: #c1bdba;
+/* body {
+  background: red;
   font-family: 'Titillium Web', sans-serif;
-}
+} */
 
 a {
   text-decoration: none;
@@ -43,6 +43,11 @@ a:hover {
   color: pink;
 }
 
+@media all and (max-width:480px) {
+  .container {
+    margin: -70px 0 0 0;
+  }
+}
 .form {
   background: rgba(28, 28, 28, .3);
   padding: 40px;
@@ -50,6 +55,11 @@ a:hover {
   margin: 40px auto;
   border-radius: 40px;
   box-shadow: 0 4px 10px 4px rgba(255, 255, 255, .6);
+}
+@media all and (max-width:480px) {
+  .form {
+    padding: 35px
+  }
 }
 
 .tab-group {
@@ -179,7 +189,7 @@ input:focus, textarea:focus {
 .button {
   border: 0;
   outline: none;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   padding: 15px 0;
   font-size: 2rem;
   font-weight: 600;
@@ -203,11 +213,10 @@ input:focus, textarea:focus {
   width: 100%;
 }
 
-.forgot {
+/* .forgot {
   margin-top: -20px;
   text-align: right;
-}
-/* body { padding: 2em; } */
+} */
 
 
 /* Shared */

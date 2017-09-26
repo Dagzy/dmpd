@@ -18,8 +18,8 @@
 			</div>
 		</div>
 	</div>
-
 </div>
+
 <div *ngIf="(weHaveMessages())">
 	<div class="container" *ngFor="let message of messageList;let i=index"> <!-- For every message that is retrieved from the filterMessages function, display and instance of this template -->
 		<div class="row">
@@ -28,10 +28,14 @@
 					<h2><strong>{{message.title}}</strong></h2>
 					<p>{{message.text}}</p>
 				</div>
-				<div class="col-sm-2 vcenter">
-					<div class="pull-right">
+				<div id="outer">
+					<div class="inner">
 						<button (click)="goTo(i)" class="btn btn-primary ml-auto btn-md" id="fit"><i class="glyphicon glyphicon-edit"></i></button>
+					</div>
+					<div class="inner">
 						<button (click)="quickSend(i)" class="btn btn-success ml-auto btn-md" id="fit1"><i class="glyphicon glyphicon-send"></i></button>
+					</div>
+					<div class="inner">
 						<button (click)="delete(i)" class="btn btn-danger ml-auto btn-md" id="fit2"><i class="glyphicon glyphicon-trash"></i></button>
 					</div>
 				</div>

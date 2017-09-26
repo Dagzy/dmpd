@@ -1,7 +1,9 @@
 .navbar {
-  background-color: rgba(176, 5, 5, .55);
-  box-shadow: 0 4px 20px 4px rgba(232, 232, 232, .6);
-  border-radius: 8px;
+  /* background-color: rgba(176, 5, 5, .55); */
+  /* background-color: #e8e8e8;
+  box-shadow: 0 4px 20px 4px rgba(232, 232, 232, .6); */
+  /* border-radius: 8px; */
+  background: transparent;
 }
 a {
   font-size: 20px;
@@ -39,3 +41,18 @@ a {
 .navbar-inverse .navbar-toggle:active {
   background-color: #630007;
 }
+/* 
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: red;
+    color: white;
+    text-align: center;
+    z-index: 9999;
+    right:0px;
+    height:50px;
+    margin-bottom:0px;
+  margin-top: 20px;
+} */
+

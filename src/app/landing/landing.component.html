@@ -1,11 +1,11 @@
 <div id="fb-root"></div>
-<br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div>
-	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2copyy.png"></h1>
+	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-4.png"></h1>
 </div>
 <div class='container'>
 	<div class="form">
-		<div *ngIf="signup;else login">   <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
+		<div *ngIf="signup;else login">  <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
 			<ul class="tab-group">
 				<li class="tab active"><a>Sign Up</a></li>
 				<li class="tab" (click)="swap()"><a>Log In</a></li>
@@ -28,14 +28,14 @@
 				<li class="tab active"><a>Log In</a></li>
 			</ul>
 			<div id="login">
-				<!-- <h1>Welcome Back!</h1> -->
+				<h1>Welcome Back!</h1>
 				<div class="field-wrap">
 					<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" (keyup.enter)="logIn()"/>
 				</div>
 				<div class="field-wrap">
 					<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
 				</div>
-				<!-- <p class="forgot"><a routerLink="#">Forgot Password?</a></p> -->
+				<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
         <button class="button button-block" (click)="logIn()" >Log In</button>
 
         <button class="loginBtn loginBtn--facebook">
@@ -49,4 +49,4 @@
 			</div>
 		</ng-template>
 	</div>
-</div>
+</div> 
