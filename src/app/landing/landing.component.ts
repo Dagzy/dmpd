@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/authService'
 import { User } from '../models/user'
 import * as firebase from 'firebase/app';
+import { EmbedVideoService } from 'ngx-embed-video';
 
 declare var window: any;
 declare var FB: any;
@@ -16,7 +17,8 @@ export class LandingComponent implements OnInit {
   signup: boolean //Determines if the user has selected the signup tab or not
   model = { email: '', pass: "", newPass: "", newEmail: "" }
   //Object made for holding values from the DOM based on ngModel
-  constructor(public afAuth: FirebaseService) {
+  
+  constructor(public afAuth: FirebaseService, private embedService: EmbedVideoService) {
     // Creates variable for auth to handle anything regarding the User
     this.signup = false;
     // This function initializes the FB variable
@@ -45,6 +47,15 @@ export class LandingComponent implements OnInit {
       // ** ADD CODE TO NEXT STEP HERE **
     };
   }
+  // video
+    youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
+    youtubeId = "L9oMb3_UW-o";
+    pieces= []
+   
+  video(){
+    return !!(this.youtubeUrl)
+  }
+   
 
   ngOnInit() {
     if (window.FB) {

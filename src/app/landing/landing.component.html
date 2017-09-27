@@ -1,5 +1,16 @@
 <div id="fb-root"></div>
-<button (click)="goTo(i)" class="btn btn-primary ml-auto btn-md" id="fit"><i class="glyphicon glyphicon-facetime-video"></i></button>
+
+<div id="wrapper">
+	<button class="btn btn-primary btn-lg" id="fit"><i class="glyphicon glyphicon-facetime-video" id="vidButton" (click)="video()">
+			<div *ngIf="!(video())"></div>
+			<div *ngIf="video()">
+				<div class="video-wrapper">
+				<iframe  src="//www.youtube.com/embed/L9oMb3_UW-o"  frameborder="0" allowfullscreen ></iframe>
+				</div>
+			</div>
+		</i></button>
+</div>
+
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div>
 	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2-top.png"></h1>
