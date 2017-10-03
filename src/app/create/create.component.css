@@ -171,10 +171,49 @@ input[type=radio] + label:hover, input[type=checkbox] + label:hover{
   }
 .poo{
   background-image: url("../../assets/poo.png");
+  height: 50px;
+  width: 50px;
+background-size: cover;
+border-radius: 25px;
+background-color: white;
   }
-.poems{
-  background-image: url('../../assets/poems.png')
+.flower{
+  background-image: url('../../assets/poems.png');
+  height: 50px;
+  width: 50px;
+background-size: cover;
+border-radius: 25px;
+background-color: white;
 }
-.amicable{
-  background-image: url('../../assets/amicable.png')
+.happy{
+	height: 50px;
+	width: 50px;
+  background-image: url('../../assets/amicable.png');
+  background-size: cover;
+  border-radius: 25px;
+  background-color: white;
+}
+.ninja{
+	background-image: url('../../assets/haiku.png');
+	height: 50px;
+	width: 50px;
+  background-size: cover;
+  border-radius: 25px;
+  background-color: white;
+}
+.angry{
+	background-image: url('../../assets/harsh.png');
+	height: 50px;
+	width: 50px;
+  background-size: cover;
+  border-radius: 25px;
+  background-color: white;
+}
+.random{
+	background-image: url('../../assets/random.png');
+	height: 50px;
+	width: 50px;
+  background-size: cover;
+  border-radius: 50%;
+  background-color: white;
 }

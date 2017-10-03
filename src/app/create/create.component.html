@@ -1,22 +1,30 @@
 <br>
 <br>
 <br>
-<h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>New Message</strong></h1>
-<div class='container'>
-  <div class="row">
-    <div class="col-md-10 col-sm-offset-1">
-      <div class="panel panel-default">
-        <div class="panel-heading a">
-          <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
+<!-- <h1 style="font-size: 50px;color: #f5f5f5; text-align: center; text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; "><strong>New Message</strong></h1> -->
+<div class='container' style="padding:0px; margin:0px;">
+    <div class="row" style="text-align: center" >
+        <button class="happy" (click)="setType(5)"></button>
+        <button class="poo" (click)="setType(1)"></button>
+        <button class="ninja" (click)="setType(2)"></button>
+        <button class="angry" (click)="setType(3)"></button>
+        <button class="flower" (click)="setType(4)"></button>
+        <button class="random"></button>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-heading a">
+                    <input type="text" placeholder="Title of Message" class="constructedTitle" [(ngModel)]="model.title"/>
           <!-- <input type="text" placeholder="Your Phone Number (Ex: +12223334444)" class="constructedTitle" [(ngModel)]="model.phoneNum"/>
           <h3>The Send to Phone function is being revamped, so it will not send to a phone :(</h3> -->
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <div class="container">
-    <div *ngIf="!(weHaveTitle())"></div>
+    <!-- <div *ngIf="!(weHaveTitle())"></div> -->
     <div *ngIf="(weHaveTitle())">
         <div class="row">
             <div class="col-md-12" id="message">
@@ -30,12 +38,12 @@
             </div>
         </div>
     </div>
-    <div *ngIf="!(weHaveMessage())"></div>
+    <!-- <div *ngIf="!(weHaveMessage())"></div> -->
     <div *ngIf="(weHaveMessage())">
         <div class="row">
             <div class="col-md-12" id="message">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: #e8e8e8">
+                <div class="panel panel-default" >
+                    <div class="panel-heading" style="background-color: #e8e8e8; padding: 0px;">
                         <div class="panel-body">
                             <div *ngIf="this.constructedMessage">
                                 <h3>{{this.constructedMessage}}</h3>
@@ -55,56 +63,55 @@
                               </div> -->
 
 
-<div class='container'>
-    <div class="row">
+<!-- <div class='container'>
+    <div class="row"> -->
       <!-- rows do same line and columns do different lines -->
-      <div class="circle btn poo"></div>
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         <br/>
         <div class="panel panel-default">
           <div class="panel-heading"><h1 style="text-align: center; color: #d60000;">How do you want to breakup?</h1></div>
-          <div class="panel-body" ng-init="active = true">
+          <div class="panel-body" ng-init="active = true"> -->
             <!-- <ul class="categories"> -->
-                    <!-- the nums re[present thst if 0, load amicable -->
-                    <div class="btn-group btn-group-justified">
-                        <div class="btn-group circle amicable">
-                            <input type="radio" id="amicable" name="cat">
-                            <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(5)" style="border-radius:8px; font-size: 20px;"></label>
+                    <!-- the nums represent that if 0, load amicable -->
+                    <!-- <div class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                            <input type="radio" id="amicable" name="cat" class="amicable">
+                            <label for="amicable" class="btn btn-primary" id="amicable" (click)="setType(5)" style="border-radius:8px; font-size: 20px;">Amicable</label>
                         </div>
-                        <div class="btn-group circle poo">
+                        <div class="btn-group">
                             <input type="radio" id="blunt" name="cat" class=" circle">
-                            <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)" style="border-radius:8px; font-size: 20px;"></label>
+                            <label for="blunt" class="btn btn-primary" id="blunt" (click)="setType(1)" style="border-radius:8px; font-size: 20px;">Blunt</label>
                         </div>
 
-                        <div class="btn-group circle poo">
+                        <div class="btn-group">
                                 <input type="radio" id="haikus" name="cat">
-                                <label for="haikus" class="btn btn-primary" id="haikus" (click)="setType(2)" style="border-radius:8px; font-size: 20px;" ></label>
+                                <label for="haikus" class="btn btn-primary" id="haikus" (click)="setType(2)" style="border-radius:8px; font-size: 20px;" >Haikus</label>
                         </div>
 
-                        <div class="btn-group circle poo">
+                        <div class="btn-group">
                             <input type="radio" id="harsh" name="cat">
-                            <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(3)" style="border-radius:8px; font-size: 20px;"></label>
+                            <label for="harsh" class="btn btn-primary" id="harsh" (click)="setType(3)" style="border-radius:8px; font-size: 20px;">Harsh</label>
                         </div>
 
-                        <div class="btn-group circle poems">
+                        <div class="btn-group">
                             <input type="radio" id="poems" name="cat">
-                            <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)" style="border-radius:8px; font-size: 20px;" ></label>
+                            <label for="poems" class="btn btn-primary" id="poems" (click)="setType(4)" style="border-radius:8px; font-size: 20px;" >Poems</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class='container' *ngIf="this.category">
     <div class="row">
         <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="intro">Greeting</h1></div>
-                <div class="panel-body">
-                    <div *ngIf="category == 5" >
-                        <div class="amicable" *ngFor="let sentence of amicable.intro; let i = index">
+            <div class="panel panel-default" style="padding:0px; margin:0px;">
+                <div class="panel-heading" *ngIf="!this.intro"><h1 style="color: #d60000; text-align: center;" id="intro">Greeting</h1></div>
+                <div class="panel-body" *ngIf="!this.intro">
+                    <div *ngIf="category == 5">
+                        <div *ngFor="let sentence of amicable.intro; let i = index">
                             <input type="radio" id="{{sentence}}" name="intro">
                             <label for="{{sentence}}" class="btn btn-primary" (click)="selectIntro('amicable-intro', sentence, i)" [class.highlight]="isActivated('amicable-intro',i)" id="{{sentence}}" [(ngModel)]="model.intro" ngDefaultControl style="font-size: 18px;">{{sentence}}</label>
                         </div>
@@ -138,8 +145,8 @@
         </div>
         <div class="col-md-4 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="mid">Main Message</h1></div>
-                <div class="panel-body">
+                <div class="panel-heading" *ngIf="!this.mid"><h1 style="color: #d60000; text-align: center;" id="mid">Main Message</h1></div>
+                <div class="panel-body" *ngIf="!this.mid">
                     <div *ngIf="category == 5">
                         <div *ngFor=" let sentence of amicable.mid; let i = index">
                             <input type="checkbox" id="{{sentence}}" name="mid" value="all">
@@ -175,8 +182,8 @@
         </div>
         <div class="col-md-3 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1 style="color: #d60000; text-align: center;" id="end">Goodbye</h1></div>
-                <div class="panel-body">
+                <div class="panel-heading" *ngIf="!this.end"><h1 style="color: #d60000; text-align: center;" id="end">Goodbye</h1></div>
+                <div class="panel-body" *ngIf="!this.end">
                     <div *ngIf="category == 5">
                         <div class="prac" *ngFor=" let sentence of amicable.end; let i = index">
                             <input type="radio" id="{{sentence}}" name="end">
