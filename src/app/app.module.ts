@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpModule } from '@angular/http';
 import { EmbedVideo } from 'ngx-embed-video';
+import { FacebookModule } from 'ngx-facebook';
 
 
   export const config = {
@@ -104,6 +105,7 @@ const appRoutes: Routes = [
     ),
     HttpModule,
     EmbedVideo.forRoot(),
+    FacebookModule.forRoot()
     // SocialLoginModule.initialize(configure)
   ],
   providers: [MessageService, FirebaseService, AuthGuard],

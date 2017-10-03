@@ -3,6 +3,8 @@ import { FirebaseService } from '../services/authService'
 import { User } from '../models/user'
 import * as firebase from 'firebase/app';
 
+import {FacebookService, LoginResponse, InitParams} from 'ngx-facebook';
+
 declare var window: any;
 declare var FB: any;
 
@@ -16,7 +18,16 @@ export class LandingComponent implements OnInit {
   signup: boolean //Determines if the user has selected the signup tab or not
   model = { email: '', pass: "", newPass: "", newEmail: "" }
   //Object made for holding values from the DOM based on ngModel
-  constructor(public afAuth: FirebaseService) {
+  constructor(public afAuth: FirebaseService, private fb:FacebookService) {
+
+    let initParams: InitParams = {
+      appId: '1234566778',
+      xfbml: true,
+      version: 'v2.8'
+    };
+
+    fb.init(initParams);
+
     // Creates variable for auth to handle anything regarding the User
     this.signup = false;
     // This function initializes the FB variable
@@ -32,12 +43,17 @@ export class LandingComponent implements OnInit {
     window.fbAsyncInit = () => {
       console.log("fbasyncinit")
 
-      FB.init({
-        appId: 127561051211040,
-        autoLogAppEvents: true,
+      let initParams: InitParams = {
+        appId: '127561051211040',
         xfbml: true,
-        version: 'v2.10'
-      });
+        version: 'v2.8'
+      };
+      FB.init(initParams
+        // {appId: 127561051211040,
+        // autoLogAppEvents: true,
+        // xfbml: true,
+        // version: 'v2.10'}
+      );
       FB.AppEvents.logPageView();
       // This is where we do most of our code dealing with the FB variable like adding an observer
       // to check when the user signs in
@@ -50,6 +66,11 @@ export class LandingComponent implements OnInit {
     if (window.FB) {
       window.FB.XFBML.parse();
     }
+  }
+  loginWithFacebook(): void {
+       this.fb.login()
+         .then((response: LoginResponse) => console.log(response))
+         .catch((error: any) => console.error(error));
   }
 
 

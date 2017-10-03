@@ -24,7 +24,7 @@ export class FirebaseService implements CanActivate{
 		this.af.auth.createUserWithEmailAndPassword(user.email,user.password) //AF's signup function takes in an email and a password (automatically saves it and stuff)
 		.then(() => { //when completed
 			console.log("Successfully created user")
-			this.router.navigateByUrl('/home');//navigates to homepage
+			this.router.navigateByUrl('/create');//navigates to homepage
 		})
 		.catch((e) => {
 			console.log(e);//if error, print the error
@@ -34,7 +34,7 @@ export class FirebaseService implements CanActivate{
 	signin(user: User){
 		this.af.auth.signInWithEmailAndPassword(user.email, user.password)
 		.then(() => {
-			this.router.navigateByUrl('/home');
+			this.router.navigateByUrl('/create');
 		})
 		.catch((e) => {
 			console.log(e);
