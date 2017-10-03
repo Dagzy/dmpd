@@ -21,4 +21,11 @@ export class NavComponent implements OnInit {
       this.isIn = bool === false ? true : false; 
   }
 
+  // hamburger close and open
+  openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
 }

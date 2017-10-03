@@ -1,17 +1,17 @@
- <nav class="navbar navbar-inverse navbar-fixed-top col-md-10 col-md-offset-1">
+ <!-- <nav class="navbar navbar-inverse navbar-fixed-top col-md-10 col-md-offset-1">
     <div class="container-fluid">
         <div class="navbar-header" id="menuToggle" class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
-            <img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png"> 
+            <img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png">  -->
             <!-- the toggleState is for the hamburger menu and is needed here for it to come down -->
-            <input type="checkbox" />
+            <!-- <input type="checkbox" />
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" (click)="toggleState()">
                     <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </button>
+            </button> -->
             <!-- <a class="navbar-brand"><strong>dumpd</strong></a> -->
-        
+<!--         
             <ul class="nav navbar-nav" id="menu">
                 <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <a routerLink="/home" class="hidden-xs">Home</a>
@@ -31,10 +31,32 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->
 
 <!-- <div id="footer" class="col-xs-10 col-xs-offset-1">
     footer
 </div> -->
 
 <!-- subscribe to url then hamburger closes??? -->
+
+<span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776;</span>
+<div id="mySidenav" class="sidenav">
+    <div id="menuToggle" class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }"></div>
+    <img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png"> 
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" (click)="toggleState()">&times;</a>
+    <ul class="nav navbar-nav" id="menu">
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/home" class="hidden-xs">Home</a>
+            <a routerLink="/home" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+            <a routerLink="/messages" class="hidden-xs">My Messages</a>
+            <a routerLink="/messages" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">My Messages</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+            <a routerLink="/create" class="hidden-xs">New Messages</a>
+            <a routerLink="/create" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">New Messages</a>
+        </li>
+        <li *ngIf="currentUser()"><a href="#"><span class="glyphicon glyphicon-log-out" style="margin-top: -15px;"></span>Logout</a></li>
+    </ul>
+</div>

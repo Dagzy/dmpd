@@ -1,69 +1,123 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		/* Get iframe src attribute value i.e. YouTube video url and store it in a variable */
+		var url = $("#cartoonVideo").attr('src');
+		/* Remove iframe src attribute on page load to prevent autoplay in background */
+		$("#cartoonVideo").attr('src', '');
+		/* Assign the initially stored url back to the iframe src attribute when modal is displayed */
+		$("#myModal").on('shown.bs.modal', function(){
+				$("#cartoonVideo").attr('src', url);
+		});
+		/* Assign empty url value to the iframe src attribute when modal hide, which stop the video playing */
+		$("#myModal").on('hide.bs.modal', function(){
+				$("#cartoonVideo").attr('src', '');
+		});
+	});
+</script>
+
 <div id="fb-root"></div>
 
-<div id="wrapper">
-	<button class="btn btn-primary btn-lg" id="fit"><i class="glyphicon glyphicon-facetime-video" id="vidButton" (click)="video()">
-			<div *ngIf="!(video())"></div>
-			<div *ngIf="video()">
-				<div class="video-wrapper">
-				<iframe  src="//www.youtube.com/embed/L9oMb3_UW-o"  frameborder="0" allowfullscreen ></iframe>
-				</div>
-			</div>
-		</i></button>
-</div>
+ 
+
+<!-- <h1>Burger Menu <span>by JLNLJN</span></h1>
+
+<input id="burger" type="checkbox" />
+
+<label for="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+
+<nav>    
+  <ul>
+    <li><a href="#">Link #1</a></li>
+    <li><a href="#">Link #2</a></li>
+    <li><a href="#">Link #3</a></li>
+  </ul>  
+</nav> -->
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div>
 	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2-top.png"></h1>
 </div>
-<div class='container'>
-    <!-- <img src="{{ user.photoUrl }}">
-    <div>
-      <h4>{{ user.name }}</h4>
-      <p>{{ user.email }}</p>
-    </div> -->
-	<div class="form">
-		<div *ngIf="signup;else login">  <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
-			<ul class="tab-group">
-				<li class="tab active"><a>Sign Up</a></li>
-				<li class="tab" (click)="swap()"><a>Log In</a></li>
-			</ul>
-			<div id="signup">
-				<div class="top-row"></div>
-				<div class="field-wrap">
-					<input placeholder="Email" id="login" type="email"required autocomplete="off" [(ngModel)]="model.newEmail"(keyup.enter)="create()"/>
+
+<div class="info">
+	<div *ngIf="ngOnInit; else suLi">
+		<div class="fbonly" id="outer">
+				<div class="inner">
+					<button class="loginBtn loginBtn--facebook" role="button">
+					Login with Facebook
+					</button>
+					<button>Sign Up or Sign In</button>
 				</div>
-				<div class="field-wrap">
-					<input id="password" placeholder="Set A Password" type="password"required autocomplete="off" [(ngModel)]="model.newPass" (keyup.enter)="create()"/>
-					<a style="font-size: 18px;">Please enter at least 6 characters</a>
-				</div>
-				<button type="submit" (click)="create()" class="button button-block">Get Started</button>
 			</div>
+	<div class='container'>
+		<!-- <img src="{{ user.photoUrl }}">
+		<div>
+		<h4>{{ user.name }}</h4>
+		<p>{{ user.email }}</p>
+		</div> -->
+		<div class="form" id="suLi">
+			<div *ngIf="signup;else login">  <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
+				<ul class="tab-group">
+					<li class="tab active"><a>Sign Up</a></li>
+					<li class="tab" (click)="swap()"><a>Log In</a></li>
+				</ul>
+				<div id="signup">
+					<div class="top-row"></div>
+					<div class="field-wrap">
+						<input placeholder="Email" id="login" type="email"required autocomplete="off" [(ngModel)]="model.newEmail"(keyup.enter)="create()"/>
+					</div>
+					<div class="field-wrap">
+						<input id="password" placeholder="Set A Password" type="password"required autocomplete="off" [(ngModel)]="model.newPass" (keyup.enter)="create()"/>
+						<a style="font-size: 18px;">Please enter at least 6 characters</a>
+					</div>
+					<button type="submit" (click)="create()" class="button button-block">Get Started</button>
+					<div id="outer">
+						<div class="inner">
+							<button class="loginBtn loginBtn--facebook" role="button">
+							Login with Facebook
+							</button>
+						</div>
+						<div class="inner">
+							<button class="loginBtn loginBtn--google" role="button">
+							Login with Google
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ng-template #login> <!-- the ng-template is for the login view when you swap from signup to login -->
+				<ul class="tab-group">
+					<li class="tab" (click)="swap()"><a>Sign Up</a></li>
+					<li class="tab active"><a>Log In</a></li>
+				</ul>
+				<div id="login">
+					<h1>Welcome Back!</h1>
+					<div class="field-wrap">
+						<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" (keyup.enter)="logIn()"/>
+					</div>
+					<div class="field-wrap">
+						<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
+					</div>
+					<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
+					<button class="button button-block" (click)="logIn()" >Log In</button>
+					<div id="outer">
+						<div class="inner">
+							<button class="loginBtn loginBtn--facebook" role="button">
+							Login with Facebook
+							</button>
+						</div>
+						<div class="inner">
+							<button class="loginBtn loginBtn--google" role="button">
+							Login with Google
+							</button>
+						</div>
+					</div>
+				</div>
+			</ng-template>
 		</div>
-		<ng-template #login> <!-- the ng-template is for the login view when you swap from signup to login -->
-			<ul class="tab-group">
-				<li class="tab" (click)="swap()"><a>Sign Up</a></li>
-				<li class="tab active"><a>Log In</a></li>
-			</ul>
-			<div id="login">
-				<h1>Welcome Back!</h1>
-				<div class="field-wrap">
-					<input type="email"required placeholder="Email" autocomplete="off" [(ngModel)]="model.email" (keyup.enter)="logIn()"/>
-				</div>
-				<div class="field-wrap">
-					<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
-				</div>
-				<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
-        <button class="button button-block" (click)="logIn()" >Log In</button>
-
-        <button class="loginBtn loginBtn--facebook">
-          Login with Facebook
-        </button>
-
-        <button class="loginBtn loginBtn--google">
-          Login with Google
-        </button>
-
-			</div>
-		</ng-template>
-	</div>
-</div> 
+	</div> 
+</div>
+</div>

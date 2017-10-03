@@ -52,9 +52,23 @@ export class LandingComponent implements OnInit {
     youtubeId = "L9oMb3_UW-o";
     pieces= []
    
-  video(){
-    return !!(this.youtubeUrl)
-  }
+  // video(){
+  //   return !!(this.youtubeUrl)
+  // }
+   // this helps make the hamburger menu dropdown
+   isIn = false;   // store state
+   toggleState() { // click handler
+       let bool = this.isIn;
+       this.isIn = bool === false ? true : false; 
+   }
+ 
+   // hamburger close and open
+   openNav() {
+     document.getElementById("mySidenav").style.width = "250px";
+   }
+   closeNav() {
+     document.getElementById("mySidenav").style.width = "0";
+   }
    
 
   ngOnInit() {
@@ -63,7 +77,9 @@ export class LandingComponent implements OnInit {
     }
   }
 
-
+  // fbonly(){
+  //   this.window.FB = !this.window.FB
+  // }
   swap() {
     this.signup = !this.signup // swaps views from signup to login based on the signup boolean
 

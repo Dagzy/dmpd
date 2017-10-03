@@ -26,12 +26,13 @@ export class AppComponent {
 
 			}
 		}
-		const urlEnd = url.substring(indexOfSlash, url.length);
-		if (urlEnd === '/' || urlEnd === '/landing'){
-			state = false;
-		} else {
-			state = true;
-		}
+		// const urlEnd = url.substring(indexOfSlash, url.length);
+		// if (urlEnd === '/' || urlEnd === '/landing'){
+		// 	state = false;
+		// 	// make ^false if dont want the menu there
+		// } else {
+		// 	state = true;
+		// }
 		return state;
 	}
 	title = 'app';
