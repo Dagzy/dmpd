@@ -208,14 +208,14 @@ hr {
   position: absolute;
 }
 @media screen and (min-device-width: 480px) {
-  #outer {
-    padding: 10px;
-  }
+	#outer {
+		padding: 10px;
+	}
 }
 @media screen and (max-device-width: 480px) {
-  #outer {
-    padding-top: 10px;
-  }
+	#outer {
+		padding-top: 10px;
+	}
 }
 .inner {
   display: inline-block;
