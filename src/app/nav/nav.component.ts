@@ -7,9 +7,9 @@ import { FirebaseService } from '../services/authService'
 })
 export class NavComponent implements OnInit {
 
-  currentUser(){
-    return (this.auth.getUser())
-  }
+	currentUser(){
+		return (this.auth.getUser())
+	}
   constructor(private auth: FirebaseService) { }
 
   ngOnInit() {
@@ -38,4 +38,3 @@ export class NavComponent implements OnInit {
 //   return !!(this.youtubeUrl)
 // }
 }
-
