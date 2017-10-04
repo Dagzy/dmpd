@@ -38,7 +38,7 @@
 </div> -->
 
 <!-- subscribe to url then hamburger closes??? -->
-
+<!-- 
 <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776;</span>
 <div id="mySidenav" class="sidenav">
     <div id="menuToggle" class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }"></div>
@@ -59,4 +59,74 @@
         </li>
         <li *ngIf="currentUser()"><a href="#"><span class="glyphicon glyphicon-log-out" style="margin-top: -15px;"></span>Logout</a></li>
     </ul>
-</div>
+</div> -->
+<script type="text/javascript">
+        $(document).ready(function(){
+            /* Get iframe src attribute value i.e. YouTube video url and store it in a variable */
+            var url = $("#cartoonVideo").attr('src');
+            /* Remove iframe src attribute on page load to prevent autoplay in background */
+            $("#cartoonVideo").attr('src', '');
+            /* Assign the initially stored url back to the iframe src attribute when modal is displayed */
+            $("#myModal").on('shown.bs.modal', function(){
+                    $("#cartoonVideo").attr('src', url);
+            });
+            /* Assign empty url value to the iframe src attribute when modal hide, which stop the video playing */
+            $("#myModal").on('hide.bs.modal', function(){
+                    $("#cartoonVideo").attr('src', '');
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).on('click','.navbar-collapse.in',function(e) {
+        if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+            $(this).collapse('hide');
+        }
+    });
+    </script>
+    <nav role="navigation">
+        <div id="menuToggle"><!-- A fake / hidden checkbox is used as click reciever, so you can use the :checked selector on it. -->
+            <input type="checkbox" />
+            <!-- Some spans to act as a hamburger. They are acting like a real hamburger,
+            not that McDonalds stuff. -->
+            <span></span>
+            <span></span>
+            <span></span>
+            <!-- Too bad the menu has to be inside of the button
+            but hey, it's pure CSS magic. -->
+            <ul id="menu" >
+                <img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png">
+                <!-- maybe make the routerLinks href but its slower??? -->
+                <li><a routerLink="/home" data-toggle="collapse" data-target=".navbar-collapse" >Home</a></li>
+                <li><a routerLink="/messages" data-toggle="collapse" data-target=".navbar-collapse" >My Messages</a></li>
+                <li><a routerLink="/create" data-toggle="collapse" data-target=".navbar-collapse" >New Messages</a></li>
+                <li><a routerLink="#" data-toggle="collapse" data-target=".navbar-collapse" >Contact</a></li>
+                <!-- <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a> -->
+                <li><hr></li>
+                <!-- fix the weird line thing that pops up -->
+                <li *ngIf="currentUser()"><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+            </ul>
+        </div>
+        <div class="video" style="float:right;">
+            <!-- Button HTML (to Trigger Modal) -->
+            <button href="#myModal" class="btn btn-lg btn-primary" id="vidButt" data-toggle="modal">
+                <i class="glyphicon glyphicon-facetime-video"></i>
+            </button>
+            <!-- Modal HTML -->
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <!-- <div class="modal-content">
+                        <div class="modal-header"> -->
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">dumpd</h4>
+                        <!-- </div>
+                        <div class="modal-body"> -->
+                            <iframe id="cartoonVideo" src="//www.youtube.com/embed/L9oMb3_UW-o" frameborder="0" allowfullscreen></iframe>
+                        <!-- </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+    

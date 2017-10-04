@@ -47,33 +47,34 @@ export class LandingComponent implements OnInit {
       // ** ADD CODE TO NEXT STEP HERE **
     };
   }
-  // video
-    youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
-    youtubeId = "L9oMb3_UW-o";
-    pieces= []
-   
-  // video(){
-  //   return !!(this.youtubeUrl)
-  // }
-   // this helps make the hamburger menu dropdown
-   isIn = false;   // store state
-   toggleState() { // click handler
-       let bool = this.isIn;
-       this.isIn = bool === false ? true : false; 
-   }
- 
-   // hamburger close and open
-   openNav() {
-     document.getElementById("mySidenav").style.width = "250px";
-   }
-   closeNav() {
-     document.getElementById("mySidenav").style.width = "0";
-   }
+  
    
 
   ngOnInit() {
     if (window.FB) {
       window.FB.XFBML.parse();
+    }
+  }
+
+  // fbonly(){
+  //   this.window.FB = !this.window.FB
+  // }
+  swap() {
+    this.signup = !this.signup // swaps views from signup to login based on the signup boolean
+
+  }
+
+  logIn() {
+    var user = new User(this.model.email, this.model.pass) // creates anew user obkject
+    this.afAuth.signin(user)// runs the signin function in authService.ts
+  }
+  create() {
+
+    var user = new User(this.model.newEmail, this.model.newPass)// creates a new user obkject
+    this.afAuth.signup(user)// runs the signup function in authService.ts
+  }
+}
+
     }
   }
 
