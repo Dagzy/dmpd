@@ -1,41 +1,5 @@
-<script type="text/javascript">
-	$(document).ready(function(){
-		/* Get iframe src attribute value i.e. YouTube video url and store it in a variable */
-		var url = $("#cartoonVideo").attr('src');
-		/* Remove iframe src attribute on page load to prevent autoplay in background */
-		$("#cartoonVideo").attr('src', '');
-		/* Assign the initially stored url back to the iframe src attribute when modal is displayed */
-		$("#myModal").on('shown.bs.modal', function(){
-				$("#cartoonVideo").attr('src', url);
-		});
-		/* Assign empty url value to the iframe src attribute when modal hide, which stop the video playing */
-		$("#myModal").on('hide.bs.modal', function(){
-				$("#cartoonVideo").attr('src', '');
-		});
-	});
-</script>
-
 <div id="fb-root"></div>
 
- 
-
-<!-- <h1>Burger Menu <span>by JLNLJN</span></h1>
-
-<input id="burger" type="checkbox" />
-
-<label for="burger">
-    <span></span>
-    <span></span>
-    <span></span>
-</label>
-
-<nav>    
-  <ul>
-    <li><a href="#">Link #1</a></li>
-    <li><a href="#">Link #2</a></li>
-    <li><a href="#">Link #3</a></li>
-  </ul>  
-</nav> -->
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div>

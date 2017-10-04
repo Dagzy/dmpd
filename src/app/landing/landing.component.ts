@@ -47,28 +47,7 @@ export class LandingComponent implements OnInit {
       // ** ADD CODE TO NEXT STEP HERE **
     };
   }
-  // video
-    youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
-    youtubeId = "L9oMb3_UW-o";
-    pieces= []
-   
-  // video(){
-  //   return !!(this.youtubeUrl)
-  // }
-   // this helps make the hamburger menu dropdown
-   isIn = false;   // store state
-   toggleState() { // click handler
-       let bool = this.isIn;
-       this.isIn = bool === false ? true : false; 
-   }
- 
-   // hamburger close and open
-   openNav() {
-     document.getElementById("mySidenav").style.width = "250px";
-   }
-   closeNav() {
-     document.getElementById("mySidenav").style.width = "0";
-   }
+  
    
 
   ngOnInit() {
