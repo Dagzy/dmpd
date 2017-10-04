@@ -74,25 +74,3 @@ export class LandingComponent implements OnInit {
     this.afAuth.signup(user)// runs the signup function in authService.ts
   }
 }
-
-    }
-  }
-
-  // fbonly(){
-  //   this.window.FB = !this.window.FB
-  // }
-  swap() {
-    this.signup = !this.signup // swaps views from signup to login based on the signup boolean
-
-  }
-
-  logIn() {
-    var user = new User(this.model.email, this.model.pass) // creates anew user obkject
-    this.afAuth.signin(user)// runs the signin function in authService.ts
-  }
-  create() {
-
-    var user = new User(this.model.newEmail, this.model.newPass)// creates a new user obkject
-    this.afAuth.signup(user)// runs the signup function in authService.ts
-  }
-}
