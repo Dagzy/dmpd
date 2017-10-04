@@ -7,20 +7,20 @@ img{
   height: auto;
 }
 @media screen and (max-device-width: 480px) {
-  img {
-    width: 100%;
+	img {
+		width: 100%;
     height: auto;
-  }
+	}
 }
 /* .gradient {
-  background-image:
-      radial-gradient(
-        rgba(117, 117, 117, .9),
-        rgba(252,252,252, .1),
-        transparent
+	background-image:
+    	radial-gradient(
+      	rgba(117, 117, 117, .9),
+      	rgba(252,252,252, .1),
+      	transparent
     );
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
 } */
 
 /* html {
@@ -297,4 +297,3 @@ input:focus, textarea:focus {
 .loginBtn--google:focus {
   background: #E74B37;
 }
-
