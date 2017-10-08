@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/authService'
+import { EmbedVideoService } from 'ngx-embed-video';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -9,7 +11,15 @@ export class NavComponent implements OnInit {
 
 	currentUser(){
 		return (this.auth.getUser())
-	}
+  }
+   // video
+   youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
+   youtubeId = "L9oMb3_UW-o";
+   pieces= []
+  
+ // video(){
+ //   return !!(this.youtubeUrl)
+ // }
   constructor(private auth: FirebaseService) { }
 
   ngOnInit() {
@@ -29,12 +39,5 @@ export class NavComponent implements OnInit {
   //   document.getElementById("mySidenav").style.width = "0";
   // }
 
-  // video
-  youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
-  youtubeId = "L9oMb3_UW-o";
-  pieces= []
  
-// video(){
-//   return !!(this.youtubeUrl)
-// }
 }

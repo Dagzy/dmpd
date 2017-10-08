@@ -6,23 +6,29 @@
 	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2-top.png"></h1>
 </div>
 
-<div class="info">
-	<div *ngIf="ngOnInit; else suLi">
-		<div class="fbonly" id="outer">
-				<div class="inner">
-					<button class="loginBtn loginBtn--facebook" role="button">
-					Login with Facebook
-					</button>
-					<button>Sign Up or Sign In</button>
-				</div>
+<div *ngIf="fbo; else suLi">
+	<div class="info">
+	
+		<div class="container"id="fbo" >
+		
+			<div id="outer">
+				<ul class="tab-group">
+					<li class="tab" style="padding: 35px 35px 0px 35px">
+						<button class="loginBtn loginBtn--facebook" role="button" >Login with Facebook</button>
+					</li>
+					<!-- change to click to container and unclick hides it -->
+					<li class="tab" (click)="fbo()"><button id="inUp" style="margin-left: 25%;">Sign Up or Sign In</button></li>
+				</ul>
 			</div>
-	<div class='container'>
+		</div>
+	</div>
+	<div class="container" id="suLi">
 		<!-- <img src="{{ user.photoUrl }}">
 		<div>
 		<h4>{{ user.name }}</h4>
 		<p>{{ user.email }}</p>
 		</div> -->
-		<div class="form" id="suLi">
+		<div class="form" >
 			<div *ngIf="signup;else login">  <!--based on the signup boolean in the typescript, displays this div or the ngTemplate below -->
 				<ul class="tab-group">
 					<li class="tab active"><a>Sign Up</a></li>
@@ -38,13 +44,14 @@
 						<a style="font-size: 18px;">Please enter at least 6 characters</a>
 					</div>
 					<button type="submit" (click)="create()" class="button button-block">Get Started</button>
-					<div id="outer">
-						<div class="inner">
+					<!-- had been class="tab-group" then class="tab" -->
+					<div id="outer1" >
+						<div class="inner1">
 							<button class="loginBtn loginBtn--facebook" role="button">
 							Login with Facebook
 							</button>
 						</div>
-						<div class="inner">
+						<div class="inner1">
 							<button class="loginBtn loginBtn--google" role="button">
 							Login with Google
 							</button>
@@ -65,15 +72,15 @@
 					<div class="field-wrap">
 						<input placeholder="Password" type="password"required autocomplete="off" [(ngModel)]="model.pass" (keyup.enter)="logIn()"/>
 					</div>
-					<p class="forgot"><a routerLink="#">Forgot Password?</a></p>
+					<!-- <p class="forgot"><a routerLink="#">Forgot Password?</a></p> -->
 					<button class="button button-block" (click)="logIn()" >Log In</button>
-					<div id="outer">
-						<div class="inner">
+					<div id="outer1" >
+						<div class="inner1">
 							<button class="loginBtn loginBtn--facebook" role="button">
 							Login with Facebook
 							</button>
 						</div>
-						<div class="inner">
+						<div class="inner1">
 							<button class="loginBtn loginBtn--google" role="button">
 							Login with Google
 							</button>
@@ -83,5 +90,4 @@
 			</ng-template>
 		</div>
 	</div> 
-</div>
 </div>
