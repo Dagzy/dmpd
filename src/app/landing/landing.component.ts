@@ -75,6 +75,6 @@ export class LandingComponent implements OnInit {
     this.afAuth.signup(user)// runs the signup function in authService.ts
   }
   fbo(){
-     this.suLi = !this.fbo
+     this.suLi = !this.suLi
   }
 }

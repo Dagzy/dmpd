@@ -6,22 +6,21 @@
 	<h1 class="gradient"><img src="../assets/dumpdlogo/dumpd-2-top.png"></h1>
 </div>
 
-<div *ngIf="fbo; else suLi">
-	<div class="info">
-	
-		<div class="container"id="fbo" >
-		
-			<div id="outer">
-				<ul class="tab-group">
-					<li class="tab" style="padding: 35px 35px 0px 35px">
-						<button class="loginBtn loginBtn--facebook" role="button" >Login with Facebook</button>
-					</li>
-					<!-- change to click to container and unclick hides it -->
-					<li class="tab" (click)="fbo()"><button id="inUp" style="margin-left: 25%;">Sign Up or Sign In</button></li>
-				</ul>
-			</div>
+<div class="info">
+	<div class="container" id="fbo">
+		<div id="outer">
+			<ul class="tab-group">
+				<li class="tab" style="padding: 35px 35px 0px 35px">
+					<button class="loginBtn loginBtn--facebook" role="button" >Login with Facebook</button>
+				</li>
+				<!-- change to click to container and unclick hides it -->
+				<li class="tab" (click)="fbo()"><button id="inUp" style="margin-left: 25%;">Sign Up or Sign In</button></li>
+			</ul>
 		</div>
 	</div>
+</div>
+<div *ngIf="!suLi"></div>
+<div *ngIf="suLi">
 	<div class="container" id="suLi">
 		<!-- <img src="{{ user.photoUrl }}">
 		<div>
@@ -90,4 +89,4 @@
 			</ng-template>
 		</div>
 	</div> 
-</div>
+	</div>
