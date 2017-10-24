@@ -27,7 +27,7 @@ export class AppComponent {
 		}
 		var urlEnd = url.substring(indexOfSlash, url.length)
 		if(urlEnd === "/" || urlEnd==="/landing"){
-			state = false
+			state = true
 		} else {
 			state = true
 		}
