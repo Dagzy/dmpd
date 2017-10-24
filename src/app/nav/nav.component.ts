@@ -8,7 +8,7 @@ import { EmbedVideoService } from 'ngx-embed-video';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+  suLi: boolean;
 	currentUser(){
 		return (this.auth.getUser())
   }
@@ -20,6 +20,7 @@ export class NavComponent implements OnInit {
  // video(){
  //   return !!(this.youtubeUrl)
  // }
+ 
   constructor(private auth: FirebaseService) { }
 
   ngOnInit() {
@@ -39,5 +40,7 @@ export class NavComponent implements OnInit {
   //   document.getElementById("mySidenav").style.width = "0";
   // }
 
- 
+  fbo(){
+    this.suLi = !this.suLi
+ }
 }

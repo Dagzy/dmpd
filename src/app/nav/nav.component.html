@@ -33,6 +33,7 @@
         <ul id="menu" >
             <img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png">
             <!-- maybe make the routerLinks href but its slower??? -->
+            <li *ngIf="!currentUser()"></li>
             <li *ngIf="currentUser()">
                 <a href="#">
                     <li><a routerLink="/home" data-toggle="collapse" data-target=".navbar-collapse" >Home</a></li>
