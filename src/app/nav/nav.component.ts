@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
  // video(){
  //   return !!(this.youtubeUrl)
  // }
- 
+
   constructor(private auth: FirebaseService) { }
 
   ngOnInit() {
