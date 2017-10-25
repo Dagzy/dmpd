@@ -33,14 +33,15 @@
         <ul id="menu" >
             <img class="logo" src="../assets/dumpdlogo/dumpd-2-top.png">
             <!-- maybe make the routerLinks href but its slower??? -->
-            <li *ngIf="!currentUser()"></li>
-            <li *ngIf="currentUser()">
-                <a href="#">
-                    <li><a routerLink="/home" data-toggle="collapse" data-target=".navbar-collapse" >Home</a></li>
-                    <li><a routerLink="/messages" data-toggle="collapse" data-target=".navbar-collapse" >My Messages</a></li>
-                    <li><a routerLink="/create" data-toggle="collapse" data-target=".navbar-collapse" >New Messages</a></li>
-                </a>
-            </li>
+            
+            
+            <div *ngIf="router.url != '/landing'">
+                <!-- from https://stackoverflow.com/questions/37332061/hide-elements-based-on-routing-in-angular2-rc1   maxou -->
+                <li><a routerLink="/home" data-toggle="collapse" data-target=".navbar-collapse" >Home</a></li>
+                <li><a routerLink="/messages" data-toggle="collapse" data-target=".navbar-collapse" >My Messages</a></li>
+                <li><a routerLink="/create" data-toggle="collapse" data-target=".navbar-collapse" >New Messages</a></li>
+            </div>
+            
             <!-- <ul class="accordion css-accordion"> -->
             <li class="accordion-item">
                 <input class="accordion-item-input" type="checkbox" name="accordion" id="item1" />
@@ -55,9 +56,11 @@
                     <button class="js-emailcopybtn"><a class="js-emaillink" >Email: </a></button>
                 </h2>
             </li>
-            <li><hr style="background-color:rgba(249, 249, 249, .7)"></li>
-            <!-- fix the weird line thing that pops up -->
-            <li *ngIf="currentUser()"><a href="#"><button class="glyphicon glyphicon-log-out" style="background-color:transparent; border: none;"></button>Logout</a></li>
+            <div *ngIf="router.url != '/landing'">
+                <li><hr style="background-color:rgba(249, 249, 249, .7)"></li>
+                <!-- fix the weird line thing that pops up -->
+                <li><a href="#"><button class="glyphicon glyphicon-log-out" style="background-color:transparent; border: none;"></button>Logout</a></li>
+            </div>
         </ul>
     </div>
     <div class="video">
