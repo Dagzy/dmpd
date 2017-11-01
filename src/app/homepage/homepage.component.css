@@ -21,6 +21,7 @@ a {
 img{
   width: 750px;
   height: auto;
+  padding: 40px 35px 0px 35px;
 }
 @media screen and (max-device-width: 480px) {
 	img { 
@@ -69,31 +70,87 @@ p{
     height: auto;
 	}
 }
-/* vdeio */
-.video-wrapper {
+
+
+
+/* video icon */
+.htu {
+  color: blue;
+}
+/*.video {
+  display: block;
+  position: absolute;*/ /* had been relative */
+  /*z-index: 9999;
+  -webkit-user-select: none;
+  user-select: none;
+  height: auto;
+}
+@media screen and (max-device-width: 3500px) {
+	.video {
+    top: 32px; *//* was 25 */
+		/*right: 30px;
+	}
+}
+@media screen and (max-device-width: 400px) {
+	.video {
+    top: 32px;
+		right: 30px;*/ /* was 34 */
+	/* }
+}
+@media screen and (max-device-width: 480px) {
+	.video {
+    top: 32px;
+		right: 37px;
+	}
+}
+@media screen and (max-device-width: 770px) {
+	.video {
+    top: 32px;
+		right: 37px;
+	}
+} */
+#vidButt {
+  background-color: transparent;
+  /* border: 1px solid black; */
+  border: none;
+  color: black;
+  width: 100%;
+}
+/* video */
+.modal-content {
+  background-color: rgba(176, 5, 5, .85);
+  height: 100%;
+  width: 100%;
+}
+.modal-header {
+  height: 40px;
+  border: none;
+}
+.modal-body {
   position: relative; 
   padding-bottom: 56.25%; /* 16:9 */  
   padding-top: 25px; 
-  margin: auto;
+  margin: 0 auto;
 }
-.video-wrapper iframe {
+.modal-body iframe {
   position: absolute; 
   top: 0; 
   left: 0; 
   width: 100%; 
   height: 100%;
 }
-.container {
-  width: 100%; 
-  max-width: 750px; 
-  margin: auto;
+.close { 
+  font-size: 30px;
+  color: #000000;
+  position: absolute;
+  top: 7px;
+  right: 20px;
 }
-
-
-/* .panel{
-  border: 1px solid #757575;
-  border-radius: 8px;
+@media only screen and (min-height: 240px) and (max-height: 520px), only screen and (min-device-height: 240px) and (max-device-height: 520px) and (orientation:landscape) {
+  .modal-content {
+    width: 80%; 
+    height: 80%;
+    top: 0; 
+    left: 10%; 
+  }
 }
-.panel-heading{
-  border-radius: 8px;
-} */

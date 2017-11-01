@@ -1,8 +1,11 @@
 .logo {
-  width: 160px;
+  width: 100%;
+  /* was 160 px */
   vertical-align: middle;
-  margin-top: 3px;
-  height: 55px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  height: 100%;
+  /* was 55px */
 }
 
 /* HAMBURGER menu */
@@ -16,7 +19,6 @@
 .navbar-inverse .navbar-toggle:active {
   background-color: #630007;
 }
-
 /* Made by Erik Terwan 24th of November 2015, All rights reserved. If you are thinking of using this in production code, beware of the browser prefixes.*/
 body {
   margin: 0;
@@ -109,11 +111,10 @@ a:hover {
   height: auto;
   top: 0;
   left: 0;
-  
 }
 #menu li {
    padding: 10px 0;
-   font-size: 22px;
+   font-size: 28px;
 }
  /* And let's fade it in from the left */
 #menuToggle input:checked ~ ul {
@@ -125,6 +126,107 @@ hr {
   margin-bottom: 1rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* dropdown for contact and about */
+/* .accordion {
+  border: 1px solid white;
+  padding: 0 10px;
+  margin: 0 auto;
+  list-style: none outside;
+}
+.accordion > * + * { border-top: 1px solid white; } */
+.accordion-item-hd {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-weight: normal;
+  color: white;
+  margin: -5px;
+}
+.accordion-item-input:checked ~ .accordion-item-bd {
+  max-height: 1000px;
+  /* padding-top: 15px; */
+  margin-bottom: 10px;
+  -webkit-transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
+  transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
+}
+.accordion-item-input:checked ~ .accordion-item-hd > .accordion-item-hd-cta {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+.accordion-item-hd-cta {
+  display: block;
+  width: 30px;
+  position: absolute;
+  top: calc(40% - 6px );
+  right: 0;
+  pointer-events: none;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  text-align: center;
+  font-size: 18px;
+  line-height: 1;
+  background-color: transparent;
+  border: none; 
+}
+.accordion-item-bd {
+  max-height: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  -webkit-transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
+  transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
+  -moz-user-select: text;
+  -khtml-user-select: auto;
+  -webkit-user-select: auto ;
+  -ms-user-select: auto;
+  user-select: auto;
+  -webkit-touch-callout: auto;
+  margin: -2px;
+}
+.box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: -2px;
+}
+.accordion-item-input {
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  left: -9999px;
+}
+li label {
+  font-size: 28px;
+}
+li h3 {
+  font-size: 25px;
+  color: rgb(249, 249, 249);
+  text-align: center;
+  background-color: rgba(249, 249, 249, .5);
+  padding: 5px;
+}
+h3 br {
+  content: ' ';}
+  h1 br:after {content: ' ';
 }
 
 /* video icon */
@@ -205,81 +307,3 @@ hr {
     left: 10%; 
   }
 }
-
-/* dropdown for contact and about */
-
-/* .accordion {
-  border: 1px solid white;
-  padding: 0 10px;
-  margin: 0 auto;
-  list-style: none outside;
-}
-
-.accordion > * + * { border-top: 1px solid white; } */
-
-.accordion-item-hd {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  font-weight: normal;
-  color: white;
-}
-
-.accordion-item-input:checked ~ .accordion-item-bd {
-  max-height: 1000px;
-  padding-top: 15px;
-  margin-bottom: 15px;
-  -webkit-transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
-  transition: max-height 1s ease-in, margin .3s ease-in, padding .3s ease-in;
-}
-
-.accordion-item-input:checked ~ .accordion-item-hd > .accordion-item-hd-cta {
-  -webkit-transform: rotate(0);
-  -ms-transform: rotate(0);
-  transform: rotate(0);
-}
-
-.accordion-item-hd-cta {
-  display: block;
-  width: 30px;
-  position: absolute;
-  top: calc(50% - 6px );
-  right: 0;
-  pointer-events: none;
-  -webkit-transition: -webkit-transform .3s ease;
-  transition: transform .3s ease;
-  -webkit-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
-  transform: rotate(-180deg);
-  text-align: center;
-  font-size: 12px;
-  line-height: 1;
-  background-color: transparent;
-  border: none;
-  
-}
-
-.accordion-item-bd {
-  max-height: 0;
-  margin-bottom: 0;
-  overflow: hidden;
-  -webkit-transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
-  transition: max-height .15s ease-out, margin-bottom .3s ease-out, padding .3s ease-out;
-  -moz-user-select: text;
-  -khtml-user-select: auto;
-  -webkit-user-select: auto ;
-  -ms-user-select: auto;
-  user-select: auto;
-  -webkit-touch-callout: auto;
-}
-
-.accordion-item-input {
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1;
-  overflow: hidden;
-  position: absolute;
-  left: -9999px;
-}
-

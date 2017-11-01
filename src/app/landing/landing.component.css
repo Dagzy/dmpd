@@ -14,7 +14,7 @@ img{
 }
 @media only screen and (min-height: 240px) and (max-height: 520px), only screen and (min-device-height: 240px) and (max-device-height: 520px) and (orientation:landscape) {
   img {
-    margin: -30px 0 0 0;
+    margin: -60px 0 0 0;
   }
 }  
 /* .gradient {

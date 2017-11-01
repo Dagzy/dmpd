@@ -15,7 +15,6 @@ export class NavComponent implements OnInit {
    // video
    youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
    youtubeId = "L9oMb3_UW-o";
-   pieces= []
  // video(){
  //   return !!(this.youtubeUrl)
  // }
@@ -23,19 +22,4 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
   }
-  // // this helps make the hamburger menu dropdown
-  // isIn = false;   // store state
-  // toggleState() { // click handler
-  //     let bool = this.isIn;
-  //     this.isIn = bool === false ? true : false; 
-  // }
-
-  // // hamburger close and open
-  // openNav() {
-  //   document.getElementById("mySidenav").style.width = "250px";
-  // }
-  // closeNav() {
-  //   document.getElementById("mySidenav").style.width = "0";
-  // }
-  
 }

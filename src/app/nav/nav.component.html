@@ -46,14 +46,21 @@
             <li class="accordion-item">
                 <input class="accordion-item-input" type="checkbox" name="accordion" id="item1" />
                 <label for="item1" class="accordion-item-hd">About<button class="accordion-item-hd-cta">&#9650;</button></label>
-                <h2 class="accordion-item-bd" >dumpd was created</h2>
+                <h2 class="accordion-item-bd">
+                    <div class="box">
+                        <h3>dumpd was created by </h3>
+                    </div>
+                </h2>
             </li>
             <li class="accordion-item">
                 <input class="accordion-item-input" type="checkbox" name="accordion" id="item2" />
                 <label for="item2" class="accordion-item-hd">Contact Us<button class="accordion-item-hd-cta">&#9650;</button></label>
                 <h2 class="accordion-item-bd" >
-                    <button class="js-emailcopybtn"><a class="js-emaillink" >Call: </a></button>
-                    <button class="js-emailcopybtn"><a class="js-emaillink" >Email: </a></button>
+                    <!-- <button class="js-emailcopybtn"><a class="js-emaillink" >Call: </a></button> -->
+                    <div class="box" style="display: block">
+                        <h3 class="js-emaillink">Call:</h3>
+                        <h3 class="js-emailcopybtn">Email: </h3>
+                    </div>
                 </h2>
             </li>
             <div *ngIf="router.url != '/landing'">

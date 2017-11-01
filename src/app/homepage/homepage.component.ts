@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/authService';
 import { MessageService } from '../services/messageService';
 import { MessagesComponent } from '../messages/messages.component';
-import { EmbedVideoService } from 'ngx-embed-video';
+// import { EmbedVideoService } from 'ngx-embed-video';
 
 
 @Component({
@@ -12,11 +12,12 @@ import { EmbedVideoService } from 'ngx-embed-video';
 })
 export class HomepageComponent implements OnInit {
 
-  //video
-  youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
-  youtubeId = "L9oMb3_UW-o";
-   pieces= []
-  constructor(private messageService : MessageService, private auth : FirebaseService,  private embedService: EmbedVideoService) {
+  // //video
+  // youtubeUrl = "https://www.youtube.com/watch?v=L9oMb3_UW-o";
+  // youtubeId = "L9oMb3_UW-o";
+  pieces= []
+  constructor(private messageService : MessageService, private auth : FirebaseService) {
+    //   private embedService: EmbedVideoService   <-- was after the firebsseservice
     // console.log(this.embedService.embed(this.youtubeUrl));
     // console.log(this.embedService.embed_youtube(this.youtubeId));
   }
