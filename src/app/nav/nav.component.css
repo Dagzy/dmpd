@@ -7,6 +7,19 @@
   height: 100%;
   /* was 55px */
 }
+.gradient {
+	background-image:
+    	radial-gradient(
+      	rgba(255, 255, 255, 0.363),
+      	rgba(252, 252, 252, 0.048),
+      	transparent
+    );
+	width: 100%;
+	height: auto;
+	float: left;
+	position: relative;
+	display: block;
+}
 
 /* HAMBURGER menu */
 .navbar-inverse .navbar-toggle {
@@ -101,7 +114,7 @@ a:hover {
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background: rgba(176, 5, 5, .85);
+  background: rgba(176, 5, 5, .815);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -141,7 +154,7 @@ hr {
   cursor: pointer;
   font-weight: normal;
   color: white;
-  margin: -5px;
+  /* margin: -5px; */
 }
 .accordion-item-input:checked ~ .accordion-item-bd {
   max-height: 1000px;
