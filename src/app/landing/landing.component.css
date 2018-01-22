@@ -337,7 +337,7 @@ input:focus, textarea:focus {
   width: 50%;
   height: 60px;
   text-align: center;
-  color: white
+  color: white;
   /* display: block; */
   /* margin: 0 0 40px; */
 } 
