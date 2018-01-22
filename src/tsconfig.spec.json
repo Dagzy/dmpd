@@ -5,8 +5,13 @@
     "baseUrl": "./",
     "module": "commonjs",
     "target": "es5",
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+
     "types": [
       "jasmine",
+      "firebase",
       "node"
     ]
   },

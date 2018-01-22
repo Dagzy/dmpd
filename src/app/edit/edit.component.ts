@@ -12,20 +12,26 @@ import { FirebaseService } from '../services/authService';
 })
 export class EditComponent implements OnInit {
   message: string;
+  title: string;
+  model = {
+    title: "",
+    message: ""
+  }
   constructor(private router: Router, private route: ActivatedRoute, private msgs: MessageService, private db: AngularFireDatabase,
     private fb: FirebaseService) {
     this.route.params.subscribe((params) => {
       this.msgs.getMsgbyId(params.id).then((message) => {
-        this.message = message.text;
-      });
+        this.model.title = message.title;
+        this.model.message = message.text;
+      })
     });
    }
 
-updateMessage(makeMessage){
-    this.route.params.subscribe((params) => {
-      this.msgs.update(params.id, this.message);
-    });
-  }
+  updateMessage(makeMessage){
+      this.route.params.subscribe((params) => {
+        this.msgs.update(params.id, this.model.title, this.model.message);
+      })
+    }
 
   ngOnInit() {
   }

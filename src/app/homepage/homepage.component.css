@@ -1,10 +1,10 @@
-h1{
+h1 {
   color: #fcfcfc;
-  font-size: 60px;
+  font-size: 70px;
   text-align: center;
   text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575; 
 }
-a{
+a {
   font-size: 23px;
 }
 /* 
@@ -17,11 +17,44 @@ a{
   color: #1c1c1c;
 } */
 
+/* slogo */
+img{
+  width: 750px;
+  height: auto;
+  padding: 40px 35px 0px 35px;
+}
+@media screen and (max-device-width: 480px) {
+	img { 
+		width: 100%;
+    height: auto;
+	}
+}
+.gradient {
+	background-image:
+    	radial-gradient(
+      	rgba(117, 117, 117, .9),
+      	rgba(252,252,252, .2),
+      	transparent
+    );
+	width: 100%;
+	height: auto;
+	float: left;
+	position: relative;
+	display: block;
+}
+
+/* button to make stuff */
+p{
+  text-align: center;
+}
 #msgttl {
   background-color: #811025;
   color: #FCFCFC;
-  border: 1px solid #757575;
+  border: transparent;
   border-radius: 8px;
+  word-wrap: break-word;         /* All browsers since IE 5.5+ */
+  overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */ 
+  white-space: normal;
 }
 #msgttl:hover {
   background-color: #630007;
@@ -31,10 +64,102 @@ a{
   background-color: #b00505;
   color: #FCFCFC;
 }
-.panel{
-  border: 1px solid #757575;
-  border-radius: 8px;
+@media screen and (max-device-width: 480px) {
+	#msgttl { 
+		width: 90%;
+    height: auto;
+	}
 }
-.panel-heading{
-  border-radius: 8px;
+
+
+
+/* video icon */
+.htu {
+  color: blue;
+}
+/*.video {
+  display: block;
+  position: absolute;*/ /* had been relative */
+  /*z-index: 9999;
+  -webkit-user-select: none;
+  user-select: none;
+  height: auto;
+}
+@media screen and (max-device-width: 3500px) {
+	.video {
+    top: 32px; *//* was 25 */
+		/*right: 30px;
+	}
+}
+@media screen and (max-device-width: 400px) {
+	.video {
+    top: 32px;
+		right: 30px;*/ /* was 34 */
+	/* }
+}
+@media screen and (max-device-width: 480px) {
+	.video {
+    top: 32px;
+		right: 37px;
+	}
+}
+@media screen and (max-device-width: 770px) {
+	.video {
+    top: 32px;
+		right: 37px;
+	}
+} */
+#vidButt {
+  background-color: transparent;
+  /* border: 1px solid black; */
+  border: none;
+  color: black;
+  width: 50%;
+  margin-left: 25%;
+}
+/* video */
+.modal-content {
+  background-color: rgba(176, 5, 5, .85);
+  height: 100%;
+  width: 100%;
+}
+.modal-header {
+  height: 40px;
+  border: none;
+}
+.modal-body {
+  position: relative; 
+  padding-bottom: 56.25%; /* 16:9 */  
+  padding-top: 25px; 
+  margin: 0 auto;
+}
+.modal-body iframe {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+}
+.close { 
+  font-size: 30px;
+  color: #000000;
+  position: absolute;
+  top: 7px;
+  right: 20px;
+}
+@media only screen and (min-height: 240px) and (max-height: 520px), only screen and (min-device-height: 240px) and (max-device-height: 520px) and (orientation:landscape) {
+  .modal-content {
+    width: 80%; 
+    height: 80%;
+    top: 0; 
+    left: 10%; 
+  }
+}
+#myModal2 {
+  z-index: 999999;
+}
+
+.item img {
+  width: 100%;
+  height: auto
 }

@@ -1,38 +1,125 @@
-.card {
-	border: .5px solid black;
-	border-radius: 8px;
-	background-color: white;
-	margin: 0 auto;
-	width: 75%;
-	margin-bottom: 20px;
-	border-radius: 10px;
-}
-
 h1{
 	color: #f5f5f5;
 	text-align: center;
-	text-shadow: -.5px -.5px #757575, .5px -.5px #757575, -.5px .5px #757575, .5px .5px #757575;
+	text-shadow: -.5px -.5px #1c1c1c, .5px -.5px #1c1c1c, -.5px .5px #1c1c1c, .5px .5px #1c1c1c;
+	font-size: 50px
+}
+@media screen and (max-device-width: 480px) {
+	h1 {
+		padding: 25px 0 20px 0;
+	}
+}
+h3{
+	color: #f5f5f5;
+	text-align: center;
+	text-shadow: -.5px -.5px #1c1c1c, .5px -.5px #1c1c1c, -.5px .5px #1c1c1c, .5px .5px #1c1c1c;
+	font-size: 30px
 }
 h2, a {
 	color: #1c1c1c;
-
 }
 p, a{
 	font-size: 20px;
 	color: #1c1c1c;
 }
-li {
-	list-style-type:none
+/* li {
+	list-style-type:none;
+} */
+
+
+/* messages box */
+.container {
+	border: .5px solid black;
+	border-radius: 8px;
+	background-color: white;
+	margin: 0 auto;
+	width: 90%;
+	height: auto;
+	margin-bottom: 20px;
 }
 
+
+/* 3 buttons */
 button.btn.btn-primary, button.btn.btn-success, button.btn.btn-danger {
-	display: block;
-	background-color: #811025;
+	background: transparent; 
+	border: none;
+}
+.glyphicon {
+	margin-bottom:1px;
+	display:block;
+	color: #811025;
 	border: transparent;
+	font-size: 19px;
+	border-radius: 8px;
+	/* float: right !important;
+	clear: both; */
+	/* padding: -2px; */
 }
-button.btn.btn-primary:hover, button.btn.btn-success:hover, button.btn.btn-danger:hover{
+.glyphicon:hover{
+	color: #630007;
+}
+.glyphicon:active{
+	color: #b00505;
+	outline: none;
+}
+.col-sm-2, .col-sm-10 {
+	display: inline-block;
+}
+.vcenter {
+	float:none;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:-4px;
+}
+.col-sm-10 {
+	/* display:block; */
+	float: left;
+}
+#outer .inner {
+	/* display:block; */
+	float: right;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+@media screen and (max-device-width: 480px) {
+	#outer {
+	margin-right: 29%;
+	text-align: center;
+  }
+  .inner {
+	display: inline-block;
+  }
+}
+
+/* no messages button */
+#msgttl {
+	background-color: #811025;
+	color: #FCFCFC;
+	border: transparent;
+	border-radius: 8px;
+	font-size: 23px;
+}
+#msgttl:hover {
 	background-color: #630007;
+	color: #FCFCFC;
 }
-button.btn.btn-primary:focus, button.btn.btn-success:focus, button.btn.btn-danger:focus{
+#msgttl:active {
 	background-color: #b00505;
+	color: #FCFCFC;
 }
+
+#toolbar {
+    width: 100%;
+    max-width: 700px;
+    margin: 10px;
+    /* border: 1px solid black; */
+	padding: 10px;
+	display:block; 
+	margin:0 auto;
+}
+/* 
+#toolbar .wrapper {
+} */
+
+ 
