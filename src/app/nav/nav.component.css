@@ -232,9 +232,9 @@ li label {
 }
 li h3 {
   font-size: 25px;
-  color: rgb(249, 249, 249);
+  color: rgba(249, 249, 249, 1);
   text-align: center;
-  background-color: rgba(249, 249, 249, .5);
+  background-color:  rgba(28, 28, 28, .5);
   padding: 5px;
 }
 h3 br {
